@@ -48,42 +48,43 @@ type Props = {
  */
 export function SplitText({ text, as: Tag = "span", className, delay = 0, italicClassName = "italic", id, trigger = "inview" }: Props) {
   const plain = text.replace(/\*/g, "").replace(/\n/g, " ");
-  let index = 0;
+
+  // Tokenize once, up front: lines → words → segments, each word carrying its stagger index.
+  const lines: { segs: Seg[]; i: number }[][] = [];
   let italic = false;
+  let counter = 0;
+  for (const line of text.split("\n")) {
+    const result = tokenize(line, italic);
+    italic = result.italic;
+    lines.push(result.words.map((segs) => ({ segs, i: counter++ })));
+  }
 
   return (
     <Tag id={id} className={className} data-split={trigger === "auto" ? "auto" : ""} style={{ "--d": delay } as CSSProperties}>
       <span className="sr-only">{plain}</span>
-      {text.split("\n").map((line, li) => {
-        const result = tokenize(line, italic);
-        italic = result.italic;
-        return (
-          <Fragment key={li}>
-            {li > 0 && <br />}
-            {result.words.map((segs, wi) => {
-              const i = index++;
-              return (
-                <Fragment key={wi}>
-                  <span className="split-word" aria-hidden="true">
-                    <span style={{ "--i": i } as CSSProperties}>
-                      {segs.map((s, si) =>
-                        s.italic ? (
-                          <em key={si} className={italicClassName}>
-                            {s.text}
-                          </em>
-                        ) : (
-                          <Fragment key={si}>{s.text}</Fragment>
-                        ),
-                      )}
-                    </span>
-                  </span>
-                  {wi < result.words.length - 1 ? " " : null}
-                </Fragment>
-              );
-            })}
-          </Fragment>
-        );
-      })}
+      {lines.map((words, li) => (
+        <Fragment key={li}>
+          {li > 0 && <br />}
+          {words.map(({ segs, i }, wi) => (
+            <Fragment key={wi}>
+              <span className="split-word" aria-hidden="true">
+                <span style={{ "--i": i } as CSSProperties}>
+                  {segs.map((s, si) =>
+                    s.italic ? (
+                      <em key={si} className={italicClassName}>
+                        {s.text}
+                      </em>
+                    ) : (
+                      <Fragment key={si}>{s.text}</Fragment>
+                    ),
+                  )}
+                </span>
+              </span>
+              {wi < words.length - 1 ? " " : null}
+            </Fragment>
+          ))}
+        </Fragment>
+      ))}
     </Tag>
   );
 }

@@ -196,9 +196,13 @@ html.lenis body {
 .js [data-reveal="fade"] {
   transform: none;
 }
+/* The clip lives on the child: IntersectionObserver honours the target's own clip-path,
+   so a fully clipped element would never report as visible. */
 .js [data-reveal="clip"] {
   opacity: 1;
   transform: none;
+}
+.js [data-reveal="clip"] > * {
   clip-path: inset(100% 0 0 0);
   transition: clip-path 1.4s var(--ease-in-out-quart);
   transition-delay: calc(var(--d, 0) * 1ms);
@@ -207,7 +211,7 @@ html.lenis body {
   opacity: 1;
   transform: none;
 }
-.js [data-reveal="clip"][data-inview] {
+.js [data-reveal="clip"][data-inview] > * {
   clip-path: inset(0 0 0 0);
 }
 
@@ -249,6 +253,14 @@ html.lenis body {
   transform: none;
   animation: fade-rise 1.2s var(--ease-out-expo) both;
   animation-delay: calc(var(--d, 0) * 1ms);
+}
+@keyframes bar {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
 }
 @keyframes fade-rise {
   from {
@@ -391,6 +403,7 @@ html.lenis body {
     scroll-behavior: auto !important;
   }
   .js [data-reveal],
+  .js [data-reveal="clip"] > *,
   .js [data-split] .split-word > span {
     opacity: 1;
     transform: none;

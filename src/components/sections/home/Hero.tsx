@@ -23,7 +23,7 @@ function HeroPoster() {
   return (
     <picture>
       <source media="(max-width: 767px) and (orientation: portrait)" srcSet={mobileSrcSet} />
-      {/* eslint-disable-next-line @next/next/no-img-element, jsx-a11y/alt-text -- props come from getImageProps */}
+      {/* eslint-disable-next-line jsx-a11y/alt-text -- alt comes from getImageProps */}
       <img {...desktop} className="absolute inset-0 size-full object-cover" />
     </picture>
   );

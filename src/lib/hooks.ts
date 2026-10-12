@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useLayoutEffect, useState, useSyncExternalStore } from "react";
+import { useEffect, useLayoutEffect, useSyncExternalStore } from "react";
 
 export const useIsoLayoutEffect = typeof window !== "undefined" ? useLayoutEffect : useEffect;
 
@@ -28,11 +28,4 @@ export function useReducedMotion() {
 /** True on devices with a precise pointer and real hover (desktop). */
 export function useFinePointer() {
   return useMediaQuery("(hover: hover) and (pointer: fine)", false);
-}
-
-/** Returns true once the component has mounted on the client. */
-export function useMounted() {
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
-  return mounted;
 }

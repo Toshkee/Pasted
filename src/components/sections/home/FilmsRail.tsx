@@ -1,0 +1,67 @@
+import { FilmCard } from "@/components/media/FilmCard";
+import { DragScroll } from "@/components/motion/DragScroll";
+import { SplitText } from "@/components/motion/SplitText";
+import { Eyebrow, TextLink } from "@/components/ui/Button";
+import { filmBySlug } from "@/content/films";
+
+const RAIL = [
+  "cole-herzik",
+  "sam-saleh-presents",
+  "serena-wong",
+  "broke-to-billionaire",
+  "verde-river",
+  "solventum",
+  "naweed-mahmood",
+  "pasted-2025",
+  "smiletrend-mastering-veneers",
+].map(filmBySlug);
+
+export function FilmsRail() {
+  return (
+    <section className="relative overflow-clip bg-ink-2 py-28 md:py-40" aria-labelledby="films-title">
+      <div className="wrap">
+        <div className="grid gap-8 md:grid-cols-12 md:items-end">
+          <div className="md:col-span-8">
+            <Eyebrow index="§ 06" className="mb-8">
+              The house, in motion
+            </Eyebrow>
+            <SplitText
+              as="h2"
+              id="films-title"
+              className="display-xl text-bone"
+              italicClassName="italic text-copper-2"
+              text={"Not everyone gets *documented.*"}
+            />
+          </div>
+          <p className="lede max-w-sm text-bone-2 md:col-span-4" data-reveal="">
+            Documentaries, commercials and practice films — directed, shot and cut in-house. Made to be watched, not
+            scrolled past.
+          </p>
+        </div>
+
+        <div className="mt-16 md:mt-24" data-reveal="">
+          <FilmCard
+            film={filmBySlug("the-human-edge")}
+            caption="overlay"
+            preview="inview"
+            sizes="(min-width: 1536px) 1440px, 100vw"
+          />
+        </div>
+      </div>
+
+      <DragScroll label="Partner films" className="mt-8 scroll-px-4 gap-4 px-4 pb-2 sm:scroll-px-7 sm:px-7 md:mt-10 md:gap-5 lg:scroll-px-11 lg:px-11">
+        {RAIL.map((film) => (
+          <div key={film.slug} className="w-[62vw] shrink-0 snap-start sm:w-[36vw] md:w-[26vw] lg:w-[19vw]">
+            <FilmCard film={film} />
+          </div>
+        ))}
+        <div aria-hidden="true" className="w-px shrink-0" />
+      </DragScroll>
+
+      <div className="wrap mt-12 flex flex-wrap items-center justify-between gap-6">
+        <p className="eyebrow text-mute">Drag to browse · Press to play</p>
+        <TextLink href="/films">Enter the film library</TextLink>
+      </div>
+    </section>
+  );
+}

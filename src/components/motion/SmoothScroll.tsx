@@ -37,6 +37,7 @@ export function SmoothScroll({ children }: { children: ReactNode }) {
     const tick = (time: number) => instance.raf(time * 1000);
     gsap.ticker.add(tick);
     gsap.ticker.lagSmoothing(0);
+    if (process.env.NODE_ENV !== "production") (window as Window & { __lenis?: Lenis }).__lenis = instance;
     // eslint-disable-next-line react-hooks/set-state-in-effect -- the instance only exists on the client
     setLenis(instance);
 

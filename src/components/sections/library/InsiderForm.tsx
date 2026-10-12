@@ -30,7 +30,7 @@ export function InsiderForm() {
   if (state.status === "done") {
     return (
       <div role="status" className="animate-[fade-rise_1s_var(--ease-out-expo)_both] border-t border-paper-ink/20 pt-8">
-        <p className="eyebrow text-copper">Seat reserved</p>
+        <p className="eyebrow text-copper-ink">Seat reserved</p>
         <p className="display-md mt-4">Welcome to the Library.</p>
         <p className="mt-4 max-w-md text-paper-mute">Dispatches, teardowns and early chapters — weekly, and never a pitch.</p>
       </div>

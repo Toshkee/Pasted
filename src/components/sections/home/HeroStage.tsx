@@ -4,8 +4,8 @@ import { useEffect, useRef, useState, type ReactNode } from "react";
 
 import { usePlayFilm } from "@/components/media/VideoModal";
 import { PlayGlyph } from "@/components/ui/PlayButton";
-import { gsap } from "@/lib/gsap";
-import { useIsoLayoutEffect, useReducedMotion } from "@/lib/hooks";
+import { useReducedMotion } from "@/lib/hooks";
+import { afterFirstPaint, useMotion } from "@/lib/motion";
 
 type Props = { poster: ReactNode; filmId: string; children: ReactNode };
 
@@ -29,18 +29,26 @@ export function HeroStage({ poster, filmId, children }: Props) {
       v.pause();
       return;
     }
-    v.load();
-    const io = new IntersectionObserver(([e]) => (e.isIntersecting ? v.play().catch(() => {}) : v.pause()), {
-      threshold: 0.05,
+    let io: IntersectionObserver | undefined;
+    let alive = true;
+    // The poster carries first paint; the loop is fetched only once the page has painted.
+    afterFirstPaint().then(() => {
+      if (!alive) return;
+      v.load();
+      io = new IntersectionObserver(([e]) => (e.isIntersecting ? v.play().catch(() => {}) : v.pause()), {
+        threshold: 0.05,
+      });
+      io.observe(v);
     });
-    io.observe(v);
-    return () => io.disconnect();
+    return () => {
+      alive = false;
+      io?.disconnect();
+    };
   }, [reduce]);
 
   // Scroll: the film recedes into a framed plate while the headline lifts away.
-  useIsoLayoutEffect(() => {
-    if (reduce) return;
-    const ctx = gsap.context(() => {
+  useMotion(root, (mm, { gsap }) => {
+    mm.add("(prefers-reduced-motion: no-preference)", () => {
       gsap.set(frame.current, { clipPath: "inset(0% 0% 0% 0% round 0px)" });
       const tl = gsap.timeline({
         defaults: { ease: "none" },
@@ -49,9 +57,9 @@ export function HeroStage({ poster, filmId, children }: Props) {
       tl.to(frame.current, { clipPath: "inset(7% 3.5% 0% 3.5% round 22px)" }, 0)
         .to(media.current, { scale: 1.14, yPercent: 6 }, 0)
         .to(content.current, { yPercent: -22, opacity: 0.1 }, 0);
-    }, root);
-    return () => ctx.revert();
-  }, [reduce]);
+    });
+  });
+
 
   return (
     <section ref={root} className="relative min-h-[100svh] overflow-clip bg-ink md:h-[100svh] md:min-h-[680px]" aria-label="Introduction">
@@ -77,6 +85,8 @@ export function HeroStage({ poster, filmId, children }: Props) {
         {/* Legibility: a heavy floor, a soft ceiling for the header, a gentle vignette. */}
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgb(11_10_9/0.7)_0%,rgb(11_10_9/0.05)_28%,rgb(11_10_9/0.2)_55%,rgb(11_10_9/0.94)_100%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(120%_80%_at_50%_40%,transparent_40%,rgb(11_10_9/0.55)_100%)]" />
+        {/* Headline side: phones get an even veil, desktop a left-hand shade where the type sits. */}
+        <div className="absolute inset-0 bg-ink/45 md:bg-[linear-gradient(90deg,rgb(11_10_9/0.62)_0%,rgb(11_10_9/0.25)_45%,transparent_70%)]" />
       </div>
 
       <div ref={content} className="wrap relative z-10 flex min-h-[100svh] flex-col pb-8 md:h-full md:min-h-0 lg:pb-14">

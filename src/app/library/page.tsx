@@ -57,13 +57,13 @@ export default function LibraryPage() {
           <ol className="border-t border-paper-ink/20">
             {VOLUMES.map((v, i) => (
               <li key={v.n} className="grid gap-6 border-b border-paper-ink/20 py-10 md:grid-cols-12 md:items-center md:py-14" data-reveal="" style={{ "--d": i * 100 } as React.CSSProperties}>
-                <span className="eyebrow text-copper md:col-span-2">{v.n}</span>
+                <span className="eyebrow text-copper-ink md:col-span-2">{v.n}</span>
                 <div className="md:col-span-6">
                   <p className={cn("display-lg", i > 0 && "text-paper-ink/45")}>{v.title}</p>
                   <p className="mt-4 max-w-lg text-paper-mute">{v.body}</p>
                 </div>
                 <div className="flex flex-col items-start gap-4 md:col-span-3 md:col-start-10 md:items-end">
-                  <span className={cn("eyebrow rounded-full border px-4 py-2", i === 0 ? "border-copper text-copper" : "border-paper-ink/20 text-paper-mute")}>
+                  <span className={cn("eyebrow rounded-full border px-4 py-2", i === 0 ? "border-copper text-copper-ink" : "border-paper-ink/20 text-paper-mute")}>
                     {v.status}
                   </span>
                   {"href" in v && v.href && (
@@ -119,7 +119,7 @@ export default function LibraryPage() {
               Contents
             </Eyebrow>
             <h2 id="contents-title" className="display-lg" data-reveal="">
-              The Art of <em className="text-copper">Becoming.</em>
+              The Art of <em className="text-copper-ink">Becoming.</em>
             </h2>
             <div className="mt-12 grid grid-cols-2 gap-4" data-reveal="">
               {[plateDeparture, plateRoom].map((p, i) => (
@@ -132,7 +132,7 @@ export default function LibraryPage() {
           <ol className="lg:col-span-6 lg:col-start-7">
             {SECTIONS.map((s, i) => (
               <li key={s} className="flex items-baseline gap-4 border-b border-paper-ink/15 py-4" data-reveal="" style={{ "--d": i * 40 } as React.CSSProperties}>
-                <span className="eyebrow w-8 shrink-0 text-copper">{String(i + 1).padStart(2, "0")}</span>
+                <span className="eyebrow w-8 shrink-0 text-copper-ink">{String(i + 1).padStart(2, "0")}</span>
                 <span className="font-serif text-2xl md:text-3xl">{s}</span>
               </li>
             ))}
@@ -165,7 +165,7 @@ export default function LibraryPage() {
               The PASTED Insider
             </Eyebrow>
             <h2 id="insider-title" className="display-lg" data-reveal="">
-              Take your seat at <em className="text-copper">the library.</em>
+              Take your seat at <em className="text-copper-ink">the library.</em>
             </h2>
             <p className="lede mt-8 text-paper-mute" data-reveal="">
               A weekly private broadcast — dispatches, teardowns and early chapters of the next volume. Members read it

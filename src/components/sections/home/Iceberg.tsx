@@ -4,8 +4,7 @@ import { useRef } from "react";
 
 import { Eyebrow } from "@/components/ui/Button";
 import { ICEBERG } from "@/content/partnership";
-import { gsap } from "@/lib/gsap";
-import { useIsoLayoutEffect } from "@/lib/hooks";
+import { useMotion } from "@/lib/motion";
 
 /**
  * Fig. 01 — the brand iceberg. On desktop the section is three screens tall with a sticky stage:
@@ -16,8 +15,7 @@ export function Iceberg() {
   const root = useRef<HTMLElement>(null);
   const counter = useRef<HTMLSpanElement>(null);
 
-  useIsoLayoutEffect(() => {
-    const mm = gsap.matchMedia(root);
+  useMotion(root, (mm, { gsap }) => {
     mm.add("(min-width: 1024px) and (prefers-reduced-motion: no-preference)", () => {
       const n = { v: 0 };
       const tl = gsap.timeline({
@@ -37,12 +35,12 @@ export function Iceberg() {
         }, 0.42)
         .to("[data-visible]", { opacity: 0.35, duration: 0.15 }, 0.72)
         .from("[data-belief]", { opacity: 0, y: 30, duration: 0.15 }, 0.82);
+      const el = counter.current;
       return () => {
-        if (counter.current) counter.current.textContent = "90";
+        if (el) el.textContent = "90";
       };
     });
-    return () => mm.revert();
-  }, []);
+  });
 
   return (
     <section ref={root} className="relative bg-ink lg:h-[300vh]" aria-labelledby="iceberg-title">
@@ -65,7 +63,7 @@ export function Iceberg() {
         </div>
 
         <figure className="relative mt-14 overflow-clip rounded-[1.25rem] border border-line bg-ink-2 lg:col-span-7 lg:mt-0 lg:h-[78vh]">
-          <figcaption className="eyebrow absolute left-6 top-5 z-10 text-mute">Fig. 01 — The brand iceberg</figcaption>
+          <figcaption className="eyebrow absolute left-6 top-5 z-10 hidden text-mute sm:block">Fig. 01 — The brand iceberg</figcaption>
 
           {/* Above the waterline */}
           <div className="relative flex min-h-[15rem] flex-col justify-end px-6 pb-8 pt-16 lg:h-[34%] lg:min-h-0 lg:px-10">

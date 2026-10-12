@@ -154,7 +154,7 @@ export default async function CasePage({ params }: PageProps<"/work/[slug]">) {
           <div className="wrap">
             <div className="mb-14 flex flex-wrap items-end justify-between gap-6">
               <h2 id="gallery-title" className="display-md">
-                The <em className="text-copper">system.</em>
+                The <em className="text-copper-ink">system.</em>
               </h2>
               <p className="eyebrow text-paper-mute">{study.gallery.length} plates</p>
             </div>

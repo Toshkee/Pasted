@@ -14,6 +14,8 @@
   --color-mute: #948b80;
   --color-copper: #c08552;
   --color-copper-2: #d9a273;
+  /* Copper for text on paper: same hue, deep enough for 4.5:1 on --color-paper. */
+  --color-copper-ink: #8a5330;
   --color-oxblood: #4b0f19;
   --color-oxblood-2: #5e1622;
   --color-paper: #ebe5da;
@@ -237,15 +239,18 @@ html.lenis body {
 .js [data-split][data-inview] .split-word > span {
   transform: none;
 }
-/* Above-the-fold headlines animate on first paint (no JS wait). */
+/* Above-the-fold headlines animate on first paint (no JS wait). They are never fully hidden:
+   words surface from a soft blur, so the headline is painted — and counted as LCP — on frame one. */
 .js [data-split="auto"] .split-word > span {
   transform: none;
-  animation: word-rise 1.3s var(--ease-out-expo) both;
+  animation: word-surface 1.4s var(--ease-out-expo) both;
   animation-delay: calc(var(--d, 0) * 1ms + var(--i, 0) * 45ms);
 }
-@keyframes word-rise {
+@keyframes word-surface {
   from {
-    transform: translate3d(0, 108%, 0) rotate(2deg);
+    transform: translate3d(0, 38%, 0);
+    opacity: 0.12;
+    filter: blur(10px);
   }
 }
 .js [data-reveal="auto"] {

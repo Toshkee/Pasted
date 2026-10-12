@@ -2,9 +2,8 @@
 
 import { useRef, type ReactNode } from "react";
 
-import { gsap } from "@/lib/gsap";
-import { useIsoLayoutEffect } from "@/lib/hooks";
 import { cn } from "@/lib/cn";
+import { useMotion } from "@/lib/motion";
 
 /**
  * Clips its child and drifts it vertically against the scroll — the classic "window" parallax.
@@ -14,9 +13,10 @@ export function Parallax({ children, className, amount = 12 }: { children: React
   const frame = useRef<HTMLDivElement>(null);
   const inner = useRef<HTMLDivElement>(null);
 
-  useIsoLayoutEffect(() => {
-    const mm = gsap.matchMedia(frame);
-    mm.add("(prefers-reduced-motion: no-preference)", () => {
+  useMotion(
+    frame,
+    (mm, { gsap }) => {
+      mm.add("(prefers-reduced-motion: no-preference)", () => {
       gsap.fromTo(
         inner.current,
         { yPercent: -amount / 2 },
@@ -26,9 +26,10 @@ export function Parallax({ children, className, amount = 12 }: { children: React
           scrollTrigger: { trigger: frame.current, start: "top bottom", end: "bottom top", scrub: true },
         },
       );
-    });
-    return () => mm.revert();
-  }, [amount]);
+      });
+    },
+    [amount],
+  );
 
   return (
     <div ref={frame} className={cn("relative overflow-clip", className)}>

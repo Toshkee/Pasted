@@ -114,7 +114,7 @@ export default function WorkPage() {
                 Identity systems
               </Eyebrow>
               <h2 id="identities-title" className="display-lg" data-reveal="">
-                Wordmarks, monograms, rooms — <em className="text-copper">in forty-five days.</em>
+                Wordmarks, monograms, rooms — <em className="text-copper-ink">in forty-five days.</em>
               </h2>
             </div>
             <p className="lede text-paper-mute md:col-span-4 md:col-start-9" data-reveal="">

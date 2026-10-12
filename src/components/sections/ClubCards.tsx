@@ -15,7 +15,7 @@ export function ClubCards({ index = "§" }: { index?: string }) {
             The PASTED Club
           </Eyebrow>
           <h2 id="club-title" className="display-lg text-balance" data-reveal="">
-            Graded, slabbed and <em className="text-copper">signed.</em>
+            Graded, slabbed and <em className="text-copper-ink">signed.</em>
           </h2>
         </div>
         <p className="lede text-paper-mute md:col-span-4 md:col-start-9" data-reveal="">

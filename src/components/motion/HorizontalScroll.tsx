@@ -2,8 +2,7 @@
 
 import { useRef, type ReactNode } from "react";
 
-import { gsap } from "@/lib/gsap";
-import { useIsoLayoutEffect } from "@/lib/hooks";
+import { useMotion } from "@/lib/motion";
 
 type Props = { children: ReactNode; className?: string; "aria-labelledby"?: string };
 
@@ -15,8 +14,7 @@ type Props = { children: ReactNode; className?: string; "aria-labelledby"?: stri
 export function HorizontalScroll({ children, className, ...rest }: Props) {
   const root = useRef<HTMLElement>(null);
 
-  useIsoLayoutEffect(() => {
-    const mm = gsap.matchMedia(root);
+  useMotion(root, (mm, { gsap }) => {
     mm.add("(min-width: 1024px) and (prefers-reduced-motion: no-preference)", () => {
       const track = root.current?.querySelector<HTMLElement>("[data-track]");
       if (!track) return;
@@ -37,8 +35,7 @@ export function HorizontalScroll({ children, className, ...rest }: Props) {
       if (root.current?.querySelector("[data-progress]")) tl.fromTo("[data-progress]", { scaleX: 0 }, { scaleX: 1 }, 0);
       gsap.utils.toArray<HTMLElement>("[data-drift]").forEach((el) => tl.fromTo(el, { xPercent: -8 }, { xPercent: 8 }, 0));
     });
-    return () => mm.revert();
-  }, []);
+  });
 
   return (
     <section ref={root} className={className} {...rest}>

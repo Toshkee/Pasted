@@ -80,7 +80,7 @@ export function TestimonialSlider({ items }: { items: Testimonial[] }) {
                 type="button"
                 onClick={() => setIndex(i)}
                 aria-current={i === index ? "true" : undefined}
-                className="group block w-full text-left"
+                className="group block w-full py-2 text-left"
               >
                 <span className="relative block h-px w-full bg-line">
                   {i === index && (

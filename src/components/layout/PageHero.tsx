@@ -36,7 +36,7 @@ export function PageHero({ index, eyebrow, title, lede, aside, image, imageAlt =
           delay={100}
           text={title}
           className="display-xl max-w-[16ch] text-balance"
-          italicClassName={cn("italic", paper ? "text-copper" : "text-copper-2")}
+          italicClassName={cn("italic", paper ? "text-copper-ink" : "text-copper-2")}
         />
         {(lede || aside) && (
           <div className="mt-12 grid gap-10 border-t pt-8 md:mt-16 md:grid-cols-12" style={{ borderColor: paper ? "rgb(28 24 20 / 0.15)" : undefined }}>

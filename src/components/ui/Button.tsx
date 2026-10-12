@@ -97,7 +97,7 @@ export function TextLink({ className, children, external, ...props }: Omit<Compo
 export function Eyebrow({ index, children, className }: { index?: string; children: ReactNode; className?: string }) {
   return (
     <p className={cn("eyebrow flex items-center gap-3", !/(^|\s)text-(?!\[)/.test(className ?? "") && "text-mute", className)}>
-      {index && <span className="text-copper">{index}</span>}
+      {index && <span className={/paper/.test(className ?? "") ? "text-copper-ink" : "text-copper"}>{index}</span>}
       {index && <span aria-hidden="true" className="h-px w-6 bg-current opacity-50" />}
       <span>{children}</span>
     </p>

@@ -3,23 +3,21 @@
 import { useRef } from "react";
 
 import { Eyebrow } from "@/components/ui/Button";
-import { gsap } from "@/lib/gsap";
-import { useIsoLayoutEffect, useReducedMotion } from "@/lib/hooks";
+import { useMotion } from "@/lib/motion";
 
 const LINE = "Your patients will never see how good you are. They can only feel how good you seem.";
 
 /** The thesis, read word by word as you scroll — the page literally makes you slow down for it. */
 export function Manifesto() {
   const root = useRef<HTMLElement>(null);
-  const reduce = useReducedMotion();
   const words = LINE.split(" ");
 
-  useIsoLayoutEffect(() => {
-    if (reduce) return;
-    const ctx = gsap.context(() => {
+  // Words start at 38% opacity — enough for WCAG large-text contrast — and resolve to full as you read.
+  useMotion(root, (mm, { gsap }) => {
+    mm.add("(prefers-reduced-motion: no-preference)", () => {
       gsap.fromTo(
         "[data-word]",
-        { opacity: 0.14 },
+        { opacity: (_: number, el: Element) => (el.classList.contains("text-copper-2") ? 0.64 : 0.38) },
         {
           opacity: 1,
           ease: "none",
@@ -27,9 +25,9 @@ export function Manifesto() {
           scrollTrigger: { trigger: "[data-line]", start: "top 78%", end: "bottom 42%", scrub: 0.6 },
         },
       );
-    }, root);
-    return () => ctx.revert();
-  }, [reduce]);
+    });
+  });
+
 
   return (
     <section ref={root} className="relative bg-ink py-28 md:py-40 lg:py-52" aria-labelledby="manifesto">

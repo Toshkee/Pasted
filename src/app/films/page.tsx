@@ -23,7 +23,7 @@ export default function FilmsPage() {
   const library = FILMS.filter((f) => f.category !== "Feature");
   return (
     <Page>
-      <section className="bg-ink pb-20 pt-36 md:pt-44" aria-labelledby="films-hero">
+      <section className="bg-ink pb-20 pt-28 md:pt-44" aria-labelledby="films-hero">
         <div className="wrap">
           <div data-reveal="auto">
             <Eyebrow index="Vol. III" className="mb-10">
@@ -44,13 +44,13 @@ export default function FilmsPage() {
               Documentaries, commercials and practice films. Shot to be watched, not scrolled past.
             </p>
           </div>
-          <div className="mt-16 md:mt-24" data-reveal="auto" style={{ "--d": 700 } as React.CSSProperties}>
+          <div className="mt-10 md:mt-24" data-reveal="auto" style={{ "--d": 700 } as React.CSSProperties}>
             <FilmCard film={filmBySlug("the-pasted-partnership")} caption="overlay" preview="inview" priority sizes="(min-width: 1536px) 1440px, 100vw" />
           </div>
         </div>
       </section>
 
-      <section className="bg-ink pb-24 md:pb-36" aria-label="Feature films">
+      <section className="bg-ink pb-16 md:pb-36" aria-label="Feature films">
         <div className="wrap grid gap-6 md:grid-cols-2">
           {["the-human-edge", "on-restraint"].map((slug, i) => (
             <div key={slug} data-reveal="" style={{ "--d": i * 120 } as React.CSSProperties}>
@@ -60,7 +60,7 @@ export default function FilmsPage() {
         </div>
       </section>
 
-      <section className="border-y border-line bg-ink-2 py-24 md:py-36" aria-labelledby="archive-title">
+      <section className="border-y border-line bg-ink-2 py-16 md:py-36" aria-labelledby="archive-title">
         <div className="wrap grid items-center gap-14 lg:grid-cols-12">
           <div className="lg:col-span-5">
             <Eyebrow index="§ 01" className="mb-8">
@@ -100,7 +100,7 @@ export default function FilmsPage() {
         </div>
       </section>
 
-      <section className="bg-ink py-24 md:py-36" aria-labelledby="library-title">
+      <section className="bg-ink py-16 md:py-36" aria-labelledby="library-title">
         <div className="wrap">
           <div className="mb-14 flex flex-wrap items-end justify-between gap-6">
             <div>
@@ -111,7 +111,10 @@ export default function FilmsPage() {
                 Portraits, gatherings, <em className="text-copper-2">brands.</em>
               </h2>
             </div>
-            <p className="eyebrow text-mute">Hover to preview · Press to play</p>
+            <p className="eyebrow text-mute">
+              <span className="pointer-coarse:hidden">Hover to preview · Press to play</span>
+              <span className="hidden pointer-coarse:inline">Tap to play</span>
+            </p>
           </div>
           <FilmLibrary films={library} categories={FILM_CATEGORIES.filter((c) => c !== "Feature")} />
         </div>

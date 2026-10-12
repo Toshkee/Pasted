@@ -62,26 +62,26 @@ export function MarketChecker() {
   const id = useId();
 
   return (
-    <section className="relative overflow-clip bg-oxblood py-28 md:py-40" aria-labelledby={`${id}-title`}>
+    <section className="relative overflow-clip bg-oxblood py-20 md:py-40" aria-labelledby={`${id}-title`}>
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(70%_60%_at_85%_10%,rgb(192_133_82/0.22),transparent_70%),radial-gradient(60%_60%_at_0%_100%,rgb(11_10_9/0.6),transparent_70%)]"
       />
-      <div className="wrap relative grid gap-14 lg:grid-cols-12">
-        <div className="lg:col-span-6">
+      <div className="wrap relative grid grid-cols-1 gap-10 md:gap-14 lg:grid-cols-12">
+        <div className="min-w-0 lg:col-span-6">
           <p className="eyebrow mb-8 flex items-center gap-3 text-bone/60">
             <span className="text-copper-2">One practice per market</span>
           </p>
           <h2 id={`${id}-title`} className="display-xl text-bone" data-reveal="">
             Your market, <em className="text-copper-2">closed.</em>
           </h2>
-          <p className="lede mt-10 max-w-lg text-bone/75" data-reveal="" style={{ "--d": 100 } as React.CSSProperties}>
+          <p className="lede mt-6 max-w-lg text-bone/75 md:mt-10" data-reveal="" style={{ "--d": 100 } as React.CSSProperties}>
             Exclusivity here is not a scarcity tactic. It is a structural requirement — a position cannot be built for two
             rivals at once. When a partner holds a market, competitors are not waitlisted. They are declined.
           </p>
         </div>
 
-        <div className="lg:col-span-5 lg:col-start-8 lg:self-end">
+        <div className="min-w-0 lg:col-span-5 lg:col-start-8 lg:self-end">
           <form
             onSubmit={(e) => {
               e.preventDefault();
@@ -102,19 +102,20 @@ export function MarketChecker() {
                 }}
                 placeholder="e.g. Miami"
                 autoComplete="address-level2"
-                className="min-w-0 flex-1 bg-transparent py-4 font-serif text-4xl text-bone outline-none placeholder:text-bone/30 md:text-5xl"
+                size={1}
+                className="w-full min-w-0 flex-1 bg-transparent py-3 font-serif text-[2rem] text-bone outline-none placeholder:text-bone/30 sm:py-4 sm:text-4xl md:text-5xl"
               />
               <button
                 type="submit"
                 aria-label="Check market"
-                className="flex size-14 shrink-0 items-center justify-center rounded-full bg-bone text-ink transition-colors hover:bg-copper-2"
+                className="flex size-12 shrink-0 items-center justify-center rounded-full bg-bone text-ink transition-colors hover:bg-copper-2 sm:size-14"
               >
                 <Arrow className="size-4" />
               </button>
             </div>
           </form>
 
-          <div aria-live="polite" className="min-h-[11rem] pt-8">
+          <div aria-live="polite" className="pt-6 md:min-h-[11rem] md:pt-8">
             {result && (
               <div key={result.city + result.held} className="animate-[fade-rise_.9s_var(--ease-out-expo)_both]">
                 <p className="eyebrow flex items-center gap-3 text-bone/70">

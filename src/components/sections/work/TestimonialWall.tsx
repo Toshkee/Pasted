@@ -5,7 +5,7 @@ import { TESTIMONIALS } from "@/content/testimonials";
 
 export function TestimonialWall({ index = "§" }: { index?: string }) {
   return (
-    <section className="bg-ink py-24 md:py-36" aria-labelledby="wall-title">
+    <section className="bg-ink py-16 md:py-36" aria-labelledby="wall-title">
       <div className="wrap">
         <Eyebrow index={index} className="mb-8">
           In their words

@@ -170,7 +170,7 @@ html.lenis body {
   width: 100%;
   max-width: 96rem;
   margin-inline: auto;
-  padding-inline: 1rem;
+  padding-inline: 1.25rem;
   @media (width >= 40rem) {
     padding-inline: 1.75rem;
   }
@@ -198,14 +198,15 @@ html.lenis body {
 .js [data-reveal="fade"] {
   transform: none;
 }
-/* The clip lives on the child: IntersectionObserver honours the target's own clip-path,
-   so a fully clipped element would never report as visible. */
+/* The clip lives on the child: IntersectionObserver honours clip-path, so a fully clipped element
+   would never report as visible. A hairline stays uncovered so lazy images inside start loading
+   as they approach the viewport, not after the reveal. */
 .js [data-reveal="clip"] {
   opacity: 1;
   transform: none;
 }
 .js [data-reveal="clip"] > * {
-  clip-path: inset(100% 0 0 0);
+  clip-path: inset(99.6% 0 0 0);
   transition: clip-path 1.4s var(--ease-in-out-quart);
   transition-delay: calc(var(--d, 0) * 1ms);
 }

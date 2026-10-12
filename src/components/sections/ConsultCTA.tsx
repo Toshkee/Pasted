@@ -14,7 +14,7 @@ export function ConsultCTA({
   lede?: string;
 }) {
   return (
-    <section className="relative overflow-clip bg-ink-2 py-28 md:py-40" aria-label="Request a consultation">
+    <section className="relative overflow-clip bg-ink-2 py-20 md:py-40" aria-label="Request a consultation">
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_70%_at_50%_120%,rgb(192_133_82/0.18),transparent_70%)]" />
       <div className="wrap relative text-center">
         <div className="mb-10 flex justify-center" data-reveal="">

@@ -6,7 +6,7 @@ import { DISCLAIMERS, NAV, SITE } from "@/content/site";
 
 export function Footer() {
   return (
-    <footer className="relative overflow-clip border-t border-line bg-ink pt-20 lg:pt-28">
+    <footer className="relative overflow-clip border-t border-line bg-ink pt-16 lg:pt-28">
       <div className="wrap">
         <div className="grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-5">
@@ -20,7 +20,7 @@ export function Footer() {
             <p className="eyebrow mt-4 text-mute">Fifty seats, ever · Every call taken by a founder</p>
           </div>
 
-          <nav aria-label="Footer" className="grid grid-cols-2 gap-10 sm:grid-cols-3 lg:col-span-7">
+          <nav aria-label="Footer" className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3 sm:gap-10 lg:col-span-7">
             <div>
               <p className="eyebrow mb-5 text-mute">The house</p>
               <ul className="space-y-3">
@@ -39,7 +39,7 @@ export function Footer() {
                 {SITE.emails.map((e) => (
                   <li key={e.address}>
                     <span className="eyebrow block text-[0.625rem] text-mute">{e.label}</span>
-                    <a href={`mailto:${e.address}`} className="link-underline text-bone-2 hover:text-bone">
+                    <a href={`mailto:${e.address}`} className="link-underline break-all text-[0.9375rem] text-bone-2 hover:text-bone sm:break-normal sm:text-base">
                       {e.address}
                     </a>
                   </li>
@@ -67,7 +67,7 @@ export function Footer() {
           </nav>
         </div>
 
-        <div className="mt-20 grid gap-6 border-t border-line pt-8 text-xs leading-relaxed text-mute lg:grid-cols-2 lg:gap-16">
+        <div className="mt-14 grid gap-6 border-t border-line pt-8 text-xs leading-relaxed text-mute md:mt-20 lg:grid-cols-2 lg:gap-16">
           <p>
             <span className="eyebrow mr-2 text-bone-2">Results disclaimer</span>
             {DISCLAIMERS.results}
@@ -79,7 +79,7 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="wrap mt-16 flex items-end justify-between gap-6 pb-6">
+      <div className="wrap mt-12 flex flex-col gap-2 pb-6 sm:flex-row sm:items-end sm:justify-between sm:gap-6 md:mt-16">
         <p className="eyebrow text-mute">© 2026 PASTED™</p>
         <p className="eyebrow text-mute">London · New York · Los Angeles</p>
       </div>

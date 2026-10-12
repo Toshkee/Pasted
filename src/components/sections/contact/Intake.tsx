@@ -84,7 +84,7 @@ export function Intake() {
     .join(" · ");
 
   const field =
-    "w-full border-b border-line-strong bg-transparent py-3 font-serif text-3xl text-bone outline-none transition-colors placeholder:text-bone/25 focus:border-bone md:text-4xl";
+    "w-full min-w-0 border-b border-line-strong bg-transparent py-3 font-serif text-[1.75rem] text-bone outline-none transition-colors placeholder:text-bone/25 focus:border-bone md:text-4xl";
 
   if (step >= TOTAL) {
     const params = new URLSearchParams({
@@ -126,8 +126,8 @@ export function Intake() {
   }
 
   return (
-    <form onSubmit={onNext} className="rounded-[1.25rem] border border-line bg-ink-2 p-6 sm:p-10" noValidate>
-      <div className="mb-10 flex items-center gap-4">
+    <form onSubmit={onNext} className="rounded-[1.25rem] border border-line bg-ink-2 p-5 sm:p-10" noValidate>
+      <div className="mb-8 flex items-center gap-4 md:mb-10">
         <span className="eyebrow text-copper">
           {String(step + 1).padStart(2, "0")} / {String(TOTAL).padStart(2, "0")}
         </span>
@@ -137,10 +137,10 @@ export function Intake() {
         <span className="eyebrow text-mute">Two minutes</span>
       </div>
 
-      <div ref={panel} key={step} className="min-h-[19rem] animate-[fade-rise_.8s_var(--ease-out-expo)_both]">
+      <div ref={panel} key={step} className="animate-[fade-rise_.8s_var(--ease-out-expo)_both] md:min-h-[19rem]">
         {step === 0 && (
           <fieldset>
-            <legend className="display-md mb-10 text-bone">Who are we speaking with?</legend>
+            <legend className="display-md mb-8 text-bone md:mb-10">Who are we speaking with?</legend>
             <div className="grid gap-8">
               <label className="block">
                 <span className="eyebrow text-mute">Full name</span>
@@ -156,7 +156,7 @@ export function Intake() {
 
         {step === 1 && (
           <fieldset>
-            <legend className="display-md mb-10 text-bone">Where do you practice?</legend>
+            <legend className="display-md mb-8 text-bone md:mb-10">Where do you practice?</legend>
             <div className="grid gap-8">
               <label className="block">
                 <span className="eyebrow text-mute">Practice name</span>
@@ -199,7 +199,7 @@ export function Intake() {
 
         {step === 3 && (
           <fieldset>
-            <legend className="display-md mb-10 text-bone">Where is the practice today?</legend>
+            <legend className="display-md mb-8 text-bone md:mb-10">Where is the practice today?</legend>
             <div className="grid gap-3 sm:grid-cols-2" role="radiogroup" aria-label="Practice stage">
               {STAGES.map((s, i) => {
                 const on = a.stage === s.value;
@@ -246,11 +246,11 @@ export function Intake() {
         )}
       </div>
 
-      <p role="alert" className="mt-6 min-h-6 text-sm text-copper-2">
+      <p role="alert" className="mt-4 min-h-6 text-sm text-copper-2 md:mt-6">
         {error}
       </p>
 
-      <div className="mt-6 flex items-center justify-between gap-4 border-t border-line pt-6">
+      <div className="mt-4 flex items-center justify-between gap-4 border-t border-line pt-5 md:mt-6 md:pt-6">
         <button
           type="button"
           onClick={() => go(Math.max(0, step - 1))}
@@ -258,7 +258,7 @@ export function Intake() {
         >
           ← Back
         </button>
-        <button type="submit" className="eyebrow group inline-flex h-14 items-center gap-3 rounded-full bg-bone px-8 text-ink transition-colors hover:bg-white">
+        <button type="submit" className="eyebrow group inline-flex h-12 items-center gap-3 rounded-full bg-bone px-6 text-ink transition-colors hover:bg-white md:h-14 md:px-8">
           <Roll>{step === TOTAL - 1 ? "Choose a time" : "Continue"}</Roll>
           <Arrow />
         </button>

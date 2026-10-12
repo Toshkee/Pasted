@@ -8,9 +8,9 @@ const FEATURED = ["Dr. Jon Marashi", "Dr. Sam Saleh", "Dr. Marshall Hanson", "Dr
 export function Testimonials({ index = "§ 08" }: { index?: string }) {
   const items = FEATURED.map((n) => TESTIMONIALS.find((t) => t.name === n)!);
   return (
-    <section className="relative border-t border-line bg-ink py-28 md:py-40" aria-labelledby="words-title">
+    <section className="relative border-t border-line bg-ink py-20 md:py-40" aria-labelledby="words-title">
       <div className="wrap">
-        <div className="mb-14 flex flex-wrap items-end justify-between gap-6 md:mb-20">
+        <div className="mb-10 flex flex-wrap items-end justify-between gap-4 md:mb-20 md:gap-6">
           <div>
             <Eyebrow index={index} className="mb-6">
               In their words

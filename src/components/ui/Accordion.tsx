@@ -38,12 +38,12 @@ export function Accordion({
                 aria-expanded={isOpen}
                 aria-controls={`${id}-p-${i}`}
                 onClick={() => setOpen(isOpen ? -1 : i)}
-                className="group flex w-full items-center gap-6 py-6 text-left md:py-8"
+                className="group flex w-full items-center gap-4 py-5 text-left md:gap-6 md:py-8"
               >
-                {item.meta && <span className="eyebrow w-10 shrink-0 text-copper">{item.meta}</span>}
+                {item.meta && <span className="eyebrow w-14 shrink-0 whitespace-nowrap text-[0.625rem] text-copper md:w-20 md:text-[0.6875rem]">{item.meta}</span>}
                 <span
                   className={cn(
-                    "flex-1 font-serif text-2xl leading-tight transition-colors md:text-[2.1rem]",
+                    "min-w-0 flex-1 font-serif text-[1.45rem] leading-tight transition-colors md:text-[2.1rem]",
                     paper ? "text-paper-ink" : isOpen ? "text-bone" : "text-bone-2 group-hover:text-bone",
                   )}
                 >
@@ -52,7 +52,7 @@ export function Accordion({
                 <span
                   aria-hidden="true"
                   className={cn(
-                    "relative flex size-10 shrink-0 items-center justify-center rounded-full border transition-[transform,background-color,border-color] duration-500",
+                    "relative flex size-9 shrink-0 items-center justify-center rounded-full border transition-[transform,background-color,border-color] duration-500 md:size-10",
                     paper ? "border-paper-ink/25" : "border-line-strong",
                     isOpen && "rotate-45 border-copper bg-copper text-ink",
                   )}
@@ -73,7 +73,7 @@ export function Accordion({
               inert={!isOpen}
             >
               <div className="overflow-hidden">
-                <div className={cn("pb-8 md:pb-10", Boolean(item.meta) && "md:pl-16")}>{item.content}</div>
+                <div className={cn("pb-8 md:pb-10", Boolean(item.meta) && "md:pl-26")}>{item.content}</div>
               </div>
             </div>
           </div>

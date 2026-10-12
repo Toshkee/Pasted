@@ -42,26 +42,33 @@ export function FilmCard({ film, className, sizes, preview = "hover", caption = 
         />
         <PreviewVideo src={previewSrc(film.slug)} mode={preview} />
         <span className="absolute inset-0 bg-[linear-gradient(180deg,rgb(11_10_9/0.35)_0%,transparent_30%,transparent_55%,rgb(11_10_9/0.85)_100%)]" />
-        <span className="eyebrow absolute left-4 top-4 rounded-full bg-ink/50 px-3 py-1.5 text-bone backdrop-blur-md">
+        <span className="eyebrow absolute left-2.5 top-2.5 rounded-full bg-ink/55 px-2.5 py-1 text-[0.625rem] text-bone backdrop-blur-md sm:left-4 sm:top-4 sm:px-3 sm:py-1.5 sm:text-[0.6875rem]">
           {film.duration}
         </span>
-        <span className="absolute right-4 top-4">
-          <PlayGlyph size="sm" />
+        <span className="absolute right-2.5 top-2.5 sm:right-4 sm:top-4">
+          <PlayGlyph size="sm" className="size-9 sm:size-12" />
         </span>
         {caption === "overlay" && (
-          <span className="absolute inset-x-0 bottom-0 block p-5 md:p-7">
+          <span className="absolute inset-x-0 bottom-0 hidden p-5 md:block md:p-7">
             <span className="eyebrow block text-copper-2">{film.category}</span>
             <span className="mt-2 block font-serif text-3xl leading-none text-bone md:text-5xl">{film.title}</span>
             <span className="mt-3 block max-w-lg text-sm text-bone-2">{film.subtitle}</span>
           </span>
         )}
       </span>
+      {caption === "overlay" && (
+        <span className="mt-4 block md:hidden">
+          <span className="eyebrow block text-copper-2">{film.category}</span>
+          <span className="mt-1.5 block font-serif text-2xl leading-tight text-bone">{film.title}</span>
+          <span className="mt-1 block text-sm text-mute">{film.subtitle}</span>
+        </span>
+      )}
       {caption === "below" && (
-        <span className="mt-4 block">
-          <span className="block font-serif text-2xl leading-tight text-bone transition-colors group-hover:text-copper-2">
+        <span className="mt-3 block sm:mt-4">
+          <span className="block font-serif text-xl leading-tight text-bone transition-colors group-hover:text-copper-2 sm:text-2xl">
             {film.title}
           </span>
-          <span className="mt-1 block text-sm text-mute">{film.subtitle}</span>
+          <span className="mt-1 block text-[0.8125rem] leading-snug text-mute sm:text-sm">{film.subtitle}</span>
         </span>
       )}
     </PlayFilmButton>

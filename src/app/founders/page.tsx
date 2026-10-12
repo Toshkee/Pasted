@@ -27,7 +27,7 @@ export default function FoundersPage() {
   return (
     <Page>
       {/* Hero: two portraits, one standard */}
-      <section className="bg-ink pt-36 md:pt-44" aria-labelledby="founders-title">
+      <section className="bg-ink pt-28 md:pt-44" aria-labelledby="founders-title">
         <div className="wrap">
           <div data-reveal="auto">
             <Eyebrow index="Vol. IV" className="mb-10">
@@ -48,7 +48,7 @@ export default function FoundersPage() {
               managers, no layers, no handoffs. The people on the call are the people on set.
             </p>
           </div>
-          <div className="mt-16 grid grid-cols-2 gap-3 md:mt-24 md:gap-6">
+          <div className="mt-10 grid grid-cols-2 gap-3 md:mt-24 md:gap-6">
             {FOUNDERS.map((f, i) => (
               <a key={f.slug} href={`#${f.slug}`} className="group block" data-reveal="auto" style={{ "--d": 600 + i * 150 } as React.CSSProperties}>
                 <div className="relative aspect-[4/5] overflow-clip rounded-[1.1rem] bg-ink-3">
@@ -61,9 +61,9 @@ export default function FoundersPage() {
                     className="object-cover grayscale transition-transform duration-[1.6s] ease-[var(--ease-out-expo)] group-hover:scale-[1.03]"
                   />
                   <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_55%,rgb(11_10_9/0.85))]" />
-                  <div className="absolute inset-x-0 bottom-0 p-5 md:p-8">
-                    <p className="font-serif text-3xl text-bone md:text-6xl">{f.name}</p>
-                    <p className="eyebrow mt-2 text-bone-2">{f.role}</p>
+                  <div className="absolute inset-x-0 bottom-0 p-3.5 sm:p-5 md:p-8">
+                    <p className="font-serif text-[1.35rem] leading-[1.05] text-bone sm:text-3xl md:text-6xl">{f.name}</p>
+                    <p className="eyebrow mt-2 hidden text-bone-2 sm:block">{f.role}</p>
                   </div>
                 </div>
               </a>
@@ -76,8 +76,8 @@ export default function FoundersPage() {
       {FOUNDERS.map((f, i) => {
         const film = filmBySlug(FOUNDER_FILMS[f.slug]);
         return (
-          <section key={f.slug} id={f.slug} className={cn("scroll-mt-24 py-24 md:py-36", i === 0 ? "bg-ink" : "border-t border-line bg-ink-2")} aria-labelledby={`${f.slug}-name`}>
-            <div className="wrap grid gap-14 lg:grid-cols-12">
+          <section key={f.slug} id={f.slug} className={cn("scroll-mt-24 py-16 md:py-36", i === 0 ? "bg-ink" : "border-t border-line bg-ink-2")} aria-labelledby={`${f.slug}-name`}>
+            <div className="wrap grid gap-10 lg:grid-cols-12 lg:gap-14">
               <div className="lg:col-span-5">
                 <Eyebrow index={`0${i + 1}`} className="mb-8">
                   {f.role}
@@ -85,10 +85,10 @@ export default function FoundersPage() {
                 <h2 id={`${f.slug}-name`} className="display-lg text-bone" data-reveal="">
                   {f.name}
                 </h2>
-                <blockquote className="display-sm mt-10 border-l border-copper pl-6 italic text-copper-2" data-reveal="">
+                <blockquote className="display-sm mt-8 border-l border-copper pl-5 italic text-copper-2 md:mt-10 md:pl-6" data-reveal="">
                   “{f.thesis}”
                 </blockquote>
-                <ul className="mt-10 flex flex-wrap gap-2">
+                <ul className="mt-8 flex flex-wrap gap-2 md:mt-10">
                   {f.focus.map((x) => (
                     <li key={x} className="eyebrow rounded-full border border-line-strong px-4 py-2 text-bone-2">
                       {x}
@@ -124,9 +124,9 @@ export default function FoundersPage() {
       </section>
 
       {/* Gatherings */}
-      <section className="bg-ink py-24 md:py-36" aria-labelledby="gatherings-title">
+      <section className="bg-ink py-16 md:py-36" aria-labelledby="gatherings-title">
         <div className="wrap">
-          <div className="mb-16 grid gap-8 md:mb-24 md:grid-cols-12 md:items-end">
+          <div className="mb-10 grid gap-8 md:mb-24 md:grid-cols-12 md:items-end">
             <div className="md:col-span-7">
               <Eyebrow index="03" className="mb-8">
                 The world

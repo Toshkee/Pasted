@@ -18,8 +18,8 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <Page>
-      <section className="bg-ink pb-28 pt-36 md:pb-40 md:pt-44" aria-labelledby="contact-title">
-        <div className="wrap grid gap-16 lg:grid-cols-12">
+      <section className="bg-ink pb-20 pt-28 md:pb-40 md:pt-44" aria-labelledby="contact-title">
+        <div className="wrap grid gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-5">
             <div className="lg:sticky lg:top-32">
               <div data-reveal="auto">
@@ -32,7 +32,7 @@ export default function ContactPage() {
                 45 minutes with a founder. Positioning, not a pitch. Fifty seats, ever — and one practice per market.
               </p>
 
-              <div className="mt-12 flex items-center gap-4 border-t border-line pt-8" data-reveal="auto" style={{ "--d": 600 } as React.CSSProperties}>
+              <div className="mt-8 flex items-center gap-4 border-t border-line pt-6 md:mt-12 md:pt-8" data-reveal="auto" style={{ "--d": 600 } as React.CSSProperties}>
                 <div className="flex -space-x-3">
                   {FOUNDERS.map((f) => (
                     <span key={f.slug} className="relative block size-12 overflow-clip rounded-full border-2 border-ink">
@@ -45,7 +45,7 @@ export default function ContactPage() {
                 </p>
               </div>
 
-              <ol className="mt-10 space-y-5" data-reveal="auto" style={{ "--d": 700 } as React.CSSProperties}>
+              <ol className="mt-8 space-y-4 md:mt-10 md:space-y-5" data-reveal="auto" style={{ "--d": 700 } as React.CSSProperties}>
                 {STEPS.map((s) => (
                   <li key={s.n} className="flex gap-5">
                     <span className="eyebrow pt-1 text-copper">{s.n}</span>
@@ -65,17 +65,17 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <section className="border-t border-line bg-ink-2 py-20 md:py-28" aria-labelledby="other-title">
+      <section className="border-t border-line bg-ink-2 py-16 md:py-28" aria-labelledby="other-title">
         <div className="wrap">
-          <h2 id="other-title" className="display-md mb-12 text-bone">
+          <h2 id="other-title" className="display-md mb-8 text-bone md:mb-12">
             Something <em className="text-copper-2">else?</em>
           </h2>
           <ul className="grid gap-px overflow-clip rounded-[1.1rem] border border-line bg-line sm:grid-cols-2 lg:grid-cols-4">
             {SITE.emails.map((e) => (
               <li key={e.address} className="bg-ink-2">
-                <a href={`mailto:${e.address}`} className="group flex h-full flex-col justify-between gap-10 p-8 transition-colors hover:bg-ink">
+                <a href={`mailto:${e.address}`} className="group flex h-full flex-col justify-between gap-3 p-5 transition-colors hover:bg-ink sm:p-8 md:gap-10">
                   <span className="eyebrow text-mute">{e.label}</span>
-                  <span className="font-serif text-2xl text-bone transition-colors group-hover:text-copper-2">{e.address}</span>
+                  <span className="break-all font-serif text-[1.35rem] text-bone transition-colors group-hover:text-copper-2 sm:break-normal md:text-2xl">{e.address}</span>
                 </a>
               </li>
             ))}

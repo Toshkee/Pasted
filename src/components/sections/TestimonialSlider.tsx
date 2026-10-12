@@ -29,9 +29,9 @@ export function TestimonialSlider({ items }: { items: Testimonial[] }) {
       onFocus={() => setHovered(true)}
       onBlur={() => setHovered(false)}
     >
-      <div className="grid gap-10 md:grid-cols-12 md:gap-12">
+      <div className="grid gap-6 md:grid-cols-12 md:gap-12">
         <div className="md:col-span-3">
-          <div className="relative aspect-[4/5] w-40 overflow-clip rounded-[0.9rem] bg-ink-3 md:w-full">
+          <div className="relative aspect-[4/5] w-28 overflow-clip rounded-[0.8rem] bg-ink-3 sm:w-36 md:w-full">
             {items.map((t, i) =>
               t.image ? (
                 <Image
@@ -51,20 +51,20 @@ export function TestimonialSlider({ items }: { items: Testimonial[] }) {
         </div>
 
         <figure key={index} className="animate-[fade-rise_1s_var(--ease-out-expo)_both] md:col-span-8 md:col-start-5" aria-live={paused ? "polite" : "off"}>
-          <span aria-hidden="true" className="block h-12 font-serif text-[6rem] leading-none text-copper md:h-16 md:text-[8rem]">
+          <span aria-hidden="true" className="block h-10 font-serif text-[5rem] leading-none text-copper md:h-16 md:text-[8rem]">
             “
           </span>
-          <blockquote className="font-serif text-[1.65rem] leading-[1.18] tracking-[-0.01em] text-bone md:text-[2.15rem] lg:text-[2.5rem]">
+          <blockquote className="font-serif text-[1.4rem] leading-[1.22] tracking-[-0.01em] text-bone sm:text-[1.65rem] md:text-[2.15rem] lg:text-[2.5rem]">
             {current.quote}
           </blockquote>
-          <figcaption className="mt-10 flex flex-wrap items-baseline gap-x-4 gap-y-1">
+          <figcaption className="mt-6 flex flex-wrap items-baseline gap-x-4 gap-y-1 md:mt-10">
             <span className="font-serif text-2xl text-bone">{current.name}</span>
             <span className="eyebrow text-mute">{current.role}</span>
           </figcaption>
         </figure>
       </div>
 
-      <div className="mt-16 flex items-start gap-6 border-t border-line pt-6 md:mt-20">
+      <div className="mt-10 flex items-start gap-4 border-t border-line pt-5 md:mt-20 md:gap-6 md:pt-6">
         <button
           type="button"
           onClick={() => setPaused((p) => !p)}
@@ -75,7 +75,7 @@ export function TestimonialSlider({ items }: { items: Testimonial[] }) {
         </button>
         <ul className="scrollbar-none -mx-1 flex flex-1 gap-1 overflow-x-auto px-1">
           {items.map((t, i) => (
-            <li key={t.name} className="min-w-[8.5rem] flex-1">
+            <li key={t.name} className="min-w-[6.5rem] flex-1 md:min-w-[8.5rem]">
               <button
                 type="button"
                 onClick={() => setIndex(i)}

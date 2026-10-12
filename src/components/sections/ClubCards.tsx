@@ -24,7 +24,7 @@ export function ClubCards({ index = "§" }: { index?: string }) {
         </p>
       </div>
 
-      <DragScroll label="PASTED Club cards" className="mt-16 scroll-px-4 gap-6 px-4 py-6 sm:scroll-px-7 sm:px-7 md:mt-24 lg:scroll-px-11 lg:gap-10 lg:px-11">
+      <DragScroll label="PASTED Club cards" className="mt-10 scroll-px-5 gap-4 px-5 py-6 sm:scroll-px-7 sm:gap-6 sm:px-7 md:mt-24 lg:scroll-px-11 lg:gap-10 lg:px-11">
         {CLUB_CARDS.map((card, i) => (
           <figure key={card.name} className="w-[64vw] shrink-0 snap-start sm:w-[38vw] md:w-[28vw] lg:w-[19vw]" data-reveal="" style={{ "--d": (i % 5) * 80 } as React.CSSProperties}>
             <TiltCard className="rounded-[0.6rem]">

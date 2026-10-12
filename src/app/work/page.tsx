@@ -43,7 +43,7 @@ export default function WorkPage() {
       />
 
       {/* Transformations */}
-      <section className="bg-ink pb-24 md:pb-36" aria-labelledby="transformations-title">
+      <section className="bg-ink pb-16 md:pb-36" aria-labelledby="transformations-title">
         <div className="wrap">
           <div className="mb-14 flex items-end justify-between gap-6 border-b border-line pb-6">
             <h2 id="transformations-title" className="eyebrow text-bone">
@@ -108,7 +108,7 @@ export default function WorkPage() {
       {/* Identities */}
       <section data-header="light" className="bg-paper py-24 text-paper-ink md:py-36" aria-labelledby="identities-title">
         <div className="wrap">
-          <div className="mb-14 grid gap-8 md:mb-20 md:grid-cols-12 md:items-end">
+          <div className="mb-10 grid gap-8 md:mb-20 md:grid-cols-12 md:items-end">
             <div className="md:col-span-7">
               <Eyebrow index="II." className="mb-8 text-paper-mute">
                 Identity systems

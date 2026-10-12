@@ -19,7 +19,7 @@ export function FilmLibrary({ films, categories }: { films: Film[]; categories: 
 
   return (
     <div>
-      <div role="group" aria-label="Filter films" className="scrollbar-none -mx-4 mb-12 flex gap-2 overflow-x-auto px-4 md:mx-0 md:flex-wrap md:px-0">
+      <div role="group" aria-label="Filter films" className="scrollbar-none -mx-5 mb-8 flex gap-2 overflow-x-auto px-5 sm:-mx-7 sm:px-7 md:mx-0 md:mb-12 md:flex-wrap md:px-0">
         {(["All", ...categories] as Filter[]).map((c) => (
           <button
             key={c}
@@ -27,7 +27,7 @@ export function FilmLibrary({ films, categories }: { films: Film[]; categories: 
             aria-pressed={filter === c}
             onClick={() => startTransition(() => setFilter(c))}
             className={cn(
-              "eyebrow flex shrink-0 items-center gap-2 rounded-full border px-5 py-3 transition-colors duration-300",
+              "eyebrow flex shrink-0 items-center gap-2 rounded-full border px-4 py-2.5 transition-colors duration-300 md:px-5 md:py-3",
               filter === c ? "border-bone bg-bone text-ink" : "border-line-strong text-bone-2 hover:border-bone hover:text-bone",
             )}
           >
@@ -37,7 +37,7 @@ export function FilmLibrary({ films, categories }: { films: Film[]; categories: 
         ))}
       </div>
 
-      <ul className="grid grid-cols-2 gap-x-4 gap-y-10 md:grid-cols-3 md:gap-x-6 lg:grid-cols-4" aria-live="polite">
+      <ul className="grid grid-cols-2 gap-x-3 gap-y-8 sm:gap-x-4 md:grid-cols-3 md:gap-x-6 md:gap-y-10 lg:grid-cols-4" aria-live="polite">
         {visible.map((film) => (
           <ViewTransition key={film.slug} name={`film-${film.slug}`}>
             <li className={film.orientation === "landscape" ? "col-span-2" : undefined}>
@@ -45,7 +45,7 @@ export function FilmLibrary({ films, categories }: { films: Film[]; categories: 
                 film={film}
                 sizes={film.orientation === "landscape" ? "(min-width: 1024px) 50vw, 100vw" : "(min-width: 1024px) 24vw, (min-width: 768px) 32vw, 48vw"}
               />
-              <p className="eyebrow mt-2 text-copper">{film.category}</p>
+              <p className="eyebrow mt-2 text-[0.625rem] text-copper sm:text-[0.6875rem]">{film.category}</p>
             </li>
           </ViewTransition>
         ))}

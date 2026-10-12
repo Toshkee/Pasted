@@ -2,7 +2,10 @@
 
 import { useEffect } from "react";
 
-const SELECTOR = "[data-reveal]:not([data-inview]), [data-split]:not([data-inview])";
+// "auto" elements animate on first paint in pure CSS, so they are never touched here — which also
+// keeps this observer from mutating server-rendered markup before React has hydrated it.
+const SELECTOR =
+  '[data-reveal]:not([data-inview]):not([data-reveal="auto"]), [data-split]:not([data-inview]):not([data-split="auto"])';
 
 /**
  * One IntersectionObserver for the whole site. Any element — server-rendered or not — opts in with

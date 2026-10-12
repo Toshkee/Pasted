@@ -10,7 +10,7 @@ import { cn } from "@/lib/cn";
 export function RosterIndex({ index = "§ 07", showIntro = true }: { index?: string; showIntro?: boolean }) {
   return (
     <section
-      className="relative bg-ink py-28 md:py-40"
+      className="relative bg-ink py-20 md:py-40"
       aria-labelledby={showIntro ? "roster-title" : undefined}
       aria-label={showIntro ? undefined : "The roster"}
     >

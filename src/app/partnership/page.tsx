@@ -52,9 +52,9 @@ export default function PartnershipPage() {
       />
 
       {/* Seven parts */}
-      <section className="bg-ink py-24 md:py-32" aria-labelledby="parts-title">
+      <section className="bg-ink py-16 md:py-32" aria-labelledby="parts-title">
         <div className="wrap">
-          <div className="mb-16 grid gap-8 md:mb-24 md:grid-cols-12">
+          <div className="mb-10 grid gap-8 md:mb-24 md:grid-cols-12">
             <div className="md:col-span-7">
               <Eyebrow index="§ 01" className="mb-8">
                 What a partnership is
@@ -69,9 +69,9 @@ export default function PartnershipPage() {
       </section>
 
       {/* Four surfaces */}
-      <section className="border-t border-line bg-ink-2 py-24 md:py-36" aria-labelledby="surfaces-title">
+      <section className="border-t border-line bg-ink-2 py-16 md:py-36" aria-labelledby="surfaces-title">
         <div className="wrap">
-          <div className="mb-14 grid gap-8 md:mb-20 md:grid-cols-12 md:items-end">
+          <div className="mb-10 grid gap-8 md:mb-20 md:grid-cols-12 md:items-end">
             <div className="md:col-span-7">
               <Eyebrow index="§ 02" className="mb-8">
                 What we do
@@ -119,7 +119,7 @@ export default function PartnershipPage() {
       </section>
 
       {/* How it begins */}
-      <section className="bg-ink py-24 md:py-36" aria-labelledby="path-title">
+      <section className="bg-ink py-16 md:py-36" aria-labelledby="path-title">
         <div className="wrap">
           <Eyebrow index="§ 03" className="mb-8">
             The path
@@ -127,10 +127,10 @@ export default function PartnershipPage() {
           <h2 id="path-title" className="display-lg text-bone" data-reveal="">
             How it <em className="text-copper-2">begins.</em>
           </h2>
-          <ol className="mt-16 grid gap-px overflow-clip rounded-[1.1rem] border border-line bg-line md:mt-20 md:grid-cols-3">
+          <ol className="mt-10 grid gap-px overflow-clip rounded-[1.1rem] border border-line bg-line md:mt-20 md:grid-cols-3">
             {STEPS.map((s, i) => (
-              <li key={s.n} className="flex min-h-[18rem] flex-col justify-between bg-ink p-8 md:p-10" data-reveal="" style={{ "--d": i * 120 } as React.CSSProperties}>
-                <span className="font-serif text-7xl text-copper-2 md:text-8xl">{s.n}</span>
+              <li key={s.n} className="flex flex-col justify-between gap-8 bg-ink p-6 sm:p-8 md:min-h-[18rem] md:p-10" data-reveal="" style={{ "--d": i * 120 } as React.CSSProperties}>
+                <span className="font-serif text-6xl text-copper-2 md:text-8xl">{s.n}</span>
                 <div>
                   <h3 className="display-sm text-bone">{s.title}</h3>
                   <p className="mt-3 text-bone-2">{s.body}</p>
@@ -148,7 +148,7 @@ export default function PartnershipPage() {
       </section>
 
       {/* Accountability */}
-      <section className="border-y border-line bg-ink-2 py-24 md:py-32" aria-labelledby="account-title">
+      <section className="border-y border-line bg-ink-2 py-16 md:py-32" aria-labelledby="account-title">
         <div className="wrap grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-4">
             <Eyebrow index="§ 04" className="mb-8">
@@ -159,7 +159,7 @@ export default function PartnershipPage() {
             </h2>
           </div>
           <div className="grid gap-6 md:grid-cols-2 lg:col-span-8">
-            <article className="rounded-[1.1rem] border border-line bg-ink p-8 md:p-10" data-reveal="">
+            <article className="rounded-[1.1rem] border border-line bg-ink p-6 sm:p-8 md:p-10" data-reveal="">
               <p className="eyebrow text-copper">Quarter one</p>
               <h3 className="display-sm mt-6 text-bone">No partner ends a term empty-handed.</h3>
               <p className="mt-4 text-bone-2">
@@ -167,7 +167,7 @@ export default function PartnershipPage() {
                 until they do.
               </p>
             </article>
-            <article className="rounded-[1.1rem] border border-line bg-ink p-8 md:p-10" data-reveal="" style={{ "--d": 120 } as React.CSSProperties}>
+            <article className="rounded-[1.1rem] border border-line bg-ink p-6 sm:p-8 md:p-10" data-reveal="" style={{ "--d": 120 } as React.CSSProperties}>
               <p className="eyebrow text-copper">Every ninety days</p>
               <h3 className="display-sm mt-6 text-bone">A quarterly value review, in writing.</h3>
               <p className="mt-4 text-bone-2">
@@ -180,7 +180,7 @@ export default function PartnershipPage() {
       </section>
 
       {/* For / not for */}
-      <section className="bg-ink py-24 md:py-36" aria-labelledby="fit-title">
+      <section className="bg-ink py-16 md:py-36" aria-labelledby="fit-title">
         <div className="wrap">
           <Eyebrow index="§ 05" className="mb-8">
             Fit
@@ -188,14 +188,14 @@ export default function PartnershipPage() {
           <h2 id="fit-title" className="sr-only">
             Who this is for
           </h2>
-          <div className="grid gap-16 md:grid-cols-2 md:gap-10">
+          <div className="grid gap-12 md:grid-cols-2 md:gap-10">
             <div>
               <p className="display-md text-bone" data-reveal="">
                 This is <em className="text-copper-2">for</em>
               </p>
-              <ul className="mt-10 border-t border-line">
+              <ul className="mt-6 border-t border-line md:mt-10">
                 {FOR.map((f, i) => (
-                  <li key={f} className="flex gap-6 border-b border-line py-6 text-lg text-bone" data-reveal="" style={{ "--d": i * 80 } as React.CSSProperties}>
+                  <li key={f} className="flex gap-5 border-b border-line py-5 text-[1.0625rem] leading-snug text-bone md:gap-6 md:py-6 md:text-lg" data-reveal="" style={{ "--d": i * 80 } as React.CSSProperties}>
                     <span className="eyebrow pt-1.5 text-copper">{String(i + 1).padStart(2, "0")}</span>
                     {f}
                   </li>
@@ -206,9 +206,9 @@ export default function PartnershipPage() {
               <p className="display-md text-mute" data-reveal="">
                 This is not for
               </p>
-              <ul className="mt-10 border-t border-line">
+              <ul className="mt-6 border-t border-line md:mt-10">
                 {NOT_FOR.map((f, i) => (
-                  <li key={f} className="flex gap-6 border-b border-line py-6 text-lg text-mute line-through decoration-mute/40" data-reveal="" style={{ "--d": i * 80 } as React.CSSProperties}>
+                  <li key={f} className="flex gap-5 border-b border-line py-5 text-[1.0625rem] leading-snug text-mute line-through decoration-mute/40 md:gap-6 md:py-6 md:text-lg" data-reveal="" style={{ "--d": i * 80 } as React.CSSProperties}>
                     <span className="eyebrow pt-1.5 no-underline">—</span>
                     {f}
                   </li>
@@ -223,7 +223,7 @@ export default function PartnershipPage() {
       <MarketChecker />
 
       {/* FAQ */}
-      <section className="bg-ink py-24 md:py-36" aria-labelledby="faq-title">
+      <section className="bg-ink py-16 md:py-36" aria-labelledby="faq-title">
         <div className="wrap grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-4">
             <Eyebrow index="§ 07" className="mb-8">

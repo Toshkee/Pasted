@@ -23,10 +23,10 @@ type Props = {
 export function PageHero({ index, eyebrow, title, lede, aside, image, imageAlt = "", caption, tone = "ink" }: Props) {
   const paper = tone === "paper";
   return (
-    <section data-header={paper ? "light" : undefined} className={cn("relative pt-36 md:pt-44", paper ? "bg-paper text-paper-ink" : "bg-ink text-bone")}>
+    <section data-header={paper ? "light" : undefined} className={cn("relative pt-28 md:pt-44", paper ? "bg-paper text-paper-ink" : "bg-ink text-bone")}>
       <div className="wrap">
         <div data-reveal="auto">
-          <Eyebrow index={index} className={cn("mb-10", paper && "text-paper-mute")}>
+          <Eyebrow index={index} className={cn("mb-7 md:mb-10", paper && "text-paper-mute")}>
             {eyebrow}
           </Eyebrow>
         </div>
@@ -39,7 +39,7 @@ export function PageHero({ index, eyebrow, title, lede, aside, image, imageAlt =
           italicClassName={cn("italic", paper ? "text-copper-ink" : "text-copper-2")}
         />
         {(lede || aside) && (
-          <div className="mt-12 grid gap-10 border-t pt-8 md:mt-16 md:grid-cols-12" style={{ borderColor: paper ? "rgb(28 24 20 / 0.15)" : undefined }}>
+          <div className="mt-8 grid gap-8 border-t pt-6 md:mt-16 md:grid-cols-12 md:gap-10 md:pt-8" style={{ borderColor: paper ? "rgb(28 24 20 / 0.15)" : undefined }}>
             {lede && (
               <div
                 className={cn("lede md:col-span-6", paper ? "text-paper-mute" : "text-bone-2")}
@@ -58,16 +58,16 @@ export function PageHero({ index, eyebrow, title, lede, aside, image, imageAlt =
         )}
       </div>
       {image ? (
-        <figure className="wrap mt-16 pb-20 md:mt-24 md:pb-28">
+        <figure className="wrap mt-12 pb-14 md:mt-24 md:pb-28">
           <div data-reveal="clip">
             <Parallax className="aspect-[4/5] rounded-[1.1rem] sm:aspect-[16/9] lg:aspect-[21/9]">
-              <Image src={image} alt={imageAlt} fill preload sizes="(min-width: 1536px) 1440px, 100vw" className="object-cover" />
+              <Image src={image} alt={imageAlt} fill loading="eager" fetchPriority="high" sizes="(min-width: 1536px) 1440px, 100vw" className="object-cover" />
             </Parallax>
           </div>
           {caption && <figcaption className={cn("eyebrow mt-4", paper ? "text-paper-mute" : "text-mute")}>{caption}</figcaption>}
         </figure>
       ) : (
-        <div className="pb-20 md:pb-28" />
+        <div className="pb-14 md:pb-28" />
       )}
     </section>
   );

@@ -7,7 +7,7 @@ import { caseBySlug } from "@/content/work";
 export function FeatureCase() {
   const study = caseBySlug("drew-ballard")!;
   return (
-    <section className="relative bg-ink py-28 md:py-40" aria-labelledby="feature-title">
+    <section className="relative bg-ink py-20 md:py-40" aria-labelledby="feature-title">
       <div className="wrap grid items-center gap-14 lg:grid-cols-12 lg:gap-10">
         <div className="mx-auto w-full max-w-[24rem] lg:col-span-4 lg:col-start-2 lg:max-w-none" data-reveal="clip">
           <FilmCard film={filmBySlug("drew-ballard")} preview="inview" sizes="(min-width: 1024px) 30vw, 24rem" />

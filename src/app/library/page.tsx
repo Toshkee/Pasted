@@ -79,9 +79,9 @@ export default function LibraryPage() {
       </section>
 
       {/* Five-part architecture */}
-      <section className="bg-ink py-24 md:py-36" aria-labelledby="arch-title">
+      <section className="bg-ink py-16 md:py-36" aria-labelledby="arch-title">
         <div className="wrap">
-          <div className="mb-16 grid gap-8 md:mb-24 md:grid-cols-12 md:items-end">
+          <div className="mb-10 grid gap-8 md:mb-24 md:grid-cols-12 md:items-end">
             <div className="md:col-span-7">
               <Eyebrow index="§ 02" className="mb-8">
                 Inside Volume I
@@ -148,7 +148,7 @@ export default function LibraryPage() {
           </Parallax>
         </div>
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgb(11_10_9/0.6),rgb(11_10_9/0.85))]" />
-        <figure className="wrap relative py-36 text-center md:py-52">
+        <figure className="wrap relative py-24 text-center md:py-52">
           <blockquote className="display-lg mx-auto max-w-[24ch] text-bone" data-reveal="">
             “A brand is the only load-bearing wall in a practice. Build it wrong and everything else{" "}
             <em className="text-copper-2">eventually sags.</em>”

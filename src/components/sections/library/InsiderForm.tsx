@@ -38,10 +38,10 @@ export function InsiderForm() {
   }
 
   const field =
-    "w-full border-b border-paper-ink/25 bg-transparent py-3 font-serif text-2xl text-paper-ink outline-none transition-colors placeholder:text-paper-ink/30 focus:border-paper-ink";
+    "w-full min-w-0 border-b border-paper-ink/25 bg-transparent py-3 font-serif text-2xl text-paper-ink outline-none transition-colors placeholder:text-paper-ink/30 focus:border-paper-ink";
 
   return (
-    <form onSubmit={onSubmit} className="grid gap-8 sm:grid-cols-2" noValidate={false}>
+    <form onSubmit={onSubmit} className="grid grid-cols-1 gap-7 sm:grid-cols-2 sm:gap-8">
       <div>
         <label htmlFor={`${id}-name`} className="eyebrow text-paper-mute">
           First name

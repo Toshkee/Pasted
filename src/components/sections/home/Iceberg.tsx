@@ -44,7 +44,7 @@ export function Iceberg() {
 
   return (
     <section ref={root} className="relative bg-ink lg:h-[300vh]" aria-labelledby="iceberg-title">
-      <div className="wrap py-24 lg:sticky lg:top-0 lg:grid lg:h-screen lg:grid-cols-12 lg:items-center lg:gap-10 lg:py-0">
+      <div className="wrap py-16 lg:sticky lg:top-0 lg:grid lg:h-screen lg:grid-cols-12 lg:items-center lg:gap-10 lg:py-0">
         <div className="lg:col-span-5">
           <Eyebrow index="§ 02" className="mb-8">
             The mechanism
@@ -66,12 +66,12 @@ export function Iceberg() {
           <figcaption className="eyebrow absolute left-6 top-5 z-10 hidden text-mute sm:block">Fig. 01 — The brand iceberg</figcaption>
 
           {/* Above the waterline */}
-          <div className="relative flex min-h-[15rem] flex-col justify-end px-6 pb-8 pt-16 lg:h-[34%] lg:min-h-0 lg:px-10">
-            <div className="absolute right-6 top-4 text-right lg:right-10">
+          <div className="relative flex flex-col justify-end px-5 pb-8 pt-24 sm:px-6 lg:h-[34%] lg:px-10 lg:pt-16">
+            <div className="absolute right-5 top-4 text-right sm:right-6 lg:right-10">
               <span className="font-serif text-6xl text-bone/90 lg:text-7xl">10%</span>
               <span className="eyebrow block text-mute">Visible</span>
             </div>
-            <ul className="flex max-w-[80%] flex-wrap gap-2">
+            <ul className="flex flex-wrap gap-2 lg:max-w-[80%]">
               {ICEBERG.visible.map((item) => (
                 <li
                   key={item}
@@ -87,27 +87,27 @@ export function Iceberg() {
           {/* Waterline */}
           <div className="relative">
             <div data-waterline="" className="h-px origin-left bg-bone/70" />
-            <span className="eyebrow absolute -top-6 right-6 text-bone-2 lg:right-10">Waterline · what patients see</span>
+            <span className="eyebrow absolute -top-6 right-5 text-[0.625rem] text-bone-2 sm:right-6 sm:text-[0.6875rem] lg:right-10">Waterline · what patients see</span>
           </div>
 
           {/* Below the waterline */}
-          <div className="relative min-h-[22rem] px-6 pb-10 pt-10 lg:h-[66%] lg:min-h-0 lg:px-10 lg:pt-12">
+          <div className="relative px-5 pb-8 pt-8 sm:px-6 lg:h-[66%] lg:px-10 lg:pb-10 lg:pt-12">
             <div
               data-sea=""
               aria-hidden="true"
               className="absolute inset-0 origin-top bg-[linear-gradient(180deg,rgb(75_15_25/0.55)_0%,rgb(26_24_22/0.4)_55%,rgb(11_10_9/0)_100%)]"
             />
             <div aria-hidden="true" className="absolute inset-0 bg-[radial-gradient(60%_50%_at_30%_70%,rgb(192_133_82/0.14),transparent_70%)]" />
-            <ul className="relative grid max-w-xl grid-cols-2 gap-x-6 gap-y-5 sm:grid-cols-3">
+            <ul className="relative grid max-w-xl grid-cols-2 gap-x-4 gap-y-5 sm:grid-cols-3 sm:gap-x-6">
               {ICEBERG.invisible.map((item, i) => (
                 <li key={item} data-invisible="" className="border-t border-copper/40 pt-3">
                   <span className="eyebrow block text-copper">{String(i + 1).padStart(2, "0")}</span>
-                  <span className="font-serif text-2xl text-bone lg:text-3xl">{item}</span>
+                  <span className="font-serif text-[1.35rem] text-bone sm:text-2xl lg:text-3xl">{item}</span>
                 </li>
               ))}
             </ul>
-            <div className="absolute bottom-6 right-6 text-right lg:bottom-10 lg:right-10">
-              <span className="font-serif text-7xl text-copper-2 lg:text-[9rem] lg:leading-none">
+            <div className="relative mt-10 text-right lg:absolute lg:bottom-10 lg:right-10 lg:mt-0">
+              <span className="font-serif text-7xl leading-none text-copper-2 lg:text-[9rem]">
                 <span ref={counter}>90</span>%
               </span>
               <span className="eyebrow block text-mute">Invisible — and decisive</span>

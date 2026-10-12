@@ -30,7 +30,7 @@ export function Manifesto() {
 
 
   return (
-    <section ref={root} className="relative bg-ink py-28 md:py-40 lg:py-52" aria-labelledby="manifesto">
+    <section ref={root} className="relative bg-ink py-20 md:py-40 lg:py-52" aria-labelledby="manifesto">
       <div className="wrap">
         <Eyebrow index="§ 01" className="mb-10 md:mb-14">
           The argument

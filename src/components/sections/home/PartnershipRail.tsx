@@ -8,14 +8,14 @@ import { COMPONENTS } from "@/content/partnership";
 export function PartnershipRail() {
   return (
     <HorizontalScroll
-      className="relative overflow-clip bg-ink-2 py-24 lg:flex lg:h-screen lg:items-center lg:py-0"
+      className="relative overflow-clip bg-ink-2 py-16 lg:flex lg:h-screen lg:items-center lg:py-0"
       aria-labelledby="partnership-title"
     >
       <div
         data-track=""
-        className="scrollbar-none flex snap-x snap-mandatory gap-5 overflow-x-auto px-4 sm:px-7 lg:snap-none lg:gap-8 lg:overflow-visible lg:px-11"
+        className="scrollbar-none flex snap-x snap-mandatory scroll-px-5 gap-4 overflow-x-auto px-5 sm:scroll-px-7 sm:gap-5 sm:px-7 lg:snap-none lg:gap-8 lg:overflow-visible lg:px-11"
       >
-        <div className="flex w-[86vw] shrink-0 snap-start flex-col justify-center pr-4 sm:w-[60vw] lg:w-[38vw] lg:pr-16">
+        <div className="flex w-[80vw] shrink-0 snap-start flex-col justify-center pr-2 sm:w-[60vw] lg:w-[38vw] lg:pr-16">
           <Eyebrow index="§ 03" className="mb-8">
             The partnership
           </Eyebrow>
@@ -36,7 +36,7 @@ export function PartnershipRail() {
         </div>
 
         {COMPONENTS.map((c) => (
-          <article key={c.n} className="group w-[78vw] shrink-0 snap-start sm:w-[46vw] lg:w-[27vw] lg:min-w-[340px]">
+          <article key={c.n} className="group w-[76vw] shrink-0 snap-start sm:w-[46vw] lg:w-[27vw] lg:min-w-[340px]">
             <div className="relative aspect-[4/5] overflow-clip rounded-[1rem] bg-ink-3">
               <div data-drift="" className="absolute inset-y-0 -left-[10%] w-[120%]">
                 <Image
@@ -50,12 +50,12 @@ export function PartnershipRail() {
               <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_45%,rgb(11_10_9/0.85))]" />
               <span className="absolute left-5 top-4 font-serif text-5xl text-bone/90">{c.n}</span>
             </div>
-            <h3 className="display-sm mt-6 text-bone">{c.title}</h3>
-            <p className="mt-3 max-w-sm text-bone-2">{c.body}</p>
+            <h3 className="display-sm mt-5 text-bone md:mt-6">{c.title}</h3>
+            <p className="mt-2 max-w-sm text-[0.95rem] text-bone-2 md:mt-3 md:text-base">{c.body}</p>
           </article>
         ))}
 
-        <div className="flex w-[78vw] shrink-0 snap-start flex-col justify-center rounded-[1rem] border border-line bg-ink p-8 sm:w-[46vw] lg:w-[30vw] lg:p-12">
+        <div className="flex w-[76vw] shrink-0 snap-start flex-col justify-center rounded-[1rem] border border-line bg-ink p-6 sm:w-[46vw] sm:p-8 lg:w-[30vw] lg:p-12">
           <p className="display-md text-bone">
             You do the dentistry. <em className="text-copper-2">We do everything else.</em>
           </p>

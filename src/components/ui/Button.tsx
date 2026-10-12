@@ -22,27 +22,31 @@ export function Roll({ children }: { children: ReactNode }) {
   );
 }
 
-type Variant = "solid" | "outline" | "copper" | "ink";
+type Variant = "solid" | "outline" | "outline-paper" | "copper" | "ink";
 
 const styles: Record<Variant, string> = {
   solid: "bg-bone text-ink hover:bg-white",
   copper: "bg-copper text-ink hover:bg-copper-2",
   outline: "border border-line-strong text-bone hover:border-bone hover:bg-bone/5",
+  "outline-paper": "border border-paper-ink/25 text-paper-ink hover:border-paper-ink hover:bg-paper-ink/5",
   ink: "bg-ink text-bone hover:bg-ink-3",
 };
 
 type ButtonLinkProps = Omit<ComponentProps<typeof Link>, "className"> & {
   variant?: Variant;
-  size?: "md" | "lg";
+  size?: "sm" | "md" | "lg";
   className?: string;
   arrow?: boolean;
   external?: boolean;
 };
 
 export function ButtonLink({ variant = "solid", size = "md", className, arrow = true, external, children, ...props }: ButtonLinkProps) {
+  // Display is owned by the caller when they pass a responsive `hidden …` pattern (avoids utility conflicts).
+  const ownsDisplay = /(^|\s)hidden(\s|$)/.test(className ?? "");
   const cls = cn(
-    "eyebrow inline-flex items-center justify-center gap-3 rounded-full font-medium whitespace-nowrap transition-[background-color,border-color,color] duration-500",
-    size === "lg" ? "h-14 px-8 text-[0.75rem]" : "h-12 px-6",
+    "eyebrow items-center justify-center gap-3 rounded-full font-medium whitespace-nowrap transition-[background-color,border-color,color] duration-500",
+    !ownsDisplay && "inline-flex",
+    size === "lg" ? "h-14 px-8 text-[0.75rem]" : size === "sm" ? "h-11 px-5" : "h-12 px-6",
     styles[variant],
     className,
   );
@@ -92,7 +96,7 @@ export function TextLink({ className, children, external, ...props }: Omit<Compo
 /** Small mono label with an optional index, e.g. "§ 03 — The argument". */
 export function Eyebrow({ index, children, className }: { index?: string; children: ReactNode; className?: string }) {
   return (
-    <p className={cn("eyebrow flex items-center gap-3 text-mute", className)}>
+    <p className={cn("eyebrow flex items-center gap-3", !/(^|\s)text-(?!\[)/.test(className ?? "") && "text-mute", className)}>
       {index && <span className="text-copper">{index}</span>}
       {index && <span aria-hidden="true" className="h-px w-6 bg-current opacity-50" />}
       <span>{children}</span>

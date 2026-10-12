@@ -16,7 +16,29 @@ export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [hidden, setHidden] = useState(false);
   const [open, setOpen] = useState(false);
+  const [light, setLight] = useState(false);
   const firstLink = useRef<HTMLAnchorElement>(null);
+
+  // Light (paper) sections mark themselves with data-header="light"; when one sits under the
+  // header bar, the header flips to ink-on-paper so it never disappears.
+  useEffect(() => {
+    const active = new Set<Element>();
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) {
+          if (e.isIntersecting) active.add(e.target);
+          else active.delete(e.target);
+        }
+        setLight(active.size > 0);
+      },
+      { rootMargin: "0px 0px -94% 0px" },
+    );
+    const raf = requestAnimationFrame(() => document.querySelectorAll('[data-header="light"]').forEach((el) => io.observe(el)));
+    return () => {
+      cancelAnimationFrame(raf);
+      io.disconnect();
+    };
+  }, [pathname]);
 
   // Solid background once scrolled; tuck away while reading downwards, return on any upward intent.
   useEffect(() => {
@@ -67,12 +89,17 @@ export function Header() {
       <header
         className={cn(
           "fixed inset-x-0 top-0 z-50 transition-[transform,background-color,border-color] duration-700 ease-[var(--ease-out-expo)]",
-          scrolled && !open ? "border-b border-line bg-ink/75 backdrop-blur-xl" : "border-b border-transparent",
+          scrolled && !open
+            ? light
+              ? "border-b border-paper-ink/10 bg-paper/80 backdrop-blur-xl"
+              : "border-b border-line bg-ink/75 backdrop-blur-xl"
+            : "border-b border-transparent",
+          light && !open ? "text-paper-ink" : "text-bone",
           hidden && !open ? "-translate-y-full" : "translate-y-0",
         )}
       >
         <div className="wrap flex h-[4.5rem] items-center justify-between gap-6 lg:h-20">
-          <Link href="/" aria-label="PASTED — home" className="relative z-10 text-bone" onNavigate={() => setOpen(false)}>
+          <Link href="/" aria-label="PASTED — home" className="relative z-10 transition-colors duration-500" onNavigate={() => setOpen(false)}>
             <Wordmark className="h-[1.35rem] w-auto lg:h-[1.6rem]" title="Pasted" />
           </Link>
 
@@ -84,7 +111,7 @@ export function Header() {
                     href={item.href}
                     className={cn(
                       "eyebrow relative flex items-center gap-2 transition-colors duration-300",
-                      isActive(item.href) ? "text-bone" : "text-bone-2 hover:text-bone",
+                      isActive(item.href) ? "opacity-100" : "opacity-70 hover:opacity-100",
                     )}
                     aria-current={isActive(item.href) ? "page" : undefined}
                   >
@@ -103,12 +130,15 @@ export function Header() {
           </nav>
 
           <div className="relative z-10 flex items-center gap-3">
-            <ButtonLink href="/contact" variant="outline" className="hidden h-11 sm:inline-flex" arrow={false}>
+            <ButtonLink href="/contact" variant={light && !open ? "outline-paper" : "outline"} size="sm" className="hidden sm:inline-flex" arrow={false}>
               Request a consultation
             </ButtonLink>
             <button
               type="button"
-              className="eyebrow flex h-11 items-center gap-3 rounded-full border border-line-strong px-5 text-bone transition-colors hover:border-bone lg:hidden"
+              className={cn(
+                "eyebrow flex h-11 items-center gap-3 rounded-full border px-5 transition-colors lg:hidden",
+                light && !open ? "border-paper-ink/25 hover:border-paper-ink" : "border-line-strong hover:border-bone",
+              )}
               aria-expanded={open}
               aria-controls="site-menu"
               onClick={() => setOpen((o) => !o)}

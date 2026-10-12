@@ -1,0 +1,163 @@
+import type { Metadata } from "next";
+import Image from "next/image";
+
+import redCarpet from "@/assets/img/founders/editorial-red-carpet.jpg";
+import { Page } from "@/components/layout/Page";
+import { FilmCard } from "@/components/media/FilmCard";
+import { SplitText } from "@/components/motion/SplitText";
+import { Parallax } from "@/components/motion/Parallax";
+import { ClubCards } from "@/components/sections/ClubCards";
+import { ConsultCTA } from "@/components/sections/ConsultCTA";
+import { PressMarquee } from "@/components/sections/PressMarquee";
+import { Eyebrow } from "@/components/ui/Button";
+import { filmBySlug } from "@/content/films";
+import { FOUNDERS, GATHERINGS } from "@/content/founders";
+import { cn } from "@/lib/cn";
+
+export const metadata: Metadata = {
+  title: "Founders",
+  description:
+    "Zac Orender and Dr. Alan Clarke — strategy and creative direction behind PASTED. Every brand the studio builds runs through the same two people.",
+  alternates: { canonical: "/founders" },
+};
+
+const FOUNDER_FILMS: Record<string, string> = { "zac-orender": "on-zac", "alan-clarke": "on-restraint" };
+
+export default function FoundersPage() {
+  return (
+    <Page>
+      {/* Hero: two portraits, one standard */}
+      <section className="bg-ink pt-36 md:pt-44" aria-labelledby="founders-title">
+        <div className="wrap">
+          <div data-reveal="auto">
+            <Eyebrow index="Vol. IV" className="mb-10">
+              The founders
+            </Eyebrow>
+          </div>
+          <div className="grid gap-10 md:grid-cols-12 md:items-end">
+            <SplitText
+              as="h1"
+              id="founders-title"
+              trigger="auto"
+              text="Built by *two.*"
+              className="display-2xl md:col-span-7"
+              italicClassName="italic text-copper-2"
+            />
+            <p className="lede text-bone-2 md:col-span-4 md:col-start-9" data-reveal="auto" style={{ "--d": 500 } as React.CSSProperties}>
+              Every brand PASTED builds runs through the same two people — a strategist and a clinician. No account
+              managers, no layers, no handoffs. The people on the call are the people on set.
+            </p>
+          </div>
+          <div className="mt-16 grid grid-cols-2 gap-3 md:mt-24 md:gap-6">
+            {FOUNDERS.map((f, i) => (
+              <a key={f.slug} href={`#${f.slug}`} className="group block" data-reveal="auto" style={{ "--d": 600 + i * 150 } as React.CSSProperties}>
+                <div className="relative aspect-[4/5] overflow-clip rounded-[1.1rem] bg-ink-3">
+                  <Image
+                    src={f.portrait}
+                    alt={f.name}
+                    fill
+                    preload={i === 0}
+                    sizes="50vw"
+                    className="object-cover grayscale transition-transform duration-[1.6s] ease-[var(--ease-out-expo)] group-hover:scale-[1.03]"
+                  />
+                  <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_55%,rgb(11_10_9/0.85))]" />
+                  <div className="absolute inset-x-0 bottom-0 p-5 md:p-8">
+                    <p className="font-serif text-3xl text-bone md:text-6xl">{f.name}</p>
+                    <p className="eyebrow mt-2 text-bone-2">{f.role}</p>
+                  </div>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Each founder */}
+      {FOUNDERS.map((f, i) => {
+        const film = filmBySlug(FOUNDER_FILMS[f.slug]);
+        return (
+          <section key={f.slug} id={f.slug} className={cn("scroll-mt-24 py-24 md:py-36", i === 0 ? "bg-ink" : "border-t border-line bg-ink-2")} aria-labelledby={`${f.slug}-name`}>
+            <div className="wrap grid gap-14 lg:grid-cols-12">
+              <div className="lg:col-span-5">
+                <Eyebrow index={`0${i + 1}`} className="mb-8">
+                  {f.role}
+                </Eyebrow>
+                <h2 id={`${f.slug}-name`} className="display-lg text-bone" data-reveal="">
+                  {f.name}
+                </h2>
+                <blockquote className="display-sm mt-10 border-l border-copper pl-6 italic text-copper-2" data-reveal="">
+                  “{f.thesis}”
+                </blockquote>
+                <ul className="mt-10 flex flex-wrap gap-2">
+                  {f.focus.map((x) => (
+                    <li key={x} className="eyebrow rounded-full border border-line-strong px-4 py-2 text-bone-2">
+                      {x}
+                    </li>
+                  ))}
+                </ul>
+                <a href={`mailto:${f.email}`} className="eyebrow link-underline mt-10 inline-block text-bone">
+                  {f.email}
+                </a>
+              </div>
+              <div className="space-y-6 lg:col-span-6 lg:col-start-7">
+                {f.bio.map((p, k) => (
+                  <p key={k} className={cn(k === 0 ? "display-sm text-bone" : "lede text-bone-2")} data-reveal="" style={{ "--d": k * 100 } as React.CSSProperties}>
+                    {p}
+                  </p>
+                ))}
+                <div className={cn("pt-6", film.orientation === "portrait" && "max-w-xs")} data-reveal="">
+                  <FilmCard film={film} sizes={film.orientation === "portrait" ? "20rem" : "(min-width: 1024px) 45vw, 100vw"} />
+                </div>
+              </div>
+            </div>
+          </section>
+        );
+      })}
+
+      {/* Editorial plate */}
+      <section className="bg-ink py-10" aria-label="Editorial">
+        <div className="wrap" data-reveal="clip">
+          <Parallax className="aspect-[4/3] rounded-[1.1rem] md:aspect-[21/9]">
+            <Image src={redCarpet} alt="The founders at a PASTED gathering" fill sizes="(min-width: 1536px) 1440px, 100vw" className="object-cover" />
+          </Parallax>
+        </div>
+      </section>
+
+      {/* Gatherings */}
+      <section className="bg-ink py-24 md:py-36" aria-labelledby="gatherings-title">
+        <div className="wrap">
+          <div className="mb-16 grid gap-8 md:mb-24 md:grid-cols-12 md:items-end">
+            <div className="md:col-span-7">
+              <Eyebrow index="03" className="mb-8">
+                The world
+              </Eyebrow>
+              <h2 id="gatherings-title" className="display-lg text-bone" data-reveal="">
+                The rooms our partners <em className="text-copper-2">want to be in.</em>
+              </h2>
+            </div>
+            <p className="lede text-bone-2 md:col-span-4 md:col-start-9" data-reveal="">
+              Masterminds, private dinners and retreats — off-record, off-camera. We’ve filled those rooms in New York, LA,
+              London and Marrakech.
+            </p>
+          </div>
+          <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {GATHERINGS.map((g, i) => (
+              <li key={g.title} className="group" data-reveal="" style={{ "--d": i * 90 } as React.CSSProperties}>
+                <div className="relative aspect-[3/4] overflow-clip rounded-[1rem] bg-ink-3">
+                  <Image src={g.image} alt="" fill sizes="(min-width: 1024px) 24vw, (min-width: 640px) 48vw, 100vw" className="object-cover brightness-75 transition-[transform,filter] duration-[1.4s] ease-[var(--ease-out-expo)] group-hover:scale-105 group-hover:brightness-95" />
+                  <span className="eyebrow absolute left-4 top-4 rounded-full bg-ink/60 px-3 py-1.5 text-bone-2 backdrop-blur-md">{g.place}</span>
+                </div>
+                <h3 className="display-sm mt-6 text-bone">{g.title}</h3>
+                <p className="mt-2 text-bone-2">{g.body}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <ClubCards index="04" />
+      <PressMarquee />
+      <ConsultCTA title="Speak to a *founder.*" />
+    </Page>
+  );
+}

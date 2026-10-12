@@ -63,7 +63,7 @@ export const GATHERINGS: { title: string; place: string; body: string; image: St
   {
     title: "The Pasted Mastermind",
     place: "By invitation",
-    body: "A program for the next ten years of aesthetic dentistry. Run live, in person, a few times a year.",
+    body: "A program for the next ten years of aesthetic dentistry. Run live, four times a year, in person.",
     image: masterclass,
   },
   {

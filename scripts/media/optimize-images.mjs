@@ -50,7 +50,7 @@ const roster = {
 for (const [slug, f] of Object.entries(roster)) add(raw(f), `roster/${slug}.jpg`, 1100, 78);
 
 // Graded "club" cards -----------------------------------------------------------
-add(raw("alan-clarke-ChHh8_55.jpeg"), "cards/alan-clarke.jpg", 1400, 80);
+add(gp("roster_02.jpg"), "cards/alan-clarke.jpg", 1400, 86);
 add(raw("drew-ballard-7twNfLRN.jpeg"), "cards/drew-ballard.jpg", 1400, 80);
 add(raw("gage-lidder-DelhZQu-.jpeg"), "cards/gage-lidder.jpg", 1400, 80);
 add(raw("kooper-ruminer-1JFY7rSC.jpeg"), "cards/kooper-ruminer.jpg", 1400, 80);

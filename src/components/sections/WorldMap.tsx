@@ -1,0 +1,78 @@
+import { Eyebrow } from "@/components/ui/Button";
+import { MAP_CITIES, WORLD } from "@/content/world-map";
+
+/**
+ * Dotted world map (static SVG generated at build-time by scripts/media/world-map.mjs) with the
+ * roster's cities pulsing in copper. Pure server markup + CSS — no map library on the client.
+ */
+export function WorldMap({ index = "§" }: { index?: string }) {
+  const partnerCities = MAP_CITIES.filter((c) => c.partners.length);
+  const presence = MAP_CITIES.filter((c) => !c.partners.length);
+
+  return (
+    <section className="relative overflow-clip bg-ink py-28 md:py-40" aria-labelledby="world-title">
+      <div className="wrap">
+        <div className="grid gap-8 md:grid-cols-12 md:items-end">
+          <div className="md:col-span-7">
+            <Eyebrow index={index} className="mb-8">
+              Global presence
+            </Eyebrow>
+            <h2 id="world-title" className="display-lg text-bone" data-reveal="">
+              Thirty practices. <em className="text-copper-2">Six continents.</em>
+            </h2>
+          </div>
+          <p className="lede text-bone-2 md:col-span-4 md:col-start-9" data-reveal="">
+            Miami to Mumbai. Sydney to Seville. One per market — so the position we build for you is never built for the
+            practice across the street.
+          </p>
+        </div>
+
+        <figure className="relative mt-16 md:mt-24" data-reveal="fade">
+          <div className="relative" style={{ aspectRatio: `${WORLD.width} / ${WORLD.height}` }}>
+            {/* eslint-disable-next-line @next/next/no-img-element -- static SVG, no optimisation needed */}
+            <img src="/media/world-dots.svg" alt="" className="absolute inset-0 size-full" loading="lazy" decoding="async" />
+            <svg viewBox={`0 0 ${WORLD.width} ${WORLD.height}`} className="absolute inset-0 size-full" role="img" aria-labelledby="world-desc">
+              <desc id="world-desc">
+                Map of PASTED partner practices: {partnerCities.map((c) => c.name).join(", ")}.
+              </desc>
+              {presence.map((c) => (
+                <circle key={c.name} cx={c.x} cy={c.y} r={1.8} fill="#9d9286" />
+              ))}
+              {partnerCities.map((c, i) => (
+                <g key={c.name} transform={`translate(${c.x} ${c.y})`}>
+                  <circle
+                    r={4}
+                    fill="none"
+                    stroke="#c08552"
+                    strokeWidth={0.8}
+                    className="origin-center animate-pulse-ring [transform-box:fill-box]"
+                    style={{ animationDelay: `${(i % 7) * 0.37}s` }}
+                  />
+                  <circle r={2.8} fill="#d9a273" />
+                </g>
+              ))}
+            </svg>
+          </div>
+          <figcaption className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-3 border-t border-line pt-6">
+            <span className="eyebrow flex items-center gap-2 text-bone-2">
+              <span aria-hidden="true" className="size-2 rounded-full bg-copper-2" /> Roster partner
+            </span>
+            <span className="eyebrow flex items-center gap-2 text-mute">
+              <span aria-hidden="true" className="size-1.5 rounded-full bg-[#9d9286]" /> Network presence
+            </span>
+            <span className="eyebrow ml-auto text-mute">30 practices · 6 continents · 1 per market</span>
+          </figcaption>
+        </figure>
+
+        <ul className="mt-14 columns-2 gap-8 text-sm text-bone-2 sm:columns-3 lg:columns-5">
+          {partnerCities.map((c) => (
+            <li key={c.name} className="mb-4 break-inside-avoid">
+              <span className="eyebrow block text-copper-2">{c.name}</span>
+              <span className="text-mute">{c.partners.join(", ")}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  );
+}

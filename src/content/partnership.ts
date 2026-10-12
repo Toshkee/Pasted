@@ -113,7 +113,7 @@ export const SURFACES: Surface[] = [
 export const STEPS = [
   { n: "01", title: "Book a discovery call.", body: "Pick a time. A few questions on your field, your city, your ambition." },
   { n: "02", title: "Meet a founder.", body: "45 minutes with Zac Orender or Dr. Alan Clarke. Positioning, not a pitch." },
-  { n: "03", title: "If it fits, we begin.", body: "You will know on the call. So will we. The Immersion starts within weeks." },
+  { n: "03", title: "If it fits, we begin.", body: "You will know on the call. So will we." },
 ] as const;
 
 export const FOR = [

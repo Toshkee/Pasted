@@ -2,6 +2,7 @@
 
 import { useEffect, useId, useRef, useState, useSyncExternalStore } from "react";
 
+import { DemoScheduler, formatBooking } from "@/components/sections/contact/DemoScheduler";
 import { Arrow, Roll } from "@/components/ui/Button";
 import { SITE } from "@/content/site";
 import { cn } from "@/lib/cn";
@@ -262,11 +263,13 @@ function YesNoField({ question, value, onChange, first }: { question: string; va
 
 /**
  * The founders' Calendly, inline and prefilled. Calendly reports its own height and the booking
- * itself over postMessage; once booked, the frame is replaced with a confirmation.
+ * itself over postMessage; once booked, the frame is replaced with a confirmation. Without
+ * NEXT_PUBLIC_CALENDLY_URL (the concept deployment) a demo calendar stands in and nothing is booked.
  */
 function Booking({ answers: a, onEdit }: { answers: Answers; onEdit: () => void }) {
   const [height, setHeight] = useState<number | null>(null);
-  const [booked, setBooked] = useState(false);
+  const [booked, setBooked] = useState<{ demo?: Date } | null>(null);
+  const live = Boolean(SITE.calendly);
 
   useEffect(() => {
     const onMessage = (e: MessageEvent) => {
@@ -275,7 +278,7 @@ function Booking({ answers: a, onEdit }: { answers: Answers; onEdit: () => void 
         const h = parseInt(e.data.payload?.height, 10);
         if (h > 0) setHeight(h);
       }
-      if (e.data.event === "calendly.event_scheduled") setBooked(true);
+      if (e.data.event === "calendly.event_scheduled") setBooked({});
     };
     window.addEventListener("message", onMessage);
     return () => window.removeEventListener("message", onMessage);
@@ -283,6 +286,27 @@ function Booking({ answers: a, onEdit }: { answers: Answers; onEdit: () => void 
 
   // Calendly splits the invitee into first and last name; a leading "Dr." would become the first name.
   const [first = "", ...rest] = a.name.trim().replace(/^dr\.?\s+/i, "").split(/\s+/);
+
+  if (booked?.demo) {
+    return (
+      <div className="animate-[fade-rise_.9s_var(--ease-out-expo)_both] rounded-[1.25rem] border border-line bg-ink-2 p-6 sm:p-10">
+        <p className="text-sm text-copper-2">Demo booking</p>
+        <p className="display-md mt-4 text-bone text-balance">
+          Thank you{first && `, ${first}`}. You’d be booked for {formatBooking(booked.demo)}.
+        </p>
+        <p className="lede mt-6 max-w-lg text-bone-2">
+          On the live site this step is the studio’s Calendly: the invitation and Zoom link go to {a.email}, with your
+          answers attached. This concept site is a demo, so nothing was booked or sent.
+        </p>
+        <p className="mt-6 text-sm text-mute">
+          To speak with the studio, write to <a className="link-underline text-bone-2" href="mailto:zac@getpasted.com">zac@getpasted.com</a>.
+        </p>
+        <button type="button" onClick={() => setBooked(null)} className="eyebrow link-underline mt-8 text-mute hover:text-bone">
+          Pick another time
+        </button>
+      </div>
+    );
+  }
 
   if (booked) {
     return (
@@ -327,16 +351,20 @@ function Booking({ answers: a, onEdit }: { answers: Answers; onEdit: () => void 
           Edit answers
         </button>
       </div>
-      <div className="overflow-clip rounded-[1rem] border border-line bg-ink-2">
-        <iframe
-          title="Book a discovery call with PASTED"
-          src={`${SITE.calendly}?${params.toString()}`}
-          className={cn("w-full transition-[height] duration-500", !height && "h-[1060px] md:h-[760px]")}
-          // The site is color-scheme: dark and Calendly's page is light; matching schemes keeps the
-          // frame transparent instead of painting a white backdrop around the booking card.
-          style={{ colorScheme: "light", ...(height ? { height } : null) }}
-        />
-      </div>
+      {live ? (
+        <div className="overflow-clip rounded-[1rem] border border-line bg-ink-2">
+          <iframe
+            title="Book a discovery call with PASTED"
+            src={`${SITE.calendly}?${params.toString()}`}
+            className={cn("w-full transition-[height] duration-500", !height && "h-[1060px] md:h-[760px]")}
+            // The site is color-scheme: dark and Calendly's page is light; matching schemes keeps the
+            // frame transparent instead of painting a white backdrop around the booking card.
+            style={{ colorScheme: "light", ...(height ? { height } : null) }}
+          />
+        </div>
+      ) : (
+        <DemoScheduler onBook={(when) => setBooked({ demo: when })} />
+      )}
       <p className="mt-4 text-sm text-mute">
         Prefer email? <a className="link-underline text-bone-2" href="mailto:zac@getpasted.com">zac@getpasted.com</a>
       </p>

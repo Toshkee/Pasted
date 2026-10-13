@@ -4,8 +4,11 @@ export const SITE = {
   tagline: "The Standard in Aesthetic Dentistry",
   description:
     "The operating partner behind the most recognized names in cosmetic dentistry. Brand, film, content and growth — one practice per market, by invitation.",
-  /** The studio’s discovery-call event. Override per deployment (e.g. a demo event) with NEXT_PUBLIC_CALENDLY_URL. */
-  calendly: process.env.NEXT_PUBLIC_CALENDLY_URL || "https://calendly.com/getpasted/pasted-partner-discovery",
+  /**
+   * The discovery-call Calendly, set per deployment. Unset (the concept site), the intake ends in a demo
+   * calendar that books nothing. Live: https://calendly.com/getpasted/pasted-partner-discovery
+   */
+  calendly: process.env.NEXT_PUBLIC_CALENDLY_URL ?? "",
   heroFilmId: "8kirf86p7j",
   emails: [
     { label: "Partnerships", address: "zac@getpasted.com" },

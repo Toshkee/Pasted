@@ -22,7 +22,7 @@ SEO scores 100 with indexing enabled; concept deployments ship `noindex` (see be
 - **Partnership** — seven-part breakdown with a sticky plate, four service surfaces, the path, accountability, fit, dotted world map, FAQ.
 - **Work** — three practice transformations and nine identity systems, each a statically generated case study with shared-element view transitions.
 - **Films** — features, archive one-sheets and a filterable library (React `<ViewTransition>`).
-- **Founders**, **Library** (paper edition with Insider sign-up) and **Contact** — a five-question intake that hands off to the studio's Calendly with every booking question already answered, loaded only at the last step.
+- **Founders**, **Library** (paper edition with Insider sign-up) and **Contact** — a five-question intake that hands off to the studio's Calendly with every booking question already answered, loaded only at the last step (a demo calendar on the concept deployment).
 
 ## Stack
 
@@ -50,7 +50,7 @@ pnpm lint
 | Variable | Default | Purpose |
 |---|---|---|
 | `ALLOW_INDEXING` | unset | Set to `true` on the official domain to allow search indexing. Otherwise every page is `noindex` and `robots.txt` disallows crawling. |
-| `NEXT_PUBLIC_CALENDLY_URL` | studio's discovery event | Point a deployment at a different Calendly event, e.g. a demo event so test bookings don't reach the founders' calendar. |
+| `NEXT_PUBLIC_CALENDLY_URL` | unset | The Calendly event the intake hands off to. Unset, the intake ends in a demo calendar that books nothing (the concept deployment). Set it to `https://calendly.com/getpasted/pasted-partner-discovery` to take real bookings. |
 
 ## Integration points
 

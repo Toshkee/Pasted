@@ -8,7 +8,7 @@ import { ButtonLink } from "@/components/ui/Button";
 /** Closing call to action used across inner pages. */
 export function ConsultCTA({
   title = "Build the brand they feel.",
-  lede = "45 minutes with Zac Orender or Dr. Alan Clarke. Positioning, not a pitch — you will know on the call. So will we.",
+  lede = "A 45-minute call with Zac Orender or Dr. Alan Clarke about where your practice stands and whether a partnership makes sense.",
 }: {
   title?: string;
   lede?: string;
@@ -38,7 +38,6 @@ export function ConsultCTA({
             zac@getpasted.com
           </ButtonLink>
         </div>
-        <p className="eyebrow mt-8 text-mute">Fifty seats, ever · Every call taken by a founder</p>
       </div>
     </section>
   );

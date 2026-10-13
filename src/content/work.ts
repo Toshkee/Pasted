@@ -10,8 +10,6 @@ import clarkeCard from "@/assets/img/cards/alan-clarke.jpg";
 import clarkeEditorial from "@/assets/img/founders/editorial-green-room.jpg";
 import clarkeRestraint from "@/assets/img/films/posters/on-restraint.jpg";
 
-export type Metric = { value: string; label: string };
-
 export type CaseStudy = {
   slug: string;
   name: string;
@@ -25,7 +23,6 @@ export type CaseStudy = {
   outcomes: string[];
   services: string[];
   timeline?: string;
-  metrics?: Metric[];
   cover: StaticImageData;
   gallery: GalleryImage[];
   quote?: { text: string; by: string };
@@ -53,11 +50,6 @@ export const CASES: CaseStudy[] = [
       "Works three days a week, nine months a year",
       "Only does the dentistry he wants to do",
       "Halo Education courses now sold out",
-    ],
-    metrics: [
-      { value: "$2M+", label: "Aesthetic case revenue in 18 months" },
-      { value: "3", label: "Days a week in the chair" },
-      { value: "5", label: "Years as a partner" },
     ],
     services: ["Brand identity", "Positioning", "Conversion infrastructure", "Ad systems", "Operational framework"],
     cover: ballardPoster,
@@ -88,11 +80,6 @@ export const CASES: CaseStudy[] = [
       "Complete brand identity system delivered in 45 days",
       "Content pipeline generating 150k+ monthly impressions",
     ],
-    metrics: [
-      { value: "3×", label: "High-value case inquiries" },
-      { value: "45", label: "Days to a complete identity" },
-      { value: "150k+", label: "Monthly impressions" },
-    ],
     services: ["Brand strategy", "Visual identity", "Content system", "Editorial photography", "Social management"],
     timeline: "45-day build + ongoing management",
     cover: g("mikaela-tozzi")[1].src,
@@ -115,11 +102,6 @@ export const CASES: CaseStudy[] = [
       "O-1 visa granted for extraordinary ability",
       "An autonomous practice with five associates",
       "International recognition as an industry authority",
-    ],
-    metrics: [
-      { value: "Yr 1", label: "Forbes & New York Post" },
-      { value: "O-1", label: "Visa for extraordinary ability" },
-      { value: "5", label: "Associates in an autonomous practice" },
     ],
     services: ["Personal brand architecture", "PR & media strategy", "Content positioning", "Authority narrative"],
     cover: clarkePortrait,

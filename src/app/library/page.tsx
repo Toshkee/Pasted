@@ -10,7 +10,7 @@ import { PageHero } from "@/components/layout/PageHero";
 import { Parallax } from "@/components/motion/Parallax";
 import { ConsultCTA } from "@/components/sections/ConsultCTA";
 import { InsiderForm } from "@/components/sections/library/InsiderForm";
-import { ButtonLink, Eyebrow } from "@/components/ui/Button";
+import { ButtonLink } from "@/components/ui/Button";
 import { ARCHITECTURE, SECTIONS, VOLUMES } from "@/content/library";
 import { cn } from "@/lib/cn";
 
@@ -46,9 +46,6 @@ export default function LibraryPage() {
       {/* Volumes */}
       <section data-header="light" className="bg-paper pb-24 text-paper-ink md:pb-36" aria-labelledby="volumes-title">
         <div className="wrap">
-          <Eyebrow className="mb-8 text-paper-mute">
-            The canon, in circulation
-          </Eyebrow>
           <h2 id="volumes-title" className="sr-only">
             Volumes
           </h2>
@@ -81,11 +78,8 @@ export default function LibraryPage() {
         <div className="wrap">
           <div className="mb-10 grid gap-8 md:mb-24 md:grid-cols-12 md:items-end">
             <div className="md:col-span-7">
-              <Eyebrow className="mb-8">
-                Inside Volume I
-              </Eyebrow>
               <h2 id="arch-title" className="display-lg text-bone" data-reveal="">
-                The five-part architecture.
+                Volume I, in five parts.
               </h2>
             </div>
             <p className="lede text-bone-2 md:col-span-4 md:col-start-9" data-reveal="">
@@ -112,11 +106,8 @@ export default function LibraryPage() {
       <section data-header="light" className="bg-paper py-24 text-paper-ink md:py-36" aria-labelledby="contents-title">
         <div className="wrap grid gap-14 lg:grid-cols-12">
           <div className="lg:col-span-5">
-            <Eyebrow className="mb-8 text-paper-mute">
-              Contents
-            </Eyebrow>
-            <h2 id="contents-title" className="display-lg" data-reveal="">
-              The Art of Becoming.
+            <h2 id="contents-title" className="display-lg text-balance" data-reveal="">
+              The Art of Becoming, chapter by chapter.
             </h2>
             <div className="mt-12 grid grid-cols-2 gap-4" data-reveal="">
               {[plateDeparture, plateRoom].map((p, i) => (
@@ -148,7 +139,7 @@ export default function LibraryPage() {
           <blockquote className="display-lg mx-auto max-w-[19ch] text-bone" data-reveal="">
             “A brand is the only load-bearing wall in a practice. Build it wrong and everything else eventually sags.”
           </blockquote>
-          <figcaption className="eyebrow mt-10 text-bone-2">The PASTED House Doctrine</figcaption>
+          <figcaption className="mt-10 text-sm text-bone-2">The PASTED House Doctrine</figcaption>
         </figure>
       </section>
 
@@ -156,15 +147,12 @@ export default function LibraryPage() {
       <section data-header="light" className="bg-paper py-24 text-paper-ink md:py-36" aria-labelledby="insider-title">
         <div className="wrap grid gap-14 lg:grid-cols-12">
           <div className="lg:col-span-5">
-            <Eyebrow className="mb-8 text-paper-mute">
-              The PASTED Insider
-            </Eyebrow>
             <h2 id="insider-title" className="display-lg" data-reveal="">
-              Take your seat at the library.
+              The PASTED Insider.
             </h2>
             <p className="lede mt-8 text-paper-mute" data-reveal="">
-              A weekly private broadcast — dispatches, teardowns and early chapters of the next volume. Members read it
-              first.
+              A weekly email with dispatches, teardowns and early chapters of the next volume, before anyone else reads
+              them.
             </p>
           </div>
           <div className="lg:col-span-6 lg:col-start-7 lg:self-end">

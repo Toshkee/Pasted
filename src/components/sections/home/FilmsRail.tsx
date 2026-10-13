@@ -1,7 +1,7 @@
 import { FilmCard } from "@/components/media/FilmCard";
 import { DragScroll } from "@/components/motion/DragScroll";
 import { SplitText } from "@/components/motion/SplitText";
-import { Eyebrow, TextLink } from "@/components/ui/Button";
+import { TextLink } from "@/components/ui/Button";
 import { filmBySlug } from "@/content/films";
 
 const RAIL = [
@@ -22,9 +22,6 @@ export function FilmsRail() {
       <div className="wrap">
         <div className="grid gap-8 md:grid-cols-12 md:items-end">
           <div className="md:col-span-8">
-            <Eyebrow className="mb-8">
-              The house, in motion
-            </Eyebrow>
             <SplitText
               as="h2"
               id="films-title"
@@ -33,8 +30,7 @@ export function FilmsRail() {
             />
           </div>
           <p className="lede max-w-sm text-bone-2 md:col-span-4" data-reveal="">
-            Documentaries, commercials and practice films — directed, shot and cut in-house. Made to be watched, not
-            scrolled past.
+            Documentaries, commercials and practice films, directed, shot and cut by the studio’s own crew.
           </p>
         </div>
 
@@ -57,11 +53,7 @@ export function FilmsRail() {
         <div aria-hidden="true" className="w-px shrink-0" />
       </DragScroll>
 
-      <div className="wrap mt-10 flex flex-wrap items-center justify-between gap-x-6 gap-y-4 md:mt-12">
-        <p className="eyebrow text-mute">
-          <span className="pointer-coarse:hidden">Drag to browse · Press to play</span>
-          <span className="hidden pointer-coarse:inline">Swipe to browse · Tap to play</span>
-        </p>
+      <div className="wrap mt-10 md:mt-12">
         <TextLink href="/films">Enter the film library</TextLink>
       </div>
     </section>

@@ -3,8 +3,8 @@ import { NextResponse } from "next/server";
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
 /**
- * Consultation intake. Validates and acknowledges; the answers also travel to Calendly as a prefilled
- * note, so nothing is lost even before this is wired to the CRM (live site: Supabase `eligibility_submissions`).
+ * Consultation intake. Validates and acknowledges; every answer also travels to Calendly as a prefilled
+ * custom question, so nothing is lost even before this is wired to the CRM (live site: Supabase `eligibility_submissions`).
  */
 export async function POST(request: Request) {
   let body: Record<string, unknown>;

@@ -69,13 +69,12 @@ export function MarketChecker() {
       />
       <div className="wrap relative grid grid-cols-1 gap-10 md:gap-14 lg:grid-cols-12">
         <div className="min-w-0 lg:col-span-6">
-          <p className="eyebrow mb-8 text-copper-2">One practice per market</p>
           <h2 id={`${id}-title`} className="display-xl text-bone" data-reveal="">
-            Your market, closed.
+            Is your city taken?
           </h2>
           <p className="lede mt-6 max-w-lg text-bone/75 md:mt-10" data-reveal="" style={{ "--d": 100 } as React.CSSProperties}>
-            Exclusivity here is not a scarcity tactic. It is a structural requirement — a position cannot be built for two
-            rivals at once. When a partner holds a market, competitors are not waitlisted. They are declined.
+            PASTED works with one practice per market, because the same position can’t be built for two competitors in
+            one city. Once a city is held, other practices there are turned down.
           </p>
         </div>
 

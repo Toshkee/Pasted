@@ -5,7 +5,6 @@ import smileVirtual from "@/assets/img/logos/smile-virtual.png";
 import smiletrend from "@/assets/img/logos/smiletrend.png";
 import solventum from "@/assets/img/logos/solventum.png";
 import suri from "@/assets/img/logos/suri.png";
-import { Eyebrow } from "@/components/ui/Button";
 
 const LOGOS = [
   { src: solventum, name: "Solventum" },
@@ -20,8 +19,10 @@ export function PartnerLogos() {
     <section className="border-y border-line bg-ink py-16 md:py-28" aria-labelledby="brands-partners">
       <div className="wrap">
         <div className="mb-10 flex flex-wrap items-end justify-between gap-4 md:mb-14 md:gap-6">
-          <Eyebrow>Brands that borrow the roster’s authority</Eyebrow>
-          <p id="brands-partners" className="max-w-md text-sm text-mute">
+          <h2 id="brands-partners" className="display-sm text-bone">
+            Brands that work with the roster
+          </h2>
+          <p className="max-w-md text-sm text-mute">
             Product launches, brand integration and co-productions with companies building around clinicians.
           </p>
         </div>

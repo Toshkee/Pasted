@@ -19,32 +19,32 @@ export type Component = { title: string; body: string; image: StaticImageData };
 export const COMPONENTS: Component[] = [
   {
     title: "The Immersion",
-    body: "Four weeks before the first frame. Your market researched, your positioning locked, the narrative spine set.",
+    body: "Four weeks of research before the first shoot: your market, your positioning and the story the brand will tell.",
     image: imgRoom,
   },
   {
     title: "Cinematic shoots",
-    body: "Four fully produced shoot days a year — one per quarter. Directed, shot and cut by our own team.",
+    body: "Four fully produced shoot days a year, one each quarter, directed, shot and cut by our own team.",
     image: imgStudio,
   },
   {
     title: "The body of work",
-    body: "One hundred–plus premium pieces a year, eight to ten a month — cut, curated and posted on cadence. You never touch a calendar.",
+    body: "More than a hundred pieces a year, eight to ten a month, edited and posted for you on a steady schedule.",
     image: imgBody,
   },
   {
     title: "The counsel",
-    body: "Monthly strategy calls on the practice, not just the content. Creative direction between shoots.",
+    body: "A strategy call every month about the whole practice, with creative direction between shoots.",
     image: imgNotebook,
   },
   {
     title: "Market exclusivity",
-    body: "One practice per market, held for as long as you hold your seat. Competitors are not waitlisted. They are declined.",
+    body: "Your city is yours for as long as the partnership runs. Other practices there are turned down.",
     image: imgArches,
   },
   {
     title: "The world",
-    body: "A seat in the closed network — the dinners, the masterminds, the rooms, the standard.",
+    body: "A place in the partner network: dinners, masterminds and events with the other doctors on the roster.",
     image: imgDinner,
   },
   {
@@ -82,7 +82,7 @@ export const SURFACES: Surface[] = [
   },
   {
     title: "Creative & content",
-    headline: "Directed in-house. Built to age well.",
+    headline: "Films and content, directed in-house.",
     body: "Cinematic shoots, brand films and content systems — directed, shot and cut by our own team, for paid, organic and the way patients actually watch.",
     points: ["Quarterly cinematic shoots", "Brand & documentary films", "Monthly content cadence", "Editorial photography"],
     cta: "Commission a shoot",
@@ -90,7 +90,7 @@ export const SURFACES: Surface[] = [
   },
   {
     title: "Ads & results",
-    headline: "Accountable to the chair, not the click.",
+    headline: "Measured on consultations that show up.",
     body: "Meta and Google campaigns for veneers, implants and full-arch — procedure-specific funnels, speed-to-lead and show-rate systems, optimized on consults that show.",
     points: ["Meta & Google campaigns", "Procedure-specific funnels", "Speed-to-lead & nurture", "Ad account audits"],
     cta: "Audit my ad account",
@@ -99,15 +99,15 @@ export const SURFACES: Surface[] = [
 ];
 
 export const STEPS = [
-  { title: "Book a discovery call.", body: "Pick a time. A few questions on your field, your city, your ambition." },
-  { title: "Meet a founder.", body: "45 minutes with Zac Orender or Dr. Alan Clarke. Positioning, not a pitch." },
-  { title: "If it fits, we begin.", body: "You will know on the call. So will we." },
+  { title: "Book a discovery call.", body: "Answer five short questions, then pick a time." },
+  { title: "Meet a founder.", body: "45 minutes on Zoom with Zac Orender or Dr. Alan Clarke about your practice and your market." },
+  { title: "If it fits, we begin.", body: "If both sides agree, the partnership starts with the Immersion." },
 ] as const;
 
 export const FOR = [
   "Clinicians whose work already outruns their reputation.",
   "Practices past the referral ceiling, ready to own a category rather than compete in one.",
-  "Doctors who understand that at this level, restraint is the loudest signal.",
+  "Doctors who would rather have a quiet, considered brand than louder marketing.",
   "Doctors ready to be the face of the brand — not just the founder.",
 ] as const;
 
@@ -120,18 +120,18 @@ export const NOT_FOR = [
 export const FAQ = [
   {
     q: "Who actually does the work?",
-    a: "Founders and a named team. No account managers, no layers, no handoffs. The people on the call are the people on set.",
+    a: "The founders and a named team. The people you meet on the call are the people on set.",
   },
   {
     q: "How much of my time does this take?",
-    a: "Four shoot days a year. Two calls a month. The rest runs without you.",
+    a: "Four shoot days a year and two calls a month. Everything else runs without you.",
   },
   { q: "Do I own the work?", a: "Yes. Everything created vests to you at the close of term." },
   {
     q: "What does it cost?",
-    a: "Terms are discussed on the call, after fit. If price is the deciding factor, this is not the right room.",
+    a: "Terms are discussed on the call, once both sides know it is a fit.",
   },
-  { q: "What if my market is already held?", a: "Then it is held. Request a consultation to confirm." },
+  { q: "What if my market is already held?", a: "Then we can’t take on a second practice there. Request a consultation to confirm; a neighboring market may still be open." },
   {
     q: "What if it doesn’t deliver?",
     a: "Your first shoot, your locked positioning and live content land in quarter one — or production continues until they do. No partner ends a term empty-handed.",

@@ -65,15 +65,14 @@ export function BrandsShowcase() {
     <section data-header="light" className="relative overflow-clip bg-paper py-24 text-paper-ink md:py-36" aria-labelledby="brands-title">
       <div className="wrap mb-10 grid gap-8 md:mb-20 md:grid-cols-12 md:items-end">
         <div className="md:col-span-7">
-          <p className="eyebrow mb-8 text-paper-mute">Brands & sites</p>
           <h2 id="brands-title" className="display-lg text-balance" data-reveal="">
             Identities that carry the same weight as the work.
           </h2>
         </div>
         <div className="md:col-span-4 md:col-start-9" data-reveal="" style={{ "--d": 120 } as React.CSSProperties}>
           <p className="lede text-paper-mute">
-            Wordmarks, monograms, rooms and sites for the practices on the roster. Each system built in forty-five days —
-            and built to age the way a family piece ages.
+            Wordmarks, monograms, rooms and websites for the practices on the roster. Each identity takes about
+            forty-five days from first brief to launch.
           </p>
           <ButtonLink href="/work" variant="ink" className="mt-8">
             Selected work

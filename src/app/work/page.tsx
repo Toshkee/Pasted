@@ -10,7 +10,7 @@ import { RosterIndex } from "@/components/sections/RosterIndex";
 import { CaseCover } from "@/components/sections/work/CaseCover";
 import { PartnerLogos } from "@/components/sections/work/PartnerLogos";
 import { TestimonialWall } from "@/components/sections/work/TestimonialWall";
-import { Arrow, Eyebrow } from "@/components/ui/Button";
+import { Arrow } from "@/components/ui/Button";
 import { IDENTITIES, TRANSFORMATIONS } from "@/content/work";
 import { cn } from "@/lib/cn";
 
@@ -29,14 +29,8 @@ export default function WorkPage() {
         title="Built from who they already are."
         lede={
           <p>
-            Three practice transformations and nine identity systems — built for doctors on the roster, in their markets,
-            in their own voice. Nothing templated.
-          </p>
-        }
-        aside={
-          <p className="text-bone-2">
-            <span className="font-serif text-6xl text-bone">$100M+</span>
-            <span className="mt-2 block text-sm text-mute">Aesthetic case revenue across partners</span>
+            Three practice transformations and nine identity systems, made for doctors on the roster and the markets they
+            work in.
           </p>
         }
       />
@@ -45,7 +39,7 @@ export default function WorkPage() {
       <section className="bg-ink pb-16 md:pb-36" aria-labelledby="transformations-title">
         <div className="wrap">
           <div className="mb-14 border-b border-line pb-6">
-            <h2 id="transformations-title" className="eyebrow text-bone">
+            <h2 id="transformations-title" className="font-serif text-3xl text-bone">
               Practice transformations
             </h2>
           </div>
@@ -70,7 +64,7 @@ export default function WorkPage() {
                   </div>
                 </Link>
                 <div className={cn("md:col-span-5", i % 2 === 1 ? "md:order-1 md:col-start-1" : "md:col-start-8")}>
-                  <p className="eyebrow text-copper">{c.location}</p>
+                  <p className="text-sm text-copper-2">{c.location}</p>
                   <h3 className="display-lg mt-6 text-bone" data-reveal="">
                     {c.name}
                   </h3>
@@ -80,16 +74,6 @@ export default function WorkPage() {
                   <p className="mt-8 text-bone-2" data-reveal="">
                     {c.summary}
                   </p>
-                  {c.metrics && (
-                    <dl className="mt-10 grid grid-cols-3 gap-4 border-y border-line py-6">
-                      {c.metrics.map((m) => (
-                        <div key={m.label}>
-                          <dd className="font-serif text-3xl text-bone md:text-4xl">{m.value}</dd>
-                          <dt className="mt-2 text-xs leading-snug text-mute">{m.label}</dt>
-                        </div>
-                      ))}
-                    </dl>
-                  )}
                   <Link href={`/work/${c.slug}`} className="eyebrow group mt-8 inline-flex items-center gap-3 text-bone">
                     <span className="link-underline">Read the case</span>
                     <Arrow className="transition-transform duration-500 group-hover:translate-x-1" />
@@ -106,16 +90,12 @@ export default function WorkPage() {
         <div className="wrap">
           <div className="mb-10 grid gap-8 md:mb-20 md:grid-cols-12 md:items-end">
             <div className="md:col-span-7">
-              <Eyebrow className="mb-8 text-paper-mute">
-                Identity systems
-              </Eyebrow>
               <h2 id="identities-title" className="display-lg" data-reveal="">
                 Wordmarks, monograms, rooms — in forty-five days.
               </h2>
             </div>
             <p className="lede text-paper-mute md:col-span-4 md:col-start-9" data-reveal="">
-              Every system is built in a 45-day sprint, then managed for the life of the partnership — so the brand ages
-              like an heirloom, not a trend.
+              Every system is built in a 45-day sprint, then looked after for as long as the partnership runs.
             </p>
           </div>
           <ul className="grid gap-x-6 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">

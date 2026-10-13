@@ -1,15 +1,11 @@
 import Image from "next/image";
 
-import { Eyebrow } from "@/components/ui/Button";
 import { TESTIMONIALS } from "@/content/testimonials";
 
 export function TestimonialWall() {
   return (
     <section className="bg-ink py-16 md:py-36" aria-labelledby="wall-title">
       <div className="wrap">
-        <Eyebrow className="mb-8">
-          In their words
-        </Eyebrow>
         <h2 id="wall-title" className="display-lg mb-16 max-w-[14ch] text-bone md:mb-24" data-reveal="">
           Twelve doctors on working with PASTED.
         </h2>

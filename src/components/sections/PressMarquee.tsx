@@ -17,12 +17,9 @@ export function PressMarquee() {
 
   return (
     <section aria-labelledby="press-label" className="border-y border-line bg-ink py-8 md:py-10">
-      <div className="wrap mb-6 flex items-center justify-between">
-        <p id="press-label" className="eyebrow text-mute">
-          Partners featured in
-        </p>
-        <p className="eyebrow hidden text-mute md:block">Six continents · Thirty practices</p>
-      </div>
+      <p id="press-label" className="wrap mb-6 text-sm text-mute">
+        Our partners have been featured in
+      </p>
       <div className="mask-fade-x group flex overflow-clip" style={{ "--marquee-duration": "55s" } as React.CSSProperties}>
         <div className="flex animate-marquee group-hover:[animation-play-state:paused]">
           {row(false)}

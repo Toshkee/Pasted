@@ -17,7 +17,7 @@ import { cn } from "@/lib/cn";
 export const metadata: Metadata = {
   title: "Founders",
   description:
-    "Zac Orender and Dr. Alan Clarke — strategy and creative direction behind PASTED. Every brand the studio builds runs through the same two people.",
+    "Zac Orender and Dr. Alan Clarke, the strategist and the clinician behind PASTED. Every brand the studio builds runs through them.",
   alternates: { canonical: "/founders" },
 };
 
@@ -43,8 +43,8 @@ export default function FoundersPage() {
               className="display-xl md:col-span-7"
             />
             <p className="lede text-bone-2 md:col-span-4 md:col-start-9" data-reveal="auto" style={{ "--d": 500 } as React.CSSProperties}>
-              Every brand PASTED builds runs through the same two people — a strategist and a clinician. No account
-              managers, no layers, no handoffs. The people on the call are the people on set.
+              Every brand PASTED builds runs through the same two people, a strategist and a clinician. They are the ones on
+              the discovery call, and the ones on set.
             </p>
           </div>
           <div className="mt-10 grid grid-cols-2 gap-3 md:mt-24 md:gap-6">
@@ -78,9 +78,7 @@ export default function FoundersPage() {
           <section key={f.slug} id={f.slug} className={cn("scroll-mt-24 py-16 md:py-36", i === 0 ? "bg-ink" : "border-t border-line bg-ink-2")} aria-labelledby={`${f.slug}-name`}>
             <div className="wrap grid gap-10 lg:grid-cols-12 lg:gap-14">
               <div className="lg:col-span-5">
-                <Eyebrow className="mb-8">
-                  {f.role}
-                </Eyebrow>
+                <p className="mb-5 text-sm text-mute">{f.role}</p>
                 <h2 id={`${f.slug}-name`} className="display-lg text-bone" data-reveal="">
                   {f.name}
                 </h2>
@@ -127,9 +125,6 @@ export default function FoundersPage() {
         <div className="wrap">
           <div className="mb-10 grid gap-8 md:mb-24 md:grid-cols-12 md:items-end">
             <div className="md:col-span-7">
-              <Eyebrow className="mb-8">
-                The world
-              </Eyebrow>
               <h2 id="gatherings-title" className="display-lg text-bone" data-reveal="">
                 The rooms our partners want to be in.
               </h2>

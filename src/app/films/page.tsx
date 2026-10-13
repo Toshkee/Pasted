@@ -40,7 +40,7 @@ export default function FilmsPage() {
               className="display-xl text-balance md:col-span-9"
             />
             <p className="lede text-bone-2 md:col-span-3" data-reveal="auto" style={{ "--d": 600 } as React.CSSProperties}>
-              Documentaries, commercials and practice films. Shot to be watched, not scrolled past.
+              Documentaries, commercials and practice films for the doctors on the roster, many of them directed by Dr. Alan Clarke.
             </p>
           </div>
           <div className="mt-10 md:mt-24" data-reveal="auto" style={{ "--d": 700 } as React.CSSProperties}>
@@ -62,9 +62,6 @@ export default function FilmsPage() {
       <section className="border-y border-line bg-ink-2 py-16 md:py-36" aria-labelledby="archive-title">
         <div className="wrap grid items-center gap-14 lg:grid-cols-12">
           <div className="lg:col-span-5">
-            <Eyebrow className="mb-8">
-              The archive
-            </Eyebrow>
             <h2 id="archive-title" className="display-lg text-bone" data-reveal="">
               Long form lives on Pasted Series.
             </h2>
@@ -101,20 +98,9 @@ export default function FilmsPage() {
 
       <section className="bg-ink py-16 md:py-36" aria-labelledby="library-title">
         <div className="wrap">
-          <div className="mb-14 flex flex-wrap items-end justify-between gap-6">
-            <div>
-              <Eyebrow className="mb-8">
-                The library
-              </Eyebrow>
-              <h2 id="library-title" className="display-lg text-bone" data-reveal="">
-                Portraits, gatherings, brands.
-              </h2>
-            </div>
-            <p className="eyebrow text-mute">
-              <span className="pointer-coarse:hidden">Hover to preview · Press to play</span>
-              <span className="hidden pointer-coarse:inline">Tap to play</span>
-            </p>
-          </div>
+          <h2 id="library-title" className="display-lg mb-14 text-bone" data-reveal="">
+            Portraits, gatherings, brands.
+          </h2>
           <FilmLibrary films={library} categories={FILM_CATEGORIES.filter((c) => c !== "Feature")} />
         </div>
       </section>

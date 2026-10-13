@@ -34,7 +34,6 @@ export function Hero() {
     <HeroStage poster={<HeroPoster />} filmId={SITE.heroFilmId}>
       <div className="flex items-center justify-between gap-6 pt-24 lg:pt-28" data-reveal="auto" style={{ "--d": 900 } as React.CSSProperties}>
         <p className="eyebrow text-bone-2">The standard in aesthetic dentistry</p>
-        <p className="eyebrow hidden text-bone-2 md:block">One practice per market · By invitation</p>
       </div>
 
       <div className="mt-auto">
@@ -52,8 +51,8 @@ export function Hero() {
             data-reveal="auto"
             style={{ "--d": 700 } as React.CSSProperties}
           >
-            PASTED is the operating partner behind the most recognized names in cosmetic dentistry. Nothing outsourced.
-            Nothing templated.
+            PASTED is the operating partner behind the most recognized names in cosmetic dentistry: brand, film, content
+            and growth, all made in-house.
           </p>
           <div
             className="flex flex-wrap items-center gap-3 md:col-span-7 md:justify-end"

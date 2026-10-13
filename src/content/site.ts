@@ -4,7 +4,8 @@ export const SITE = {
   tagline: "The Standard in Aesthetic Dentistry",
   description:
     "The operating partner behind the most recognized names in cosmetic dentistry. Brand, film, content and growth — one practice per market, by invitation.",
-  calendly: "https://calendly.com/getpasted/pasted-partner-discovery",
+  /** The studio’s discovery-call event. Override per deployment (e.g. a demo event) with NEXT_PUBLIC_CALENDLY_URL. */
+  calendly: process.env.NEXT_PUBLIC_CALENDLY_URL || "https://calendly.com/getpasted/pasted-partner-discovery",
   heroFilmId: "8kirf86p7j",
   emails: [
     { label: "Partnerships", address: "zac@getpasted.com" },
@@ -33,8 +34,8 @@ export const NAV = [
 export const STATS = [
   { value: 100, prefix: "$", suffix: "M+", label: "Aesthetic case revenue across partners" },
   { value: 97, suffix: "%", label: "Partner retention, audited annually" },
-  { value: 50, label: "Seats. Total. Ever." },
-  { value: 6, label: "Continents, one practice per market" },
+  { value: 50, label: "Partner seats, in total" },
+  { value: 6, label: "Continents with partner practices" },
 ] as const;
 
 /** Outlets the roster has been featured in (as listed on the live site). */

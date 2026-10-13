@@ -9,13 +9,13 @@ import { MarketChecker } from "@/components/sections/MarketChecker";
 import { WorldMap } from "@/components/sections/WorldMap";
 import { ComponentsSticky } from "@/components/sections/partnership/ComponentsSticky";
 import { Accordion } from "@/components/ui/Accordion";
-import { ButtonLink, Eyebrow } from "@/components/ui/Button";
+import { ButtonLink } from "@/components/ui/Button";
 import { COMPONENTS, FAQ, FOR, NOT_FOR, STEPS, SURFACES } from "@/content/partnership";
 
 export const metadata: Metadata = {
   title: "The Partnership",
   description:
-    "An operating seat, not a retainer: immersion, quarterly cinematic shoots, a year-round body of work, counsel, market exclusivity and full ownership.",
+    "What a PASTED partnership includes: immersion, quarterly cinematic shoots, a year-round body of work, counsel, market exclusivity and full ownership.",
   alternates: { canonical: "/partnership" },
 };
 
@@ -27,24 +27,10 @@ export default function PartnershipPage() {
         title="You do the dentistry. We do everything else."
         lede={
           <p>
-            Not a retainer. Not a scope of work. An operating seat — positioning, brand, film, content and growth, run by
-            the founders and a named team, for one practice per market.
+            PASTED runs positioning, brand, film, content and growth for the practice, with the founders and a named team
+            doing the work. It asks for four shoot days a year and two calls a month, and the average partnership runs
+            past five years.
           </p>
-        }
-        aside={
-          <dl className="grid grid-cols-2 gap-6">
-            {[
-              ["4", "Cinematic shoot days a year"],
-              ["100+", "Premium pieces a year"],
-              ["2", "Calls a month with you"],
-              ["5+ yrs", "Average partnership"],
-            ].map(([v, l]) => (
-              <div key={l}>
-                <dd className="font-serif text-4xl text-bone">{v}</dd>
-                <dt className="mt-1 text-sm text-mute">{l}</dt>
-              </div>
-            ))}
-          </dl>
         }
         image={corridor}
       />
@@ -54,9 +40,6 @@ export default function PartnershipPage() {
         <div className="wrap">
           <div className="mb-10 grid gap-8 md:mb-24 md:grid-cols-12">
             <div className="md:col-span-7">
-              <Eyebrow className="mb-8">
-                What a partnership is
-              </Eyebrow>
               <h2 id="parts-title" className="display-lg text-bone text-balance" data-reveal="">
                 The seven parts of a partnership.
               </h2>
@@ -71,15 +54,12 @@ export default function PartnershipPage() {
         <div className="wrap">
           <div className="mb-10 grid gap-8 md:mb-20 md:grid-cols-12 md:items-end">
             <div className="md:col-span-7">
-              <Eyebrow className="mb-8">
-                What we do
-              </Eyebrow>
               <h2 id="surfaces-title" className="display-lg text-bone text-balance" data-reveal="">
                 Four surfaces we operate on.
               </h2>
             </div>
             <p className="lede text-bone-2 md:col-span-4 md:col-start-9" data-reveal="">
-              Each built to the same standard. Open the one that matches what you need — or let the call decide.
+              Open the one closest to what you need. The discovery call covers the rest.
             </p>
           </div>
           <Accordion
@@ -118,9 +98,6 @@ export default function PartnershipPage() {
       {/* How it begins */}
       <section className="bg-ink py-16 md:py-36" aria-labelledby="path-title">
         <div className="wrap">
-          <Eyebrow className="mb-8">
-            The path
-          </Eyebrow>
           <h2 id="path-title" className="display-lg text-bone" data-reveal="">
             How it begins.
           </h2>
@@ -132,12 +109,9 @@ export default function PartnershipPage() {
               </li>
             ))}
           </ol>
-          <div className="mt-10 flex flex-wrap items-center gap-6">
-            <ButtonLink href="/contact" variant="solid" size="lg">
-              Book the discovery call
-            </ButtonLink>
-            <p className="eyebrow text-mute">Five questions · Two minutes · 45 minutes with a founder</p>
-          </div>
+          <ButtonLink href="/contact" variant="solid" size="lg" className="mt-10">
+            Book the discovery call
+          </ButtonLink>
         </div>
       </section>
 
@@ -145,16 +119,13 @@ export default function PartnershipPage() {
       <section className="border-y border-line bg-ink-2 py-16 md:py-32" aria-labelledby="account-title">
         <div className="wrap grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-4">
-            <Eyebrow className="mb-8">
-              Accountability
-            </Eyebrow>
             <h2 id="account-title" className="display-md text-bone text-balance" data-reveal="">
               What you can hold us to.
             </h2>
           </div>
           <div className="grid gap-6 md:grid-cols-2 lg:col-span-8">
             <article className="rounded-[1.1rem] border border-line bg-ink p-6 sm:p-8 md:p-10" data-reveal="">
-              <p className="eyebrow text-copper">Quarter one</p>
+              <p className="text-sm text-copper-2">In the first quarter</p>
               <h3 className="display-sm mt-6 text-bone">No partner ends a term empty-handed.</h3>
               <p className="mt-4 text-bone-2">
                 Your first shoot, your locked positioning and live content land in quarter one — or production continues
@@ -162,7 +133,7 @@ export default function PartnershipPage() {
               </p>
             </article>
             <article className="rounded-[1.1rem] border border-line bg-ink p-6 sm:p-8 md:p-10" data-reveal="" style={{ "--d": 120 } as React.CSSProperties}>
-              <p className="eyebrow text-copper">Every ninety days</p>
+              <p className="text-sm text-copper-2">Every ninety days</p>
               <h3 className="display-sm mt-6 text-bone">A quarterly value review, in writing.</h3>
               <p className="mt-4 text-bone-2">
                 The owned asset counted, reach trend, inbound quality, pricing power — and how the practice now reads against
@@ -176,9 +147,6 @@ export default function PartnershipPage() {
       {/* For / not for */}
       <section className="bg-ink py-16 md:py-36" aria-labelledby="fit-title">
         <div className="wrap">
-          <Eyebrow className="mb-8">
-            Fit
-          </Eyebrow>
           <h2 id="fit-title" className="sr-only">
             Who this is for
           </h2>
@@ -218,9 +186,6 @@ export default function PartnershipPage() {
       <section className="bg-ink py-16 md:py-36" aria-labelledby="faq-title">
         <div className="wrap grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-4">
-            <Eyebrow className="mb-8">
-              Questions worth asking
-            </Eyebrow>
             <h2 id="faq-title" className="display-md text-bone" data-reveal="">
               Common questions.
             </h2>

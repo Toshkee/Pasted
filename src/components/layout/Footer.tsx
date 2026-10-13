@@ -12,12 +12,11 @@ export function Footer() {
           <div className="lg:col-span-5">
             <Emblem className="mb-8 h-14 w-auto text-copper" />
             <p className="display-sm max-w-md text-bone text-balance">
-              The visible work gets you considered. Everything underneath gets you chosen.
+              Brand, film, content and growth for a small roster of cosmetic dentists.
             </p>
             <ButtonLink href="/contact" variant="copper" className="mt-10">
               Request a consultation
             </ButtonLink>
-            <p className="eyebrow mt-4 text-mute">Fifty seats, ever · Every call taken by a founder</p>
           </div>
 
           <nav aria-label="Footer" className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3 sm:gap-10 lg:col-span-7">
@@ -79,12 +78,9 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="wrap mt-12 flex flex-col gap-2 pb-6 sm:flex-row sm:items-end sm:justify-between sm:gap-6 md:mt-16">
-        <p className="eyebrow text-mute">© 2026 PASTED™</p>
-        <p className="eyebrow text-mute">London · New York · Los Angeles</p>
-      </div>
-      <div aria-hidden="true" className="wrap -mb-[3.2vw] select-none" data-reveal="clip">
-        <Wordmark className="w-full text-bone" title="" />
+      <div className="wrap mt-12 flex flex-col gap-5 pb-8 sm:flex-row sm:items-end sm:justify-between sm:gap-6 md:mt-16 md:pb-10">
+        <Wordmark className="h-9 w-auto self-start text-bone sm:self-auto md:h-12" />
+        <p className="text-sm text-mute">© 2026 PASTED™ · London, New York, Los Angeles</p>
       </div>
     </footer>
   );

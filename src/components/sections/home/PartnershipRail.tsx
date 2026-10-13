@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 import { HorizontalScroll } from "@/components/motion/HorizontalScroll";
-import { ButtonLink, Eyebrow } from "@/components/ui/Button";
+import { ButtonLink } from "@/components/ui/Button";
 import { COMPONENTS } from "@/content/partnership";
 
 /** "What a partnership is" — seven parts on a horizontal track (pinned on desktop, swipe on phones). */
@@ -16,22 +16,11 @@ export function PartnershipRail() {
         className="scrollbar-none flex snap-x snap-mandatory scroll-px-5 gap-4 overflow-x-auto px-5 sm:scroll-px-7 sm:gap-5 sm:px-7 lg:snap-none lg:gap-8 lg:overflow-visible lg:px-11"
       >
         <div className="flex w-[80vw] shrink-0 snap-start flex-col justify-center pr-2 sm:w-[60vw] lg:w-[38vw] lg:pr-16">
-          <Eyebrow className="mb-8">
-            The partnership
-          </Eyebrow>
           <h2 id="partnership-title" className="display-lg text-bone text-balance">
             What a partnership includes.
           </h2>
           <p className="lede mt-8 max-w-md text-bone-2">
-            Seven parts, held to one standard, run by the founders and a named team. No account managers. No handoffs.
-          </p>
-          <p className="eyebrow mt-10 hidden items-center gap-3 text-mute lg:flex">
-            Keep scrolling
-            <span aria-hidden="true" className="h-px w-10 bg-current" />
-          </p>
-          <p className="eyebrow mt-8 flex items-center gap-3 text-mute lg:hidden">
-            Swipe
-            <span aria-hidden="true" className="h-px w-10 bg-current" />
+            Seven parts, run by the founders and a named team who stay with the practice from the first shoot onward.
           </p>
         </div>
 
@@ -55,8 +44,8 @@ export function PartnershipRail() {
         ))}
 
         <div className="flex w-[76vw] shrink-0 snap-start flex-col justify-center rounded-[1rem] border border-line bg-ink p-6 sm:w-[46vw] sm:p-8 lg:w-[30vw] lg:p-12">
-          <p className="display-md text-bone">
-            You do the dentistry. We do everything else.
+          <p className="display-md text-bone text-balance">
+            Each part, and what it takes from you, in detail.
           </p>
           <ButtonLink href="/partnership" variant="solid" className="mt-10 self-start">
             How it works

@@ -2,7 +2,6 @@ import Image from "next/image";
 
 import { TiltCard } from "@/components/media/TiltCard";
 import { DragScroll } from "@/components/motion/DragScroll";
-import { Eyebrow } from "@/components/ui/Button";
 import { CLUB_CARDS } from "@/content/partners";
 
 /** The graded member cards — a signature PASTED artifact — as a tactile, draggable collection. */
@@ -11,16 +10,13 @@ export function ClubCards() {
     <section data-header="light" className="relative overflow-clip bg-paper py-28 text-paper-ink md:py-40" aria-labelledby="club-title">
       <div className="wrap grid gap-8 md:grid-cols-12 md:items-end">
         <div className="md:col-span-7">
-          <Eyebrow className="mb-8 text-paper-mute">
-            The PASTED Club
-          </Eyebrow>
           <h2 id="club-title" className="display-lg text-balance" data-reveal="">
-            Graded, slabbed and signed.
+            The PASTED Club cards.
           </h2>
         </div>
         <p className="lede text-paper-mute md:col-span-4 md:col-start-9" data-reveal="">
-          Each card is graded, slabbed and signed: part trophy, part brand asset — the kind of object a practice keeps on
-          the shelf, and a patient asks about.
+          Every partner gets a card that is graded, slabbed and signed. Practices keep them on the shelf, and patients
+          ask about them.
         </p>
       </div>
 

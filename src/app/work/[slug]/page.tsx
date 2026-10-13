@@ -8,7 +8,7 @@ import { FilmCard } from "@/components/media/FilmCard";
 import { SplitText } from "@/components/motion/SplitText";
 import { ConsultCTA } from "@/components/sections/ConsultCTA";
 import { CaseCover } from "@/components/sections/work/CaseCover";
-import { Arrow, Eyebrow } from "@/components/ui/Button";
+import { Arrow } from "@/components/ui/Button";
 import { filmBySlug } from "@/content/films";
 import { CASES, caseBySlug } from "@/content/work";
 import { cn } from "@/lib/cn";
@@ -92,20 +92,6 @@ export default async function CasePage({ params }: PageProps<"/work/[slug]">) {
         </div>
       </section>
 
-      {/* Metrics */}
-      {study.metrics && (
-        <section aria-label="Results" className="mt-16 border-y border-line bg-ink md:mt-32">
-          <dl className="wrap grid grid-cols-3">
-            {study.metrics.map((m, k) => (
-              <div key={m.label} className={cn("py-7 pr-3 md:py-14", k > 0 && "border-l border-line pl-3 sm:pl-8")} data-reveal="" style={{ "--d": k * 90 } as React.CSSProperties}>
-                <dd className="font-serif text-[2.1rem] leading-none text-bone sm:text-5xl md:text-7xl">{m.value}</dd>
-                <dt className="mt-3 text-xs leading-snug text-mute sm:text-sm">{m.label}</dt>
-              </div>
-            ))}
-          </dl>
-        </section>
-      )}
-
       {/* Challenge / work */}
       <section className="bg-ink py-16 md:py-36" aria-label="The story">
         <div className="wrap grid gap-12 md:grid-cols-2 md:gap-12">
@@ -114,9 +100,7 @@ export default async function CasePage({ params }: PageProps<"/work/[slug]">) {
             ["The work", study.work],
           ].map(([label, body], k) => (
             <div key={label} data-reveal="" style={{ "--d": k * 120 } as React.CSSProperties}>
-              <Eyebrow className="mb-8">
-                {label}
-              </Eyebrow>
+              <h2 className="mb-5 text-sm text-mute">{label}</h2>
               <p className="display-sm text-bone max-sm:text-[1.3rem] max-sm:leading-[1.3]">{body}</p>
             </div>
           ))}
@@ -132,15 +116,11 @@ export default async function CasePage({ params }: PageProps<"/work/[slug]">) {
             </div>
             {portraitFilm && (
               <div className="md:col-span-5 md:col-start-7">
-                <Eyebrow className="mb-8">
-                  On film
-                </Eyebrow>
-                <p className="display-md text-bone">
-                  Not everyone gets documented.
+                <p className="display-md text-bone text-balance">
+                  {study.name}, on film.
                 </p>
                 <p className="mt-6 text-bone-2">
-                  Directed, shot and cut in-house — the same team that built the brand tells the story. Press play for the
-                  full film.
+                  Shot and edited by the same team that built the brand. Press play for the full film.
                 </p>
               </div>
             )}
@@ -164,7 +144,7 @@ export default async function CasePage({ params }: PageProps<"/work/[slug]">) {
                     <div className="overflow-clip rounded-[0.9rem] bg-paper-2">
                       <Image src={g.src} alt={`${study.name} — ${g.label}`} sizes="(min-width: 1024px) 31vw, (min-width: 640px) 48vw, 100vw" className="h-auto w-full" />
                     </div>
-                    <figcaption className="eyebrow mt-3 text-paper-mute">{g.label}</figcaption>
+                    <figcaption className="mt-3 text-sm text-paper-mute">{g.label}</figcaption>
                   </figure>
                 </li>
               ))}
@@ -177,9 +157,6 @@ export default async function CasePage({ params }: PageProps<"/work/[slug]">) {
       <section className="bg-ink py-16 md:py-36" aria-labelledby="outcome-title">
         <div className="wrap grid gap-10 lg:grid-cols-12 lg:gap-14">
           <div className="lg:col-span-5">
-            <Eyebrow className="mb-8">
-              Outcome
-            </Eyebrow>
             <h2 id="outcome-title" className="display-lg text-bone" data-reveal="">
               What changed.
             </h2>
@@ -202,7 +179,7 @@ export default async function CasePage({ params }: PageProps<"/work/[slug]">) {
         {study.quote && (
           <figure className="wrap mt-16 md:mt-36" data-reveal="">
             <blockquote className="display-lg max-w-[17.5ch] text-bone">“{study.quote.text}”</blockquote>
-            <figcaption className="eyebrow mt-8 text-mute">{study.quote.by}</figcaption>
+            <figcaption className="mt-8 text-sm text-mute">{study.quote.by}</figcaption>
           </figure>
         )}
       </section>
@@ -211,7 +188,7 @@ export default async function CasePage({ params }: PageProps<"/work/[slug]">) {
       <section className="border-t border-line bg-ink" aria-label="Next case">
         <Link href={`/work/${next.slug}`} data-cursor="Next" className="group wrap grid items-center gap-10 py-14 md:grid-cols-12 md:py-28">
           <div className="md:col-span-8">
-            <p className="eyebrow text-mute">Next case</p>
+            <p className="text-sm text-mute">Next case</p>
             <p className="display-xl mt-6 text-bone transition-colors duration-500 group-hover:text-copper-2">{next.name}</p>
             <p className="mt-4 font-serif text-2xl text-bone-2">{next.arc}</p>
           </div>

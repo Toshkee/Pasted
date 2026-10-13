@@ -1,5 +1,5 @@
 import { FilmCard } from "@/components/media/FilmCard";
-import { Eyebrow, TextLink } from "@/components/ui/Button";
+import { TextLink } from "@/components/ui/Button";
 import { filmBySlug } from "@/content/films";
 import { caseBySlug } from "@/content/work";
 
@@ -14,33 +14,21 @@ export function FeatureCase() {
         </div>
 
         <div className="lg:col-span-6 lg:col-start-7">
-          <Eyebrow className="mb-8">
-            The feature · Gilbert, Arizona
-          </Eyebrow>
           <h2 id="feature-title" className="display-lg text-bone text-balance" data-reveal="">
             From general practice to category of one.
           </h2>
           <div className="mt-10 space-y-5 text-bone-2" data-reveal="" style={{ "--d": 100 } as React.CSSProperties}>
-            <p className="lede">A struggling general practice, competing on everything, owning nothing.</p>
+            <p className="lede">Dr. Drew Ballard was running a general practice in Gilbert, Arizona, competing with every other dentist in town.</p>
             <p className="max-w-xl">
-              Eighteen months in: zero to $2M+ in cosmetic revenue. Five years on: HALO Veneers — a named category with
-              one author. Three days a week. Nine months a year. An academy teaching the method to the industry that once
-              overlooked it.
+              Eighteen months into the partnership, the practice had gone from no cosmetic revenue to more than $2M a year.
+              Five years on it trades as HALO Veneers, Drew works three days a week, nine months a year, and his academy
+              teaches the method to other dentists.
             </p>
           </div>
 
-          <dl className="mt-12 grid grid-cols-3 gap-4 border-y border-line py-8">
-            {study.metrics!.map((m, i) => (
-              <div key={m.label} data-reveal="" style={{ "--d": 150 + i * 80 } as React.CSSProperties}>
-                <dd className="font-serif text-4xl text-bone md:text-6xl">{m.value}</dd>
-                <dt className="mt-2 text-sm leading-snug text-mute">{m.label}</dt>
-              </div>
-            ))}
-          </dl>
-
-          <figure className="mt-10" data-reveal="">
+          <figure className="mt-12 border-t border-line pt-10" data-reveal="">
             <blockquote className="display-sm text-bone">“{study.quote!.text}”</blockquote>
-            <figcaption className="eyebrow mt-4 text-mute">{study.quote!.by}</figcaption>
+            <figcaption className="mt-4 text-sm text-mute">{study.quote!.by}</figcaption>
           </figure>
 
           <TextLink href="/work/drew-ballard" className="mt-10">

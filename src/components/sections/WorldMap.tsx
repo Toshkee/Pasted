@@ -1,4 +1,3 @@
-import { Eyebrow } from "@/components/ui/Button";
 import { MAP_CITIES, WORLD } from "@/content/world-map";
 
 /**
@@ -14,16 +13,12 @@ export function WorldMap() {
       <div className="wrap">
         <div className="grid gap-8 md:grid-cols-12 md:items-end">
           <div className="md:col-span-7">
-            <Eyebrow className="mb-8">
-              Global presence
-            </Eyebrow>
             <h2 id="world-title" className="display-lg text-bone" data-reveal="">
               Thirty practices on six continents.
             </h2>
           </div>
           <p className="lede text-bone-2 md:col-span-4 md:col-start-9" data-reveal="">
-            Miami to Mumbai. Sydney to Seville. One per market — so the position we build for you is never built for the
-            practice across the street.
+            Partner practices from Miami to Mumbai and from Sydney to Seville.
           </p>
         </div>
 
@@ -64,7 +59,6 @@ export function WorldMap() {
             <span className="eyebrow flex items-center gap-2 text-mute">
               <span aria-hidden="true" className="size-1.5 rounded-full bg-[#9d9286]" /> Network presence
             </span>
-            <span className="eyebrow text-mute md:ml-auto">30 practices · 6 continents · 1 per market</span>
           </figcaption>
         </figure>
 

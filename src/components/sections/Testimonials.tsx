@@ -1,4 +1,3 @@
-import { Eyebrow } from "@/components/ui/Button";
 import { TESTIMONIALS } from "@/content/testimonials";
 
 import { TestimonialSlider } from "./TestimonialSlider";
@@ -11,15 +10,9 @@ export function Testimonials() {
     <section className="relative border-t border-line bg-ink py-20 md:py-40" aria-labelledby="words-title">
       <div className="wrap">
         <div className="mb-10 flex flex-wrap items-end justify-between gap-4 md:mb-20 md:gap-6">
-          <div>
-            <Eyebrow className="mb-6">
-              In their words
-            </Eyebrow>
-            <h2 id="words-title" className="display-md text-bone">
-              What partners say about the work.
-            </h2>
-          </div>
-          <p className="eyebrow text-mute">Unscripted · From doctors who’ve been through it</p>
+          <h2 id="words-title" className="display-md text-bone">
+            What partners say about the work.
+          </h2>
         </div>
         <TestimonialSlider items={items} />
       </div>

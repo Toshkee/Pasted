@@ -18,11 +18,11 @@ SEO scores 100 with indexing enabled; concept deployments ship `noindex` (see be
 
 ## What's inside
 
-- **Home** — film-loop hero with an art-directed poster, scroll-read manifesto, pinned "brand iceberg", horizontal partnership track, drifting brand showcase, Halo feature, film rail with hover previews, roster index with cursor portraits, testimonials and a market-availability checker.
+- **Home** — film-loop hero with an art-directed poster, scroll-read manifesto, brand iceberg, horizontal partnership track, drifting brand showcase, Halo feature, film rail with hover previews, the roster as a row of expanding portraits, testimonials and a market-availability checker.
 - **Partnership** — seven-part breakdown with a sticky plate, four service surfaces, the path, accountability, fit, dotted world map, FAQ.
 - **Work** — three practice transformations and nine identity systems, each a statically generated case study with shared-element view transitions.
 - **Films** — features, archive one-sheets and a filterable library (React `<ViewTransition>`).
-- **Founders**, **Library** (paper edition with Insider sign-up) and **Contact** — a five-question intake that hands off to a prefilled Calendly, loaded only at the last step.
+- **Founders**, **Library** (paper edition with Insider sign-up) and **Contact** — a five-question intake that hands off to the studio's Calendly with every booking question already answered, loaded only at the last step.
 
 ## Stack
 
@@ -50,11 +50,12 @@ pnpm lint
 | Variable | Default | Purpose |
 |---|---|---|
 | `ALLOW_INDEXING` | unset | Set to `true` on the official domain to allow search indexing. Otherwise every page is `noindex` and `robots.txt` disallows crawling. |
+| `NEXT_PUBLIC_CALENDLY_URL` | studio's discovery event | Point a deployment at a different Calendly event, e.g. a demo event so test bookings don't reach the founders' calendar. |
 
 ## Integration points
 
 - `src/app/api/subscribe` and `src/app/api/intake` validate and acknowledge; wire them to the studio's existing Supabase tables (`lead_magnet_submissions`, `eligibility_submissions`).
-- The intake prefills Calendly's `name`, `email` and the first custom question (`a1`) with a summary of the answers — confirm `a1` maps to the right question on the event type.
+- The intake mirrors the custom questions on the studio's Calendly event (`a1` phone, `a2` practice and location, `a3` goals, `a4` readiness, `a5` budget, `a6` what you'd bring) and prefills all of them; multi-select answers are newline-separated and must match Calendly's answer text exactly. If the questions on the event change, update `GOALS` and the mapping in `Intake.tsx`. Bookings are confirmed in-page from Calendly's `calendly.event_scheduled` message.
 - Brand font: the live site licenses *Quaria Display*. It can replace Libre Caslon Display in `src/app/layout.tsx`; it is wider with a taller x-height, so retune the `display-*` scale in `globals.css` alongside it. The font files are licensed and should not be committed to a public repository.
 
 ## Media pipeline

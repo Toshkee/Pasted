@@ -11,7 +11,7 @@ import { SITE } from "@/content/site";
 
 export const metadata: Metadata = {
   title: "Request a consultation",
-  description: "Five questions, two minutes, then 45 minutes with a founder — Zac Orender or Dr. Alan Clarke. Fifty seats, ever.",
+  description: "Five short questions, then 45 minutes on Zoom with Zac Orender or Dr. Alan Clarke.",
   alternates: { canonical: "/contact" },
 };
 
@@ -29,7 +29,8 @@ export default function ContactPage() {
               </div>
               <SplitText as="h1" id="contact-title" trigger="auto" text="Choose a time." className="display-2xl text-bone text-balance" />
               <p className="lede mt-10 max-w-md text-bone-2" data-reveal="auto" style={{ "--d": 450 } as React.CSSProperties}>
-                45 minutes with a founder. Positioning, not a pitch. Fifty seats, ever — and one practice per market.
+                Five short questions, then a 45-minute Zoom call with one of the founders about your practice and your
+                market.
               </p>
 
               <div className="mt-8 flex items-center gap-4 border-t border-line pt-6 md:mt-12 md:pt-8" data-reveal="auto" style={{ "--d": 600 } as React.CSSProperties}>
@@ -71,7 +72,7 @@ export default function ContactPage() {
             {SITE.emails.map((e) => (
               <li key={e.address} className="bg-ink-2">
                 <a href={`mailto:${e.address}`} className="group flex h-full flex-col justify-between gap-3 p-5 transition-colors hover:bg-ink sm:p-8 md:gap-10">
-                  <span className="eyebrow text-mute">{e.label}</span>
+                  <span className="text-sm text-mute">{e.label}</span>
                   <span className="break-all font-serif text-[1.35rem] text-bone transition-colors group-hover:text-copper-2 sm:break-normal md:text-2xl">{e.address}</span>
                 </a>
               </li>

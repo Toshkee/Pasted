@@ -12,7 +12,7 @@ import { cn } from "@/lib/cn";
 
 export function Header() {
   const pathname = usePathname();
-  const { lock, unlock } = useScroll();
+  const { lenis, lock, unlock } = useScroll();
   const [scrolled, setScrolled] = useState(false);
   const [hidden, setHidden] = useState(false);
   const [open, setOpen] = useState(false);
@@ -77,6 +77,15 @@ export function Header() {
 
   const isActive = (href: string) => pathname === href || pathname.startsWith(`${href}/`);
 
+  // A link to the page you're already on keeps your scroll position in Next.js; scroll back to the top instead.
+  const navigate = (href: string) => (e: { preventDefault: () => void }) => {
+    setOpen(false);
+    if (href !== pathname) return;
+    e.preventDefault();
+    if (lenis) lenis.scrollTo(0, { force: true });
+    else window.scrollTo({ top: 0, behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+  };
+
   return (
     <>
       <a
@@ -99,7 +108,7 @@ export function Header() {
         )}
       >
         <div className="wrap flex h-[4.5rem] items-center justify-between gap-6 lg:h-20">
-          <Link href="/" aria-label="PASTED — home" className="relative z-10 transition-colors duration-500" onNavigate={() => setOpen(false)}>
+          <Link href="/" aria-label="PASTED — home" className="relative z-10 transition-colors duration-500" onNavigate={navigate("/")}>
             <Wordmark className="h-[1.35rem] w-auto lg:h-[1.6rem]" title="Pasted" />
           </Link>
 
@@ -109,6 +118,7 @@ export function Header() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
+                    onNavigate={navigate(item.href)}
                     className={cn(
                       "eyebrow relative flex items-center gap-2 transition-colors duration-300",
                       isActive(item.href) ? "opacity-100" : "opacity-70 hover:opacity-100",
@@ -187,7 +197,7 @@ export function Header() {
                 <Link
                   ref={i === 0 ? firstLink : undefined}
                   href={item.href}
-                  onNavigate={() => setOpen(false)}
+                  onNavigate={navigate(item.href)}
                   className={cn(
                     "block py-1.5 font-serif leading-none",
                     item.href === "/contact" ? "mt-6 text-[1.75rem] text-copper" : "text-[2.75rem] sm:text-6xl",

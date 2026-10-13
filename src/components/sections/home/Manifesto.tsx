@@ -35,7 +35,7 @@ export function Manifesto() {
         <Eyebrow className="mb-10 md:mb-14">
           The argument
         </Eyebrow>
-        <h2 id="manifesto" data-line="" className="display-lg max-w-[22ch] text-bone">
+        <h2 id="manifesto" data-line="" className="display-lg max-w-[17.5ch] text-bone">
           {words.map((w, i) => {
             const last = i >= words.length - 1;
             return (

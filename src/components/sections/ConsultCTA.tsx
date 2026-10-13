@@ -26,7 +26,7 @@ export function ConsultCTA({
             ))}
           </div>
         </div>
-        <SplitText as="h2" text={title} className="display-xl mx-auto max-w-[14ch] text-bone" />
+        <SplitText as="h2" text={title} className="display-xl mx-auto max-w-[11ch] text-bone" />
         <p className="lede mx-auto mt-8 max-w-xl text-bone-2" data-reveal="">
           {lede}
         </p>

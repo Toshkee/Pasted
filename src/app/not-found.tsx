@@ -7,7 +7,7 @@ export default function NotFound() {
         <Eyebrow className="mb-10">
           Not found
         </Eyebrow>
-        <h1 id="nf-title" className="display-xl max-w-[14ch] text-bone">
+        <h1 id="nf-title" className="display-xl max-w-[11ch] text-bone">
           This page doesn’t exist.
         </h1>
         <p className="lede mt-8 max-w-md text-bone-2">The page you were looking for has moved, or was never here.</p>

@@ -10,7 +10,7 @@ export function TestimonialWall() {
         <Eyebrow className="mb-8">
           In their words
         </Eyebrow>
-        <h2 id="wall-title" className="display-lg mb-16 max-w-[18ch] text-bone md:mb-24" data-reveal="">
+        <h2 id="wall-title" className="display-lg mb-16 max-w-[14ch] text-bone md:mb-24" data-reveal="">
           Twelve doctors on working with PASTED.
         </h2>
         <div className="columns-1 gap-6 md:columns-2 xl:columns-3">

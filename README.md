@@ -26,7 +26,7 @@ SEO scores 100 with indexing enabled; concept deployments ship `noindex` (see be
 
 ## Stack
 
-Next.js 16 (App Router, Cache Components, fully prerendered), React 19.3, Tailwind CSS 4, GSAP + ScrollTrigger and Lenis (both loaded after first paint), `next/font` (Instrument Serif, Geist). No UI kit, no animation framework in the critical path.
+Next.js 16 (App Router, Cache Components, fully prerendered), React 19.3, Tailwind CSS 4, GSAP + ScrollTrigger and Lenis (both loaded after first paint), `next/font` (Libre Caslon Display, Geist). No UI kit, no animation framework in the critical path.
 
 ## Performance decisions
 
@@ -55,7 +55,7 @@ pnpm lint
 
 - `src/app/api/subscribe` and `src/app/api/intake` validate and acknowledge; wire them to the studio's existing Supabase tables (`lead_magnet_submissions`, `eligibility_submissions`).
 - The intake prefills Calendly's `name`, `email` and the first custom question (`a1`) with a summary of the answers — confirm `a1` maps to the right question on the event type.
-- Brand font: the live site licenses *Quaria Display*. Swapping it in for Instrument Serif is a one-line change in `src/app/layout.tsx`.
+- Brand font: the live site licenses *Quaria Display*. It can replace Libre Caslon Display in `src/app/layout.tsx`; it is wider with a taller x-height, so retune the `display-*` scale in `globals.css` alongside it. The font files are licensed and should not be committed to a public repository.
 
 ## Media pipeline
 

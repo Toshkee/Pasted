@@ -201,7 +201,7 @@ export default async function CasePage({ params }: PageProps<"/work/[slug]">) {
         </div>
         {study.quote && (
           <figure className="wrap mt-16 md:mt-36" data-reveal="">
-            <blockquote className="display-lg max-w-[22ch] text-bone">“{study.quote.text}”</blockquote>
+            <blockquote className="display-lg max-w-[17.5ch] text-bone">“{study.quote.text}”</blockquote>
             <figcaption className="eyebrow mt-8 text-mute">{study.quote.by}</figcaption>
           </figure>
         )}

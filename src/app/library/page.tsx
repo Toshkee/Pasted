@@ -145,7 +145,7 @@ export default function LibraryPage() {
         </div>
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgb(11_10_9/0.6),rgb(11_10_9/0.85))]" />
         <figure className="wrap relative py-24 text-center md:py-52">
-          <blockquote className="display-lg mx-auto max-w-[24ch] text-bone" data-reveal="">
+          <blockquote className="display-lg mx-auto max-w-[19ch] text-bone" data-reveal="">
             “A brand is the only load-bearing wall in a practice. Build it wrong and everything else eventually sags.”
           </blockquote>
           <figcaption className="eyebrow mt-10 text-bone-2">The PASTED House Doctrine</figcaption>

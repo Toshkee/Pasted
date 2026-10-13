@@ -37,7 +37,7 @@ export default function FilmsPage() {
               trigger="auto"
               delay={100}
               text="Not everyone gets documented."
-              className="display-2xl md:col-span-9"
+              className="display-xl text-balance md:col-span-9"
             />
             <p className="lede text-bone-2 md:col-span-3" data-reveal="auto" style={{ "--d": 600 } as React.CSSProperties}>
               Documentaries, commercials and practice films. Shot to be watched, not scrolled past.

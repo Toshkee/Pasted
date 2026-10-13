@@ -42,7 +42,7 @@ export function Hero() {
           as="h1"
           trigger="auto"
           delay={150}
-          className="display-xl max-w-[15ch] text-bone text-balance"
+          className="display-xl max-w-[12ch] text-bone text-balance"
           text={"Branding makes you recognizable. Positioning makes you *inevitable.*"}
         />
 

@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Instrument_Serif } from "next/font/google";
+import { Geist, Libre_Caslon_Display } from "next/font/google";
 
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
@@ -11,8 +11,8 @@ import { SITE } from "@/content/site";
 
 import "./globals.css";
 
-const serif = Instrument_Serif({
-  variable: "--font-instrument-serif",
+const serif = Libre_Caslon_Display({
+  variable: "--font-libre-caslon",
   subsets: ["latin"],
   weight: "400",
   display: "swap",

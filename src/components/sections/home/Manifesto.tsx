@@ -32,14 +32,14 @@ export function Manifesto() {
   return (
     <section ref={root} className="relative bg-ink py-20 md:py-40 lg:py-52" aria-labelledby="manifesto">
       <div className="wrap">
-        <Eyebrow index="§ 01" className="mb-10 md:mb-14">
+        <Eyebrow className="mb-10 md:mb-14">
           The argument
         </Eyebrow>
         <h2 id="manifesto" data-line="" className="display-lg max-w-[22ch] text-bone">
           {words.map((w, i) => {
             const last = i >= words.length - 1;
             return (
-              <span key={i} data-word="" className={last ? "italic text-copper-2" : undefined}>
+              <span key={i} data-word="" className={last ? "text-copper-2" : undefined}>
                 {w}
                 {i < words.length - 1 ? " " : ""}
               </span>
@@ -59,7 +59,7 @@ export function Manifesto() {
               positioned.
             </p>
             <p className="display-sm mt-8 text-bone">
-              Marketing is rent. <em className="text-copper-2">A brand is equity.</em>
+              Marketing is rent. A brand is equity.
             </p>
           </div>
         </div>

@@ -33,7 +33,7 @@ export function ComponentsSticky({ items }: { items: Component[] }) {
           <div className="relative aspect-[4/5] max-h-[72vh] overflow-clip rounded-[1.1rem] bg-ink-3">
             {items.map((c, i) => (
               <Image
-                key={c.n}
+                key={c.title}
                 src={c.image}
                 alt=""
                 fill
@@ -44,11 +44,6 @@ export function ComponentsSticky({ items }: { items: Component[] }) {
                 )}
               />
             ))}
-            <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_55%,rgb(11_10_9/0.8))]" />
-            <div className="absolute bottom-6 left-6 flex items-end gap-4">
-              <span className="font-serif text-8xl leading-none text-bone">{items[active].n}</span>
-              <span className="eyebrow mb-2 text-bone-2">of 07</span>
-            </div>
           </div>
         </div>
       </div>
@@ -56,7 +51,7 @@ export function ComponentsSticky({ items }: { items: Component[] }) {
       <ol ref={list} className="lg:col-span-6 lg:col-start-7">
         {items.map((c, i) => (
           <li
-            key={c.n}
+            key={c.title}
             data-step={i}
             className={cn(
               "border-t border-line py-10 transition-opacity duration-700 lg:flex lg:min-h-[62vh] lg:flex-col lg:justify-center lg:py-16",
@@ -66,8 +61,7 @@ export function ComponentsSticky({ items }: { items: Component[] }) {
             <div className="relative mb-6 aspect-[16/10] overflow-clip rounded-[0.9rem] lg:hidden">
               <Image src={c.image} alt="" fill sizes="100vw" className="object-cover brightness-90" />
             </div>
-            <span className="eyebrow text-copper">{c.n} / 07</span>
-            <h3 className="display-md mt-4 text-bone">{c.title}</h3>
+            <h3 className="display-md text-bone">{c.title}</h3>
             <p className="lede mt-5 max-w-lg text-bone-2">{c.body}</p>
           </li>
         ))}

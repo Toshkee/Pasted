@@ -4,7 +4,7 @@ import { useId, useState, type ReactNode } from "react";
 
 import { cn } from "@/lib/cn";
 
-export type AccordionItem = { title: ReactNode; content: ReactNode; meta?: ReactNode };
+export type AccordionItem = { title: ReactNode; content: ReactNode };
 
 /**
  * Accessible accordion (button + region pairs) with a height animation that needs no measuring:
@@ -40,7 +40,6 @@ export function Accordion({
                 onClick={() => setOpen(isOpen ? -1 : i)}
                 className="group flex w-full items-center gap-4 py-5 text-left md:gap-6 md:py-8"
               >
-                {item.meta && <span className="eyebrow w-14 shrink-0 whitespace-nowrap text-[0.625rem] text-copper md:w-20 md:text-[0.6875rem]">{item.meta}</span>}
                 <span
                   className={cn(
                     "min-w-0 flex-1 font-serif text-[1.45rem] leading-tight transition-colors md:text-[2.1rem]",
@@ -73,7 +72,7 @@ export function Accordion({
               inert={!isOpen}
             >
               <div className="overflow-hidden">
-                <div className={cn("pb-8 md:pb-10", Boolean(item.meta) && "md:pl-26")}>{item.content}</div>
+                <div className="pb-8 md:pb-10">{item.content}</div>
               </div>
             </div>
           </div>

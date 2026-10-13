@@ -26,7 +26,7 @@ export default function FilmsPage() {
       <section className="bg-ink pb-20 pt-28 md:pt-44" aria-labelledby="films-hero">
         <div className="wrap">
           <div data-reveal="auto">
-            <Eyebrow index="Vol. III" className="mb-10">
+            <Eyebrow className="mb-10">
               Films
             </Eyebrow>
           </div>
@@ -36,9 +36,8 @@ export default function FilmsPage() {
               id="films-hero"
               trigger="auto"
               delay={100}
-              text="Not everyone gets *documented.*"
+              text="Not everyone gets documented."
               className="display-2xl md:col-span-9"
-              italicClassName="italic text-copper-2"
             />
             <p className="lede text-bone-2 md:col-span-3" data-reveal="auto" style={{ "--d": 600 } as React.CSSProperties}>
               Documentaries, commercials and practice films. Shot to be watched, not scrolled past.
@@ -63,11 +62,11 @@ export default function FilmsPage() {
       <section className="border-y border-line bg-ink-2 py-16 md:py-36" aria-labelledby="archive-title">
         <div className="wrap grid items-center gap-14 lg:grid-cols-12">
           <div className="lg:col-span-5">
-            <Eyebrow index="§ 01" className="mb-8">
+            <Eyebrow className="mb-8">
               The archive
             </Eyebrow>
             <h2 id="archive-title" className="display-lg text-bone" data-reveal="">
-              Long form lives on <em className="text-copper-2">Pasted Series.</em>
+              Long form lives on Pasted Series.
             </h2>
             <p className="lede mt-8 text-bone-2" data-reveal="">
               <em>The Art of Restraint</em>, on the work of Dr. Marshall Hanson. <em>Built by Design</em>, on the work of
@@ -104,11 +103,11 @@ export default function FilmsPage() {
         <div className="wrap">
           <div className="mb-14 flex flex-wrap items-end justify-between gap-6">
             <div>
-              <Eyebrow index="§ 02" className="mb-8">
+              <Eyebrow className="mb-8">
                 The library
               </Eyebrow>
               <h2 id="library-title" className="display-lg text-bone" data-reveal="">
-                Portraits, gatherings, <em className="text-copper-2">brands.</em>
+                Portraits, gatherings, brands.
               </h2>
             </div>
             <p className="eyebrow text-mute">
@@ -120,7 +119,7 @@ export default function FilmsPage() {
         </div>
       </section>
 
-      <ConsultCTA title="Commission a *film.*" lede="Brand films, documentaries and practice films — directed by Dr. Alan Clarke and the house team. Every shoot starts with a 45-minute call." />
+      <ConsultCTA title="Commission a film." lede="Brand films, documentaries and practice films — directed by Dr. Alan Clarke and the house team. Every shoot starts with a 45-minute call." />
     </Page>
   );
 }

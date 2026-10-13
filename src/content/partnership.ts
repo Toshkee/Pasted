@@ -13,48 +13,41 @@ import imgBrands from "@/assets/img/brands/jake-bateman/04.jpg";
 import imgCreative from "@/assets/img/films/posters/the-pasted-partnership.jpg";
 import imgAds from "@/assets/img/brands/nav-atwal/06.jpg";
 
-export type Component = { n: string; title: string; body: string; image: StaticImageData };
+export type Component = { title: string; body: string; image: StaticImageData };
 
 /** What a partnership is — seven parts, as stated by the studio. */
 export const COMPONENTS: Component[] = [
   {
-    n: "01",
     title: "The Immersion",
     body: "Four weeks before the first frame. Your market researched, your positioning locked, the narrative spine set.",
     image: imgRoom,
   },
   {
-    n: "02",
     title: "Cinematic shoots",
     body: "Four fully produced shoot days a year — one per quarter. Directed, shot and cut by our own team.",
     image: imgStudio,
   },
   {
-    n: "03",
     title: "The body of work",
     body: "One hundred–plus premium pieces a year, eight to ten a month — cut, curated and posted on cadence. You never touch a calendar.",
     image: imgBody,
   },
   {
-    n: "04",
     title: "The counsel",
     body: "Monthly strategy calls on the practice, not just the content. Creative direction between shoots.",
     image: imgNotebook,
   },
   {
-    n: "05",
     title: "Market exclusivity",
     body: "One practice per market, held for as long as you hold your seat. Competitors are not waitlisted. They are declined.",
     image: imgArches,
   },
   {
-    n: "06",
     title: "The world",
     body: "A seat in the closed network — the dinners, the masterminds, the rooms, the standard.",
     image: imgDinner,
   },
   {
-    n: "07",
     title: "Ownership",
     body: "The brand and the entire body of work are yours, in perpetuity, at the close of term.",
     image: imgCorridor,
@@ -62,7 +55,6 @@ export const COMPONENTS: Component[] = [
 ];
 
 export type Surface = {
-  vol: string;
   title: string;
   headline: string;
   body: string;
@@ -73,7 +65,6 @@ export type Surface = {
 
 export const SURFACES: Surface[] = [
   {
-    vol: "Vol. III",
     title: "Practice transformation",
     headline: "Rebuilt from positioning up.",
     body: "Long-form partnerships that reshape a practice, not a quarter: positioning, narrative, offer architecture, and the operating system to hold it.",
@@ -82,7 +73,6 @@ export const SURFACES: Surface[] = [
     image: imgTransformation,
   },
   {
-    vol: "Vol. IV",
     title: "Brands & sites",
     headline: "Identity systems built to last.",
     body: "Wordmarks, monograms, environments and brand websites — designed as one system, so the brand carries the same weight as the work.",
@@ -91,7 +81,6 @@ export const SURFACES: Surface[] = [
     image: imgBrands,
   },
   {
-    vol: "Vol. V",
     title: "Creative & content",
     headline: "Directed in-house. Built to age well.",
     body: "Cinematic shoots, brand films and content systems — directed, shot and cut by our own team, for paid, organic and the way patients actually watch.",
@@ -100,7 +89,6 @@ export const SURFACES: Surface[] = [
     image: imgCreative,
   },
   {
-    vol: "Vol. VI",
     title: "Ads & results",
     headline: "Accountable to the chair, not the click.",
     body: "Meta and Google campaigns for veneers, implants and full-arch — procedure-specific funnels, speed-to-lead and show-rate systems, optimized on consults that show.",
@@ -111,9 +99,9 @@ export const SURFACES: Surface[] = [
 ];
 
 export const STEPS = [
-  { n: "01", title: "Book a discovery call.", body: "Pick a time. A few questions on your field, your city, your ambition." },
-  { n: "02", title: "Meet a founder.", body: "45 minutes with Zac Orender or Dr. Alan Clarke. Positioning, not a pitch." },
-  { n: "03", title: "If it fits, we begin.", body: "You will know on the call. So will we." },
+  { title: "Book a discovery call.", body: "Pick a time. A few questions on your field, your city, your ambition." },
+  { title: "Meet a founder.", body: "45 minutes with Zac Orender or Dr. Alan Clarke. Positioning, not a pitch." },
+  { title: "If it fits, we begin.", body: "You will know on the call. So will we." },
 ] as const;
 
 export const FOR = [

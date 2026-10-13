@@ -12,7 +12,7 @@ export function Footer() {
           <div className="lg:col-span-5">
             <Emblem className="mb-8 h-14 w-auto text-copper" />
             <p className="display-sm max-w-md text-bone text-balance">
-              The visible work gets you considered. Everything underneath gets you <em>chosen</em>.
+              The visible work gets you considered. Everything underneath gets you chosen.
             </p>
             <ButtonLink href="/contact" variant="copper" className="mt-10">
               Request a consultation
@@ -38,7 +38,7 @@ export function Footer() {
               <ul className="space-y-4">
                 {SITE.emails.map((e) => (
                   <li key={e.address}>
-                    <span className="eyebrow block text-[0.625rem] text-mute">{e.label}</span>
+                    <span className="eyebrow block text-mute">{e.label}</span>
                     <a href={`mailto:${e.address}`} className="link-underline break-all text-[0.9375rem] text-bone-2 hover:text-bone sm:break-normal sm:text-base">
                       {e.address}
                     </a>

@@ -6,7 +6,7 @@ export function PressMarquee() {
     <ul className="flex shrink-0 items-center gap-12 pr-12 md:gap-20 md:pr-20" aria-hidden={hidden || undefined}>
       {PRESS.map((name) => (
         <li key={name} className="flex items-center gap-12 md:gap-20">
-          <span className="font-serif text-[1.9rem] italic text-bone-2 md:text-[2.6rem]">{name}</span>
+          <span className="font-serif text-[1.9rem] text-bone-2 md:text-[2.6rem]">{name}</span>
           <span aria-hidden="true" className="text-copper">
             ✦
           </span>

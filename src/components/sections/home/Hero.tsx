@@ -43,7 +43,6 @@ export function Hero() {
           trigger="auto"
           delay={150}
           className="display-xl max-w-[15ch] text-bone text-balance"
-          italicClassName="italic text-copper-2"
           text={"Branding makes you recognizable. Positioning makes you *inevitable.*"}
         />
 

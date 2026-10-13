@@ -26,7 +26,7 @@ SEO scores 100 with indexing enabled; concept deployments ship `noindex` (see be
 
 ## Stack
 
-Next.js 16 (App Router, Cache Components, fully prerendered), React 19.3, Tailwind CSS 4, GSAP + ScrollTrigger and Lenis (both loaded after first paint), `next/font` (Instrument Serif, Geist, Geist Mono). No UI kit, no animation framework in the critical path.
+Next.js 16 (App Router, Cache Components, fully prerendered), React 19.3, Tailwind CSS 4, GSAP + ScrollTrigger and Lenis (both loaded after first paint), `next/font` (Instrument Serif, Geist). No UI kit, no animation framework in the critical path.
 
 ## Performance decisions
 

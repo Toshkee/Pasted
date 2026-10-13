@@ -189,13 +189,12 @@ export function Header() {
                   href={item.href}
                   onNavigate={() => setOpen(false)}
                   className={cn(
-                    "flex items-baseline gap-4 py-1.5 font-serif leading-none",
+                    "block py-1.5 font-serif leading-none",
                     item.href === "/contact" ? "mt-6 text-[1.75rem] text-copper" : "text-[2.75rem] sm:text-6xl",
                     item.href !== "/contact" && (isActive(item.href) || (item.href === "/" && pathname === "/")) ? "text-bone" : "",
                     item.href !== "/contact" && !(isActive(item.href) || (item.href === "/" && pathname === "/")) ? "text-bone-2" : "",
                   )}
                 >
-                  <span className="eyebrow w-6 text-mute">{String(i + 1).padStart(2, "0")}</span>
                   {item.label}
                 </Link>
               </li>

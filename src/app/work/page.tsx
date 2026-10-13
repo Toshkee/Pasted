@@ -25,9 +25,8 @@ export default function WorkPage() {
   return (
     <Page>
       <PageHero
-        index="Vol. II"
         eyebrow="Selected work"
-        title="Built from who they *already are.*"
+        title="Built from who they already are."
         lede={
           <p>
             Three practice transformations and nine identity systems — built for doctors on the roster, in their markets,
@@ -37,7 +36,7 @@ export default function WorkPage() {
         aside={
           <p className="text-bone-2">
             <span className="font-serif text-6xl text-bone">$100M+</span>
-            <span className="eyebrow mt-2 block text-mute">Aesthetic case revenue across partners</span>
+            <span className="mt-2 block text-sm text-mute">Aesthetic case revenue across partners</span>
           </p>
         }
       />
@@ -45,11 +44,10 @@ export default function WorkPage() {
       {/* Transformations */}
       <section className="bg-ink pb-16 md:pb-36" aria-labelledby="transformations-title">
         <div className="wrap">
-          <div className="mb-14 flex items-end justify-between gap-6 border-b border-line pb-6">
+          <div className="mb-14 border-b border-line pb-6">
             <h2 id="transformations-title" className="eyebrow text-bone">
-              <span className="text-copper">I.</span> Practice transformations
+              Practice transformations
             </h2>
-            <span className="eyebrow text-mute">03</span>
           </div>
           <div className="space-y-24 md:space-y-36">
             {TRANSFORMATIONS.map((c, i) => (
@@ -72,13 +70,11 @@ export default function WorkPage() {
                   </div>
                 </Link>
                 <div className={cn("md:col-span-5", i % 2 === 1 ? "md:order-1 md:col-start-1" : "md:col-start-8")}>
-                  <p className="eyebrow text-copper">
-                    {String(i + 1).padStart(2, "0")} · {c.location}
-                  </p>
+                  <p className="eyebrow text-copper">{c.location}</p>
                   <h3 className="display-lg mt-6 text-bone" data-reveal="">
                     {c.name}
                   </h3>
-                  <p className="mt-3 font-serif text-2xl italic text-copper-2" data-reveal="">
+                  <p className="mt-3 font-serif text-2xl text-bone-2" data-reveal="">
                     {c.arc}
                   </p>
                   <p className="mt-8 text-bone-2" data-reveal="">
@@ -89,7 +85,7 @@ export default function WorkPage() {
                       {c.metrics.map((m) => (
                         <div key={m.label}>
                           <dd className="font-serif text-3xl text-bone md:text-4xl">{m.value}</dd>
-                          <dt className="eyebrow mt-2 text-[0.625rem] text-mute">{m.label}</dt>
+                          <dt className="mt-2 text-xs leading-snug text-mute">{m.label}</dt>
                         </div>
                       ))}
                     </dl>
@@ -110,11 +106,11 @@ export default function WorkPage() {
         <div className="wrap">
           <div className="mb-10 grid gap-8 md:mb-20 md:grid-cols-12 md:items-end">
             <div className="md:col-span-7">
-              <Eyebrow index="II." className="mb-8 text-paper-mute">
+              <Eyebrow className="mb-8 text-paper-mute">
                 Identity systems
               </Eyebrow>
               <h2 id="identities-title" className="display-lg" data-reveal="">
-                Wordmarks, monograms, rooms — <em className="text-copper-ink">in forty-five days.</em>
+                Wordmarks, monograms, rooms — in forty-five days.
               </h2>
             </div>
             <p className="lede text-paper-mute md:col-span-4 md:col-start-9" data-reveal="">
@@ -150,11 +146,11 @@ export default function WorkPage() {
         </div>
       </section>
 
-      <PartnerLogos index="III." />
-      <ClubCards index="IV." />
-      <RosterIndex index="V." />
-      <TestimonialWall index="VI." />
-      <ConsultCTA title="Your story, *told properly.*" />
+      <PartnerLogos />
+      <ClubCards />
+      <RosterIndex />
+      <TestimonialWall />
+      <ConsultCTA title="Your story, told properly." />
     </Page>
   );
 }

@@ -23,11 +23,11 @@ export default function ContactPage() {
           <div className="lg:col-span-5">
             <div className="lg:sticky lg:top-32">
               <div data-reveal="auto">
-                <Eyebrow index="§" className="mb-10">
+                <Eyebrow className="mb-10">
                   Request a consultation
                 </Eyebrow>
               </div>
-              <SplitText as="h1" id="contact-title" trigger="auto" text="Choose a *time.*" className="display-2xl text-bone" italicClassName="italic text-copper-2" />
+              <SplitText as="h1" id="contact-title" trigger="auto" text="Choose a time." className="display-2xl text-bone" />
               <p className="lede mt-10 max-w-md text-bone-2" data-reveal="auto" style={{ "--d": 450 } as React.CSSProperties}>
                 45 minutes with a founder. Positioning, not a pitch. Fifty seats, ever — and one practice per market.
               </p>
@@ -47,12 +47,9 @@ export default function ContactPage() {
 
               <ol className="mt-8 space-y-4 md:mt-10 md:space-y-5" data-reveal="auto" style={{ "--d": 700 } as React.CSSProperties}>
                 {STEPS.map((s) => (
-                  <li key={s.n} className="flex gap-5">
-                    <span className="eyebrow pt-1 text-copper">{s.n}</span>
-                    <span>
-                      <span className="block font-serif text-xl text-bone">{s.title}</span>
-                      <span className="block text-sm text-mute">{s.body}</span>
-                    </span>
+                  <li key={s.title}>
+                    <span className="block font-serif text-xl text-bone">{s.title}</span>
+                    <span className="block text-sm text-mute">{s.body}</span>
                   </li>
                 ))}
               </ol>
@@ -68,7 +65,7 @@ export default function ContactPage() {
       <section className="border-t border-line bg-ink-2 py-16 md:py-28" aria-labelledby="other-title">
         <div className="wrap">
           <h2 id="other-title" className="display-md mb-8 text-bone md:mb-12">
-            Something <em className="text-copper-2">else?</em>
+            Something else?
           </h2>
           <ul className="grid gap-px overflow-clip rounded-[1.1rem] border border-line bg-line sm:grid-cols-2 lg:grid-cols-4">
             {SITE.emails.map((e) => (

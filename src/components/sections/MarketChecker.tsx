@@ -69,11 +69,9 @@ export function MarketChecker() {
       />
       <div className="wrap relative grid grid-cols-1 gap-10 md:gap-14 lg:grid-cols-12">
         <div className="min-w-0 lg:col-span-6">
-          <p className="eyebrow mb-8 flex items-center gap-3 text-bone/60">
-            <span className="text-copper-2">One practice per market</span>
-          </p>
+          <p className="eyebrow mb-8 text-copper-2">One practice per market</p>
           <h2 id={`${id}-title`} className="display-xl text-bone" data-reveal="">
-            Your market, <em className="text-copper-2">closed.</em>
+            Your market, closed.
           </h2>
           <p className="lede mt-6 max-w-lg text-bone/75 md:mt-10" data-reveal="" style={{ "--d": 100 } as React.CSSProperties}>
             Exclusivity here is not a scarcity tactic. It is a structural requirement — a position cannot be built for two
@@ -128,12 +126,12 @@ export function MarketChecker() {
                 <p className="display-sm mt-3 text-bone">
                   {result.held ? (
                     <>
-                      {result.city} has a partner on the roster. <em className="text-copper-2">Adjacent markets</em> are
+                      {result.city} has a partner on the roster. Adjacent markets are
                       reviewed on the call.
                     </>
                   ) : (
                     <>
-                      {result.city} is <em className="text-copper-2">open</em> — for now.
+                      {result.city} is open — for now.
                     </>
                   )}
                 </p>

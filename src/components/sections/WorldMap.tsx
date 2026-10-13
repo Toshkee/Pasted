@@ -5,7 +5,7 @@ import { MAP_CITIES, WORLD } from "@/content/world-map";
  * Dotted world map (static SVG generated at build-time by scripts/media/world-map.mjs) with the
  * roster's cities pulsing in copper. Pure server markup + CSS — no map library on the client.
  */
-export function WorldMap({ index = "§" }: { index?: string }) {
+export function WorldMap() {
   const partnerCities = MAP_CITIES.filter((c) => c.partners.length);
   const presence = MAP_CITIES.filter((c) => !c.partners.length);
 
@@ -14,11 +14,11 @@ export function WorldMap({ index = "§" }: { index?: string }) {
       <div className="wrap">
         <div className="grid gap-8 md:grid-cols-12 md:items-end">
           <div className="md:col-span-7">
-            <Eyebrow index={index} className="mb-8">
+            <Eyebrow className="mb-8">
               Global presence
             </Eyebrow>
             <h2 id="world-title" className="display-lg text-bone" data-reveal="">
-              Thirty practices. <em className="text-copper-2">Six continents.</em>
+              Thirty practices on six continents.
             </h2>
           </div>
           <p className="lede text-bone-2 md:col-span-4 md:col-start-9" data-reveal="">

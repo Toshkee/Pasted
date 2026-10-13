@@ -7,7 +7,7 @@ import { ButtonLink } from "@/components/ui/Button";
 
 /** Closing call to action used across inner pages. */
 export function ConsultCTA({
-  title = "Build the brand they *feel.*",
+  title = "Build the brand they feel.",
   lede = "45 minutes with Zac Orender or Dr. Alan Clarke. Positioning, not a pitch — you will know on the call. So will we.",
 }: {
   title?: string;
@@ -26,7 +26,7 @@ export function ConsultCTA({
             ))}
           </div>
         </div>
-        <SplitText as="h2" text={title} className="display-xl mx-auto max-w-[14ch] text-bone" italicClassName="italic text-copper-2" />
+        <SplitText as="h2" text={title} className="display-xl mx-auto max-w-[14ch] text-bone" />
         <p className="lede mx-auto mt-8 max-w-xl text-bone-2" data-reveal="">
           {lede}
         </p>

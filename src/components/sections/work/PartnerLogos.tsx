@@ -15,12 +15,12 @@ const LOGOS = [
   { src: smileVirtual, name: "Smile Virtual" },
 ];
 
-export function PartnerLogos({ index = "§" }: { index?: string }) {
+export function PartnerLogos() {
   return (
     <section className="border-y border-line bg-ink py-16 md:py-28" aria-labelledby="brands-partners">
       <div className="wrap">
         <div className="mb-10 flex flex-wrap items-end justify-between gap-4 md:mb-14 md:gap-6">
-          <Eyebrow index={index}>Brands that borrow the roster’s authority</Eyebrow>
+          <Eyebrow>Brands that borrow the roster’s authority</Eyebrow>
           <p id="brands-partners" className="max-w-md text-sm text-mute">
             Product launches, brand integration and co-productions with companies building around clinicians.
           </p>

@@ -14,11 +14,11 @@ export function FeatureCase() {
         </div>
 
         <div className="lg:col-span-6 lg:col-start-7">
-          <Eyebrow index="§ 05" className="mb-8">
+          <Eyebrow className="mb-8">
             The feature · Gilbert, Arizona
           </Eyebrow>
           <h2 id="feature-title" className="display-lg text-bone text-balance" data-reveal="">
-            From general practice to <em className="text-copper-2">category of one.</em>
+            From general practice to category of one.
           </h2>
           <div className="mt-10 space-y-5 text-bone-2" data-reveal="" style={{ "--d": 100 } as React.CSSProperties}>
             <p className="lede">A struggling general practice, competing on everything, owning nothing.</p>
@@ -33,7 +33,7 @@ export function FeatureCase() {
             {study.metrics!.map((m, i) => (
               <div key={m.label} data-reveal="" style={{ "--d": 150 + i * 80 } as React.CSSProperties}>
                 <dd className="font-serif text-4xl text-bone md:text-6xl">{m.value}</dd>
-                <dt className="eyebrow mt-2 text-mute">{m.label}</dt>
+                <dt className="mt-2 text-sm leading-snug text-mute">{m.label}</dt>
               </div>
             ))}
           </dl>

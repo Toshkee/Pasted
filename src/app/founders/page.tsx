@@ -30,7 +30,7 @@ export default function FoundersPage() {
       <section className="bg-ink pt-28 md:pt-44" aria-labelledby="founders-title">
         <div className="wrap">
           <div data-reveal="auto">
-            <Eyebrow index="Vol. IV" className="mb-10">
+            <Eyebrow className="mb-10">
               The founders
             </Eyebrow>
           </div>
@@ -39,9 +39,8 @@ export default function FoundersPage() {
               as="h1"
               id="founders-title"
               trigger="auto"
-              text="Built by *two.*"
-              className="display-2xl md:col-span-7"
-              italicClassName="italic text-copper-2"
+              text={"Zac Orender and Dr.\u00a0Alan Clarke."}
+              className="display-xl md:col-span-7"
             />
             <p className="lede text-bone-2 md:col-span-4 md:col-start-9" data-reveal="auto" style={{ "--d": 500 } as React.CSSProperties}>
               Every brand PASTED builds runs through the same two people — a strategist and a clinician. No account
@@ -79,13 +78,13 @@ export default function FoundersPage() {
           <section key={f.slug} id={f.slug} className={cn("scroll-mt-24 py-16 md:py-36", i === 0 ? "bg-ink" : "border-t border-line bg-ink-2")} aria-labelledby={`${f.slug}-name`}>
             <div className="wrap grid gap-10 lg:grid-cols-12 lg:gap-14">
               <div className="lg:col-span-5">
-                <Eyebrow index={`0${i + 1}`} className="mb-8">
+                <Eyebrow className="mb-8">
                   {f.role}
                 </Eyebrow>
                 <h2 id={`${f.slug}-name`} className="display-lg text-bone" data-reveal="">
                   {f.name}
                 </h2>
-                <blockquote className="display-sm mt-8 border-l border-copper pl-5 italic text-copper-2 md:mt-10 md:pl-6" data-reveal="">
+                <blockquote className="display-sm mt-8 border-l border-copper pl-5 text-bone-2 md:mt-10 md:pl-6" data-reveal="">
                   “{f.thesis}”
                 </blockquote>
                 <ul className="mt-8 flex flex-wrap gap-2 md:mt-10">
@@ -128,11 +127,11 @@ export default function FoundersPage() {
         <div className="wrap">
           <div className="mb-10 grid gap-8 md:mb-24 md:grid-cols-12 md:items-end">
             <div className="md:col-span-7">
-              <Eyebrow index="03" className="mb-8">
+              <Eyebrow className="mb-8">
                 The world
               </Eyebrow>
               <h2 id="gatherings-title" className="display-lg text-bone" data-reveal="">
-                The rooms our partners <em className="text-copper-2">want to be in.</em>
+                The rooms our partners want to be in.
               </h2>
             </div>
             <p className="lede text-bone-2 md:col-span-4 md:col-start-9" data-reveal="">
@@ -155,9 +154,9 @@ export default function FoundersPage() {
         </div>
       </section>
 
-      <ClubCards index="04" />
+      <ClubCards />
       <PressMarquee />
-      <ConsultCTA title="Speak to a *founder.*" />
+      <ConsultCTA title="Speak to a founder." />
     </Page>
   );
 }

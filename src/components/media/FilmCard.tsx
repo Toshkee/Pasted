@@ -42,7 +42,7 @@ export function FilmCard({ film, className, sizes, preview = "hover", caption = 
         />
         <PreviewVideo src={previewSrc(film.slug)} mode={preview} />
         <span className="absolute inset-0 bg-[linear-gradient(180deg,rgb(11_10_9/0.35)_0%,transparent_30%,transparent_55%,rgb(11_10_9/0.85)_100%)]" />
-        <span className="eyebrow absolute left-2.5 top-2.5 rounded-full bg-ink/55 px-2.5 py-1 text-[0.625rem] text-bone backdrop-blur-md sm:left-4 sm:top-4 sm:px-3 sm:py-1.5 sm:text-[0.6875rem]">
+        <span className="eyebrow absolute left-2.5 top-2.5 rounded-full bg-ink/55 px-2.5 py-1 tabular-nums text-bone backdrop-blur-md sm:left-4 sm:top-4 sm:px-3 sm:py-1.5">
           {film.duration}
         </span>
         <span className="absolute right-2.5 top-2.5 sm:right-4 sm:top-4">

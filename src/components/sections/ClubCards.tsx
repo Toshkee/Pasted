@@ -6,16 +6,16 @@ import { Eyebrow } from "@/components/ui/Button";
 import { CLUB_CARDS } from "@/content/partners";
 
 /** The graded member cards — a signature PASTED artifact — as a tactile, draggable collection. */
-export function ClubCards({ index = "§" }: { index?: string }) {
+export function ClubCards() {
   return (
     <section data-header="light" className="relative overflow-clip bg-paper py-28 text-paper-ink md:py-40" aria-labelledby="club-title">
       <div className="wrap grid gap-8 md:grid-cols-12 md:items-end">
         <div className="md:col-span-7">
-          <Eyebrow index={index} className="mb-8 text-paper-mute">
+          <Eyebrow className="mb-8 text-paper-mute">
             The PASTED Club
           </Eyebrow>
           <h2 id="club-title" className="display-lg text-balance" data-reveal="">
-            Graded, slabbed and <em className="text-copper-ink">signed.</em>
+            Graded, slabbed and signed.
           </h2>
         </div>
         <p className="lede text-paper-mute md:col-span-4 md:col-start-9" data-reveal="">

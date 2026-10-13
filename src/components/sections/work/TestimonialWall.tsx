@@ -3,15 +3,15 @@ import Image from "next/image";
 import { Eyebrow } from "@/components/ui/Button";
 import { TESTIMONIALS } from "@/content/testimonials";
 
-export function TestimonialWall({ index = "§" }: { index?: string }) {
+export function TestimonialWall() {
   return (
     <section className="bg-ink py-16 md:py-36" aria-labelledby="wall-title">
       <div className="wrap">
-        <Eyebrow index={index} className="mb-8">
+        <Eyebrow className="mb-8">
           In their words
         </Eyebrow>
         <h2 id="wall-title" className="display-lg mb-16 max-w-[18ch] text-bone md:mb-24" data-reveal="">
-          Twelve doctors. <em className="text-copper-2">No scripts.</em>
+          Twelve doctors on working with PASTED.
         </h2>
         <div className="columns-1 gap-6 md:columns-2 xl:columns-3">
           {TESTIMONIALS.map((t, i) => (
@@ -35,7 +35,7 @@ export function TestimonialWall({ index = "§" }: { index?: string }) {
                 )}
                 <span>
                   <span className="block font-serif text-xl text-bone">{t.name}</span>
-                  <span className="eyebrow mt-0.5 block text-[0.625rem] text-mute">{t.role}</span>
+                  <span className="mt-0.5 block text-sm text-mute">{t.role}</span>
                 </span>
               </figcaption>
             </figure>

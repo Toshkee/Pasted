@@ -7,7 +7,7 @@ import { ROSTER } from "@/content/partners";
 import { cn } from "@/lib/cn";
 
 /** The roster as an index. Desktop: a portrait follows the cursor. Phones: inline thumbnails. */
-export function RosterIndex({ index = "§ 07", showIntro = true }: { index?: string; showIntro?: boolean }) {
+export function RosterIndex({ showIntro = true }: { showIntro?: boolean }) {
   return (
     <section
       className="relative bg-ink py-20 md:py-40"
@@ -18,17 +18,16 @@ export function RosterIndex({ index = "§ 07", showIntro = true }: { index?: str
         {showIntro && (
           <div className="mb-16 grid gap-10 md:mb-24 md:grid-cols-12 md:items-end">
             <div className="md:col-span-7">
-              <Eyebrow index={index} className="mb-8">
+              <Eyebrow className="mb-8">
                 The roster
               </Eyebrow>
               <h2 id="roster-title" className="display-lg text-bone text-balance" data-reveal="">
-                Every company has clients. Here, partners’ families know our names —{" "}
-                <em className="text-copper-2">and we know theirs.</em>
+                The doctors on the roster.
               </h2>
             </div>
             <div className="md:col-span-4 md:col-start-9" data-reveal="" style={{ "--d": 120 } as React.CSSProperties}>
               <p className="font-serif text-7xl text-copper-2 md:text-8xl">97%</p>
-              <p className="eyebrow mt-2 text-mute">Partner retention</p>
+              <p className="mt-2 text-sm text-mute">Partner retention</p>
               <p className="mt-6 text-bone-2">
                 The roster is small because the work is close. What is built from actually knowing someone cannot be
                 copied — and cannot be commoditized.
@@ -42,7 +41,6 @@ export function RosterIndex({ index = "§ 07", showIntro = true }: { index?: str
             {ROSTER.map((p, i) => {
               const inner = (
                 <>
-                  <span className="eyebrow w-8 shrink-0 text-mute md:w-14">{String(i + 1).padStart(2, "0")}</span>
                   <span className="relative block size-12 shrink-0 overflow-clip rounded-full md:hidden">
                     <Image src={p.image} alt="" fill sizes="48px" className="graded object-cover" />
                   </span>

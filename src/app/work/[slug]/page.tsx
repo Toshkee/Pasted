@@ -60,7 +60,7 @@ export default async function CasePage({ params }: PageProps<"/work/[slug]">) {
           <div className="grid gap-12 lg:grid-cols-12 lg:items-end">
             <div className="lg:col-span-7">
               <SplitText as="h1" id="case-title" trigger="auto" text={study.name} className="display-xl text-bone" />
-              <p className="mt-6 font-serif text-3xl italic text-copper-2 md:text-4xl" data-reveal="auto" style={{ "--d": 450 } as React.CSSProperties}>
+              <p className="mt-6 font-serif text-3xl text-bone-2 md:text-4xl" data-reveal="auto" style={{ "--d": 450 } as React.CSSProperties}>
                 {study.arc}
               </p>
               <p className="lede mt-10 max-w-xl text-bone-2" data-reveal="auto" style={{ "--d": 600 } as React.CSSProperties}>
@@ -99,7 +99,7 @@ export default async function CasePage({ params }: PageProps<"/work/[slug]">) {
             {study.metrics.map((m, k) => (
               <div key={m.label} className={cn("py-7 pr-3 md:py-14", k > 0 && "border-l border-line pl-3 sm:pl-8")} data-reveal="" style={{ "--d": k * 90 } as React.CSSProperties}>
                 <dd className="font-serif text-[2.1rem] leading-none text-bone sm:text-5xl md:text-7xl">{m.value}</dd>
-                <dt className="eyebrow mt-3 text-[0.625rem] text-mute sm:text-[0.6875rem]">{m.label}</dt>
+                <dt className="mt-3 text-xs leading-snug text-mute sm:text-sm">{m.label}</dt>
               </div>
             ))}
           </dl>
@@ -110,11 +110,11 @@ export default async function CasePage({ params }: PageProps<"/work/[slug]">) {
       <section className="bg-ink py-16 md:py-36" aria-label="The story">
         <div className="wrap grid gap-12 md:grid-cols-2 md:gap-12">
           {[
-            ["01", "The challenge", study.challenge],
-            ["02", "The work", study.work],
-          ].map(([n, label, body], k) => (
-            <div key={n} data-reveal="" style={{ "--d": k * 120 } as React.CSSProperties}>
-              <Eyebrow index={n} className="mb-8">
+            ["The challenge", study.challenge],
+            ["The work", study.work],
+          ].map(([label, body], k) => (
+            <div key={label} data-reveal="" style={{ "--d": k * 120 } as React.CSSProperties}>
+              <Eyebrow className="mb-8">
                 {label}
               </Eyebrow>
               <p className="display-sm text-bone max-sm:text-[1.3rem] max-sm:leading-[1.3]">{body}</p>
@@ -132,11 +132,11 @@ export default async function CasePage({ params }: PageProps<"/work/[slug]">) {
             </div>
             {portraitFilm && (
               <div className="md:col-span-5 md:col-start-7">
-                <Eyebrow index="03" className="mb-8">
+                <Eyebrow className="mb-8">
                   On film
                 </Eyebrow>
                 <p className="display-md text-bone">
-                  Not everyone gets <em className="text-copper-2">documented.</em>
+                  Not everyone gets documented.
                 </p>
                 <p className="mt-6 text-bone-2">
                   Directed, shot and cut in-house — the same team that built the brand tells the story. Press play for the
@@ -154,9 +154,8 @@ export default async function CasePage({ params }: PageProps<"/work/[slug]">) {
           <div className="wrap">
             <div className="mb-8 flex flex-wrap items-end justify-between gap-6 md:mb-14">
               <h2 id="gallery-title" className="display-md">
-                The <em className="text-copper-ink">system.</em>
+                The identity system.
               </h2>
-              <p className="eyebrow text-paper-mute">{study.gallery.length} plates</p>
             </div>
             <ul className="columns-1 gap-4 sm:columns-2 md:gap-6 lg:columns-3">
               {study.gallery.map((g, k) => (
@@ -165,10 +164,7 @@ export default async function CasePage({ params }: PageProps<"/work/[slug]">) {
                     <div className="overflow-clip rounded-[0.9rem] bg-paper-2">
                       <Image src={g.src} alt={`${study.name} — ${g.label}`} sizes="(min-width: 1024px) 31vw, (min-width: 640px) 48vw, 100vw" className="h-auto w-full" />
                     </div>
-                    <figcaption className="eyebrow mt-3 flex justify-between text-paper-mute">
-                      <span>{g.label}</span>
-                      <span>{String(k + 1).padStart(2, "0")}</span>
-                    </figcaption>
+                    <figcaption className="eyebrow mt-3 text-paper-mute">{g.label}</figcaption>
                   </figure>
                 </li>
               ))}
@@ -181,11 +177,11 @@ export default async function CasePage({ params }: PageProps<"/work/[slug]">) {
       <section className="bg-ink py-16 md:py-36" aria-labelledby="outcome-title">
         <div className="wrap grid gap-10 lg:grid-cols-12 lg:gap-14">
           <div className="lg:col-span-5">
-            <Eyebrow index="04" className="mb-8">
+            <Eyebrow className="mb-8">
               Outcome
             </Eyebrow>
             <h2 id="outcome-title" className="display-lg text-bone" data-reveal="">
-              What <em className="text-copper-2">changed.</em>
+              What changed.
             </h2>
             <ul className="mt-10 flex flex-wrap gap-2">
               {study.services.map((s) => (
@@ -197,9 +193,8 @@ export default async function CasePage({ params }: PageProps<"/work/[slug]">) {
           </div>
           <ol className="border-t border-line lg:col-span-6 lg:col-start-7">
             {study.outcomes.map((o, k) => (
-              <li key={o} className="flex gap-5 border-b border-line py-5 md:gap-6 md:py-7" data-reveal="" style={{ "--d": k * 80 } as React.CSSProperties}>
-                <span className="eyebrow pt-2 text-copper">{String(k + 1).padStart(2, "0")}</span>
-                <span className="font-serif text-[1.35rem] leading-snug text-bone md:text-3xl">{o}</span>
+              <li key={o} className="border-b border-line py-5 font-serif text-[1.35rem] leading-snug text-bone md:py-7 md:text-3xl" data-reveal="" style={{ "--d": k * 80 } as React.CSSProperties}>
+                {o}
               </li>
             ))}
           </ol>
@@ -218,7 +213,7 @@ export default async function CasePage({ params }: PageProps<"/work/[slug]">) {
           <div className="md:col-span-8">
             <p className="eyebrow text-mute">Next case</p>
             <p className="display-xl mt-6 text-bone transition-colors duration-500 group-hover:text-copper-2">{next.name}</p>
-            <p className="mt-4 font-serif text-2xl italic text-bone-2">{next.arc}</p>
+            <p className="mt-4 font-serif text-2xl text-bone-2">{next.arc}</p>
           </div>
           <div className="relative hidden aspect-[4/5] overflow-clip rounded-[1rem] md:col-span-3 md:col-start-10 md:block">
             <Image src={next.cover} alt="" fill sizes="25vw" className="scale-105 object-cover grayscale transition-[filter,transform] duration-[1.2s] ease-[var(--ease-out-expo)] group-hover:scale-100 group-hover:grayscale-0" />

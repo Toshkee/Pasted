@@ -65,13 +65,9 @@ export function BrandsShowcase() {
     <section data-header="light" className="relative overflow-clip bg-paper py-24 text-paper-ink md:py-36" aria-labelledby="brands-title">
       <div className="wrap mb-10 grid gap-8 md:mb-20 md:grid-cols-12 md:items-end">
         <div className="md:col-span-7">
-          <p className="eyebrow mb-8 flex items-center gap-3 text-paper-mute">
-            <span className="text-copper-ink">§ 04</span>
-            <span aria-hidden="true" className="h-px w-6 bg-current opacity-50" />
-            Brands & sites
-          </p>
+          <p className="eyebrow mb-8 text-paper-mute">Brands & sites</p>
           <h2 id="brands-title" className="display-lg text-balance" data-reveal="">
-            Identities that carry the same weight as <em className="text-copper-ink">the work.</em>
+            Identities that carry the same weight as the work.
           </h2>
         </div>
         <div className="md:col-span-4 md:col-start-9" data-reveal="" style={{ "--d": 120 } as React.CSSProperties}>

@@ -30,37 +30,32 @@ export const VOLUMES = [
   },
 ] as const;
 
-export const ARCHITECTURE: { n: string; title: string; question: string; body: string; image: StaticImageData }[] = [
+export const ARCHITECTURE: { title: string; question: string; body: string; image: StaticImageData }[] = [
   {
-    n: "I",
     title: "Positioning",
     question: "Who are we for?",
     body: "Call-outs for the three percent of your market that is ready now, an ideal patient described as a person, three differentiators, a signature experience and a promise.",
     image: positioning,
   },
   {
-    n: "II",
     title: "Point of view",
     question: "What do we believe?",
     body: "A belief statement and a four-layer signature story: origin, continuity, mechanism, promise.",
     image: pov,
   },
   {
-    n: "III",
     title: "Experience",
     question: "What are we known for?",
     body: "A six-touchpoint audit — and an honest answer to where the brand breaks down today.",
     image: experience,
   },
   {
-    n: "IV",
     title: "Signal",
     question: "What do we say, and when?",
     body: "Content in four quadrants — questions, questions from questions, objections, expectations — and a filter for every post.",
     image: signal,
   },
   {
-    n: "V",
     title: "System",
     question: "How does it compound?",
     body: "The patient journey from ad to referral, and the weakest link in it. Circle it. Fix it first.",

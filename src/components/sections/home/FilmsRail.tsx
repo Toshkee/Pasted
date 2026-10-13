@@ -22,15 +22,14 @@ export function FilmsRail() {
       <div className="wrap">
         <div className="grid gap-8 md:grid-cols-12 md:items-end">
           <div className="md:col-span-8">
-            <Eyebrow index="§ 06" className="mb-8">
+            <Eyebrow className="mb-8">
               The house, in motion
             </Eyebrow>
             <SplitText
               as="h2"
               id="films-title"
               className="display-xl text-bone"
-              italicClassName="italic text-copper-2"
-              text={"Not everyone gets *documented.*"}
+              text="Not everyone gets documented."
             />
           </div>
           <p className="lede max-w-sm text-bone-2 md:col-span-4" data-reveal="">

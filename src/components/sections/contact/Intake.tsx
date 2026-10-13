@@ -129,7 +129,7 @@ export function Intake() {
     <form onSubmit={onNext} className="rounded-[1.25rem] border border-line bg-ink-2 p-5 sm:p-10" noValidate>
       <div className="mb-8 flex items-center gap-4 md:mb-10">
         <span className="eyebrow text-copper">
-          {String(step + 1).padStart(2, "0")} / {String(TOTAL).padStart(2, "0")}
+          Question {step + 1} of {TOTAL}
         </span>
         <div className="h-px flex-1 bg-line" aria-hidden="true">
           <div className="h-full bg-copper transition-[width] duration-700 ease-[var(--ease-out-expo)]" style={{ width: `${((step + 1) / TOTAL) * 100}%` }} />
@@ -228,7 +228,7 @@ export function Intake() {
         {step === 4 && (
           <fieldset>
             <legend className="display-md mb-3 text-bone">
-              We don’t ask what we can do for you. <em className="text-copper-2">What would you bring to PASTED?</em>
+              We don’t ask what we can do for you. What would you bring to PASTED?
             </legend>
             <p className="mb-8 text-mute">The doctors who belong here never struggle with this question.</p>
             <label htmlFor={`${id}-bring`} className="sr-only">

@@ -45,7 +45,7 @@ export function FilmLibrary({ films, categories }: { films: Film[]; categories: 
                 film={film}
                 sizes={film.orientation === "landscape" ? "(min-width: 1024px) 50vw, 100vw" : "(min-width: 1024px) 24vw, (min-width: 768px) 32vw, 48vw"}
               />
-              <p className="eyebrow mt-2 text-[0.625rem] text-copper sm:text-[0.6875rem]">{film.category}</p>
+              <p className="eyebrow mt-2 text-copper">{film.category}</p>
             </li>
           </ViewTransition>
         ))}

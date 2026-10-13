@@ -7,7 +7,7 @@ import { ICEBERG } from "@/content/partnership";
 import { useMotion } from "@/lib/motion";
 
 /**
- * Fig. 01 — the brand iceberg. On desktop the section is three screens tall with a sticky stage:
+ * The brand iceberg. On desktop the section is three screens tall with a sticky stage:
  * scrolling lowers you past the waterline, where the 90% that actually decides is revealed.
  * Phones and reduced-motion users get the finished diagram, no scrubbing.
  */
@@ -46,11 +46,11 @@ export function Iceberg() {
     <section ref={root} className="relative bg-ink lg:h-[300vh]" aria-labelledby="iceberg-title">
       <div className="wrap py-16 lg:sticky lg:top-0 lg:grid lg:h-screen lg:grid-cols-12 lg:items-center lg:gap-10 lg:py-0">
         <div className="lg:col-span-5">
-          <Eyebrow index="§ 02" className="mb-8">
+          <Eyebrow className="mb-8">
             The mechanism
           </Eyebrow>
           <h2 id="iceberg-title" className="display-lg text-bone text-balance" data-reveal="">
-            Most practices don’t need a new logo. They need <em className="text-copper-2">clarity.</em>
+            Most practices don’t need a new logo. They need clarity.
           </h2>
           <p className="lede mt-8 max-w-md text-bone-2" data-reveal="">
             What patients see versus what actually drives recognition, trust and choice. Ten percent shows. Ninety percent
@@ -58,13 +58,11 @@ export function Iceberg() {
           </p>
           <p data-belief="" className="display-sm mt-12 border-l border-copper pl-6 text-bone">
             Patients don’t buy veneers. <br />
-            They buy <em className="text-copper-2">belief.</em>
+            They buy belief.
           </p>
         </div>
 
         <figure className="relative mt-14 overflow-clip rounded-[1.25rem] border border-line bg-ink-2 lg:col-span-7 lg:mt-0 lg:h-[78vh]">
-          <figcaption className="eyebrow absolute left-6 top-5 z-10 hidden text-mute sm:block">Fig. 01 — The brand iceberg</figcaption>
-
           {/* Above the waterline */}
           <div className="relative flex flex-col justify-end px-5 pb-8 pt-24 sm:px-6 lg:h-[34%] lg:px-10 lg:pt-16">
             <div className="absolute right-5 top-4 text-right sm:right-6 lg:right-10">
@@ -87,7 +85,7 @@ export function Iceberg() {
           {/* Waterline */}
           <div className="relative">
             <div data-waterline="" className="h-px origin-left bg-bone/70" />
-            <span className="eyebrow absolute -top-6 right-5 text-[0.625rem] text-bone-2 sm:right-6 sm:text-[0.6875rem] lg:right-10">Waterline · what patients see</span>
+            <span className="eyebrow absolute -top-6 right-5 text-bone-2 sm:right-6 lg:right-10">Waterline · what patients see</span>
           </div>
 
           {/* Below the waterline */}
@@ -99,9 +97,8 @@ export function Iceberg() {
             />
             <div aria-hidden="true" className="absolute inset-0 bg-[radial-gradient(60%_50%_at_30%_70%,rgb(192_133_82/0.14),transparent_70%)]" />
             <ul className="relative grid max-w-xl grid-cols-2 gap-x-4 gap-y-5 sm:grid-cols-3 sm:gap-x-6">
-              {ICEBERG.invisible.map((item, i) => (
+              {ICEBERG.invisible.map((item) => (
                 <li key={item} data-invisible="" className="border-t border-copper/40 pt-3">
-                  <span className="eyebrow block text-copper">{String(i + 1).padStart(2, "0")}</span>
                   <span className="font-serif text-[1.35rem] text-bone sm:text-2xl lg:text-3xl">{item}</span>
                 </li>
               ))}

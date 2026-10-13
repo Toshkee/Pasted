@@ -26,9 +26,8 @@ export default function LibraryPage() {
     <Page>
       <PageHero
         tone="paper"
-        index="Vol. V"
         eyebrow="The PASTED Library"
-        title="A private canon on *becoming* undeniable."
+        title="A private canon on becoming undeniable."
         lede={
           <p>
             Volumes, dispatches and doctrine on what iconic dentistry is built from. Unsponsored, unsyndicated — the
@@ -42,13 +41,12 @@ export default function LibraryPage() {
           </p>
         }
         image={cover}
-        caption="Plate I — The reading room"
       />
 
       {/* Volumes */}
       <section data-header="light" className="bg-paper pb-24 text-paper-ink md:pb-36" aria-labelledby="volumes-title">
         <div className="wrap">
-          <Eyebrow index="§ 01" className="mb-8 text-paper-mute">
+          <Eyebrow className="mb-8 text-paper-mute">
             The canon, in circulation
           </Eyebrow>
           <h2 id="volumes-title" className="sr-only">
@@ -83,11 +81,11 @@ export default function LibraryPage() {
         <div className="wrap">
           <div className="mb-10 grid gap-8 md:mb-24 md:grid-cols-12 md:items-end">
             <div className="md:col-span-7">
-              <Eyebrow index="§ 02" className="mb-8">
+              <Eyebrow className="mb-8">
                 Inside Volume I
               </Eyebrow>
               <h2 id="arch-title" className="display-lg text-bone" data-reveal="">
-                The five-part <em className="text-copper-2">architecture.</em>
+                The five-part architecture.
               </h2>
             </div>
             <p className="lede text-bone-2 md:col-span-4 md:col-start-9" data-reveal="">
@@ -97,13 +95,12 @@ export default function LibraryPage() {
           </div>
           <ol className="grid gap-x-5 gap-y-14 sm:grid-cols-2 lg:grid-cols-5">
             {ARCHITECTURE.map((a, i) => (
-              <li key={a.n} className={cn("group", i % 2 === 1 && "lg:mt-24")} data-reveal="" style={{ "--d": i * 90 } as React.CSSProperties}>
+              <li key={a.title} className={cn("group", i % 2 === 1 && "lg:mt-24")} data-reveal="" style={{ "--d": i * 90 } as React.CSSProperties}>
                 <div className="relative aspect-[3/4] overflow-clip rounded-[0.9rem] bg-ink-3">
                   <Image src={a.image} alt="" fill sizes="(min-width: 1024px) 19vw, (min-width: 640px) 48vw, 100vw" className="object-cover sepia-[0.25] transition-transform duration-[1.4s] ease-[var(--ease-out-expo)] group-hover:scale-105" />
-                  <span className="absolute left-4 top-3 font-serif text-5xl text-bone/90">{a.n}</span>
                 </div>
                 <h3 className="display-sm mt-6 text-bone">{a.title}</h3>
-                <p className="mt-1 font-serif text-xl italic text-copper-2">{a.question}</p>
+                <p className="mt-1 font-serif text-xl text-bone-2">{a.question}</p>
                 <p className="mt-3 text-sm leading-relaxed text-bone-2">{a.body}</p>
               </li>
             ))}
@@ -115,11 +112,11 @@ export default function LibraryPage() {
       <section data-header="light" className="bg-paper py-24 text-paper-ink md:py-36" aria-labelledby="contents-title">
         <div className="wrap grid gap-14 lg:grid-cols-12">
           <div className="lg:col-span-5">
-            <Eyebrow index="§ 03" className="mb-8 text-paper-mute">
+            <Eyebrow className="mb-8 text-paper-mute">
               Contents
             </Eyebrow>
             <h2 id="contents-title" className="display-lg" data-reveal="">
-              The Art of <em className="text-copper-ink">Becoming.</em>
+              The Art of Becoming.
             </h2>
             <div className="mt-12 grid grid-cols-2 gap-4" data-reveal="">
               {[plateDeparture, plateRoom].map((p, i) => (
@@ -131,9 +128,8 @@ export default function LibraryPage() {
           </div>
           <ol className="lg:col-span-6 lg:col-start-7">
             {SECTIONS.map((s, i) => (
-              <li key={s} className="flex items-baseline gap-4 border-b border-paper-ink/15 py-4" data-reveal="" style={{ "--d": i * 40 } as React.CSSProperties}>
-                <span className="eyebrow w-8 shrink-0 text-copper-ink">{String(i + 1).padStart(2, "0")}</span>
-                <span className="font-serif text-2xl md:text-3xl">{s}</span>
+              <li key={s} className="border-b border-paper-ink/15 py-4 font-serif text-2xl md:text-3xl" data-reveal="" style={{ "--d": i * 40 } as React.CSSProperties}>
+                {s}
               </li>
             ))}
           </ol>
@@ -150,10 +146,9 @@ export default function LibraryPage() {
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgb(11_10_9/0.6),rgb(11_10_9/0.85))]" />
         <figure className="wrap relative py-24 text-center md:py-52">
           <blockquote className="display-lg mx-auto max-w-[24ch] text-bone" data-reveal="">
-            “A brand is the only load-bearing wall in a practice. Build it wrong and everything else{" "}
-            <em className="text-copper-2">eventually sags.</em>”
+            “A brand is the only load-bearing wall in a practice. Build it wrong and everything else eventually sags.”
           </blockquote>
-          <figcaption className="eyebrow mt-10 text-bone-2">The PASTED House Doctrine · MMXXVI</figcaption>
+          <figcaption className="eyebrow mt-10 text-bone-2">The PASTED House Doctrine</figcaption>
         </figure>
       </section>
 
@@ -161,11 +156,11 @@ export default function LibraryPage() {
       <section data-header="light" className="bg-paper py-24 text-paper-ink md:py-36" aria-labelledby="insider-title">
         <div className="wrap grid gap-14 lg:grid-cols-12">
           <div className="lg:col-span-5">
-            <Eyebrow index="§ 04" className="mb-8 text-paper-mute">
+            <Eyebrow className="mb-8 text-paper-mute">
               The PASTED Insider
             </Eyebrow>
             <h2 id="insider-title" className="display-lg" data-reveal="">
-              Take your seat at <em className="text-copper-ink">the library.</em>
+              Take your seat at the library.
             </h2>
             <p className="lede mt-8 text-paper-mute" data-reveal="">
               A weekly private broadcast — dispatches, teardowns and early chapters of the next volume. Members read it
@@ -178,7 +173,7 @@ export default function LibraryPage() {
         </div>
       </section>
 
-      <ConsultCTA title="Read the doctrine. *Then live it.*" />
+      <ConsultCTA title="Talk it through with a founder." />
     </Page>
   );
 }

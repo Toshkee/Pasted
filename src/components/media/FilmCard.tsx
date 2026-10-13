@@ -18,13 +18,16 @@ type Props = {
   priority?: boolean;
 };
 
-/** A film frame: poster, muted preview loop, duration, and a press-to-play cinema dialog. */
+/**
+ * A film frame: poster, muted preview loop, duration, and a press-to-play cinema dialog. The overlay caption
+ * sizes itself to the card, not the viewport, so a half-width card never stacks its title onto the badges.
+ */
 export function FilmCard({ film, className, sizes, preview = "hover", caption = "below", priority }: Props) {
   const portrait = film.orientation === "portrait";
   return (
     <PlayFilmButton
       film={{ wistiaId: film.wistiaId, title: film.title, subtitle: film.subtitle, orientation: film.orientation }}
-      className={cn("block w-full", className)}
+      className={cn("@container block w-full", className)}
     >
       <span
         className={cn(
@@ -49,15 +52,15 @@ export function FilmCard({ film, className, sizes, preview = "hover", caption = 
           <PlayGlyph size="sm" className="size-9 sm:size-12" />
         </span>
         {caption === "overlay" && (
-          <span className="absolute inset-x-0 bottom-0 hidden p-5 md:block md:p-7">
+          <span className="absolute inset-x-0 bottom-0 hidden p-5 @md:block @xl:p-7">
             <span className="eyebrow block text-copper-2">{film.category}</span>
-            <span className="mt-2 block font-serif text-3xl leading-none text-bone md:text-5xl">{film.title}</span>
+            <span className="mt-2 block font-serif text-3xl leading-none text-bone @xl:text-5xl">{film.title}</span>
             <span className="mt-3 block max-w-lg text-sm text-bone-2">{film.subtitle}</span>
           </span>
         )}
       </span>
       {caption === "overlay" && (
-        <span className="mt-4 block md:hidden">
+        <span className="mt-4 block @md:hidden">
           <span className="eyebrow block text-copper-2">{film.category}</span>
           <span className="mt-1.5 block font-serif text-2xl leading-tight text-bone">{film.title}</span>
           <span className="mt-1 block text-sm text-mute">{film.subtitle}</span>

@@ -19,7 +19,7 @@ export function FilmLibrary({ films, categories }: { films: Film[]; categories: 
 
   return (
     <div>
-      <div role="group" aria-label="Filter films" className="scrollbar-none -mx-5 mb-8 flex gap-2 overflow-x-auto px-5 sm:-mx-7 sm:px-7 md:mx-0 md:mb-12 md:flex-wrap md:px-0">
+      <div role="group" aria-label="Filter films" className="scrollbar-none -mx-gutter mb-8 flex gap-2 overflow-x-auto px-gutter md:mx-0 md:mb-12 md:flex-wrap md:px-0">
         {(["All", ...categories] as Filter[]).map((c) => (
           <button
             key={c}

@@ -44,11 +44,13 @@ export default async function CasePage({ params }: PageProps<"/work/[slug]">) {
   const next = CASES[(i + 1) % CASES.length];
   const film = study.film ? filmBySlug(study.film) : undefined;
   const portraitFilm = film?.orientation === "portrait";
+  // Two images in a three-column masonry leave a blank third; set the heading beside them instead.
+  const sparseGallery = study.gallery.length < 3;
 
   return (
     <Page>
       {/* Hero */}
-      <section className="relative bg-ink pt-28 md:pt-40" aria-labelledby="case-title">
+      <section className="relative bg-ink pt-28 md:pt-44" aria-labelledby="case-title">
         <div className="wrap">
           <nav aria-label="Breadcrumb" className="eyebrow mb-10 flex items-center gap-3 text-mute" data-reveal="auto">
             <Link href="/work" className="link-underline hover:text-bone">
@@ -93,7 +95,7 @@ export default async function CasePage({ params }: PageProps<"/work/[slug]">) {
       </section>
 
       {/* Challenge / work */}
-      <section className="bg-ink py-16 md:py-36" aria-label="The story">
+      <section className="bg-ink py-section" aria-label="The story">
         <div className="wrap grid gap-12 md:grid-cols-2 md:gap-12">
           {[
             ["The challenge", study.challenge],
@@ -109,13 +111,13 @@ export default async function CasePage({ params }: PageProps<"/work/[slug]">) {
 
       {/* Film */}
       {film && (
-        <section className="border-t border-line bg-ink-2 py-16 md:py-32" aria-label="Film">
-          <div className={cn("wrap grid items-center gap-12", portraitFilm && "md:grid-cols-12")}>
-            <div className={cn(portraitFilm && "mx-auto w-full max-w-sm md:col-span-4 md:col-start-2")}>
-              <FilmCard film={film} preview="inview" caption={portraitFilm ? "below" : "overlay"} sizes={portraitFilm ? "(min-width: 768px) 30vw, 24rem" : "100vw"} />
+        <section className="border-t border-line bg-ink-2 py-section" aria-label="Film">
+          <div className={cn("wrap grid items-center gap-12", portraitFilm && "md:grid-cols-12 md:gap-8 lg:gap-12")}>
+            <div className={cn(portraitFilm && "mx-auto w-full max-w-sm md:col-span-5 md:max-w-none lg:col-span-4 lg:col-start-2")}>
+              <FilmCard film={film} preview="inview" caption={portraitFilm ? "below" : "overlay"} sizes={portraitFilm ? "(min-width: 768px) 36vw, 24rem" : "100vw"} />
             </div>
             {portraitFilm && (
-              <div className="md:col-span-5 md:col-start-7">
+              <div className="md:col-span-6 md:col-start-7 lg:col-span-5">
                 <p className="display-md text-bone text-balance">
                   {study.name}, on film.
                 </p>
@@ -130,14 +132,14 @@ export default async function CasePage({ params }: PageProps<"/work/[slug]">) {
 
       {/* Gallery */}
       {study.gallery.length > 0 && (
-        <section data-header="light" className="bg-paper py-24 text-paper-ink md:py-36" aria-labelledby="gallery-title">
-          <div className="wrap">
-            <div className="mb-8 flex flex-wrap items-end justify-between gap-6 md:mb-14">
+        <section data-header="light" className="bg-paper py-section text-paper-ink" aria-labelledby="gallery-title">
+          <div className={cn("wrap", sparseGallery && "lg:grid lg:grid-cols-3 lg:gap-6")}>
+            <div className={cn("mb-head flex flex-wrap items-end justify-between gap-6", sparseGallery && "lg:mb-0 lg:self-start")}>
               <h2 id="gallery-title" className="display-md">
                 The identity system.
               </h2>
             </div>
-            <ul className="columns-1 gap-4 sm:columns-2 md:gap-6 lg:columns-3">
+            <ul className={cn("columns-1 gap-4 sm:columns-2 md:gap-6", sparseGallery ? "lg:col-span-2" : "lg:columns-3")}>
               {study.gallery.map((g, k) => (
                 <li key={k} className="mb-5 break-inside-avoid md:mb-6" data-reveal="" style={{ "--d": (k % 3) * 80 } as React.CSSProperties}>
                   <figure>
@@ -154,7 +156,7 @@ export default async function CasePage({ params }: PageProps<"/work/[slug]">) {
       )}
 
       {/* Outcomes */}
-      <section className="bg-ink py-16 md:py-36" aria-labelledby="outcome-title">
+      <section className="bg-ink py-section" aria-labelledby="outcome-title">
         <div className="wrap grid gap-10 lg:grid-cols-12 lg:gap-14">
           <div className="lg:col-span-5">
             <h2 id="outcome-title" className="display-lg text-bone" data-reveal="">

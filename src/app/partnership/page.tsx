@@ -36,9 +36,9 @@ export default function PartnershipPage() {
       />
 
       {/* Seven parts */}
-      <section className="bg-ink py-16 md:py-32" aria-labelledby="parts-title">
+      <section className="bg-ink py-section" aria-labelledby="parts-title">
         <div className="wrap">
-          <div className="mb-10 grid gap-8 md:mb-24 md:grid-cols-12">
+          <div className="mb-head grid gap-8 md:grid-cols-12">
             <div className="md:col-span-7">
               <h2 id="parts-title" className="display-lg text-bone text-balance" data-reveal="">
                 The seven parts of a partnership.
@@ -50,15 +50,15 @@ export default function PartnershipPage() {
       </section>
 
       {/* Four surfaces */}
-      <section className="border-t border-line bg-ink-2 py-16 md:py-36" aria-labelledby="surfaces-title">
+      <section className="border-t border-line bg-ink-2 py-section" aria-labelledby="surfaces-title">
         <div className="wrap">
-          <div className="mb-10 grid gap-8 md:mb-20 md:grid-cols-12 md:items-end">
+          <div className="mb-head grid gap-8 md:grid-cols-12 md:items-end">
             <div className="md:col-span-7">
               <h2 id="surfaces-title" className="display-lg text-bone text-balance" data-reveal="">
                 Four surfaces we operate on.
               </h2>
             </div>
-            <p className="lede text-bone-2 md:col-span-4 md:col-start-9" data-reveal="">
+            <p className="lede text-bone-2 md:col-span-5 md:col-start-8 lg:col-span-4 lg:col-start-9" data-reveal="">
               Open the one closest to what you need. The discovery call covers the rest.
             </p>
           </div>
@@ -96,14 +96,14 @@ export default function PartnershipPage() {
       </section>
 
       {/* How it begins */}
-      <section className="bg-ink py-16 md:py-36" aria-labelledby="path-title">
+      <section className="bg-ink py-section" aria-labelledby="path-title">
         <div className="wrap">
           <h2 id="path-title" className="display-lg text-bone" data-reveal="">
             How it begins.
           </h2>
-          <ol className="mt-10 grid gap-px overflow-clip rounded-[1.1rem] border border-line bg-line md:mt-20 md:grid-cols-3">
+          <ol className="mt-head grid gap-px overflow-clip rounded-[1.1rem] border border-line bg-line md:grid-cols-3">
             {STEPS.map((s, i) => (
-              <li key={s.title} className="bg-ink p-6 sm:p-8 md:p-10" data-reveal="" style={{ "--d": i * 120 } as React.CSSProperties}>
+              <li key={s.title} className="bg-ink p-6 sm:p-8 md:p-7 lg:p-10" data-reveal="" style={{ "--d": i * 120 } as React.CSSProperties}>
                 <h3 className="display-sm text-bone">{s.title}</h3>
                 <p className="mt-3 text-bone-2">{s.body}</p>
               </li>
@@ -116,7 +116,7 @@ export default function PartnershipPage() {
       </section>
 
       {/* Accountability */}
-      <section className="border-y border-line bg-ink-2 py-16 md:py-32" aria-labelledby="account-title">
+      <section className="border-y border-line bg-ink-2 py-section" aria-labelledby="account-title">
         <div className="wrap grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-4">
             <h2 id="account-title" className="display-md text-bone text-balance" data-reveal="">
@@ -145,7 +145,7 @@ export default function PartnershipPage() {
       </section>
 
       {/* For / not for */}
-      <section className="bg-ink py-16 md:py-36" aria-labelledby="fit-title">
+      <section className="bg-ink py-section" aria-labelledby="fit-title">
         <div className="wrap">
           <h2 id="fit-title" className="sr-only">
             Who this is for
@@ -183,7 +183,7 @@ export default function PartnershipPage() {
       <MarketChecker />
 
       {/* FAQ */}
-      <section className="bg-ink py-16 md:py-36" aria-labelledby="faq-title">
+      <section className="bg-ink py-section" aria-labelledby="faq-title">
         <div className="wrap grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-4">
             <h2 id="faq-title" className="display-md text-bone" data-reveal="">

@@ -62,7 +62,7 @@ export function MarketChecker() {
   const id = useId();
 
   return (
-    <section className="relative overflow-clip bg-oxblood py-20 md:py-40" aria-labelledby={`${id}-title`}>
+    <section className="relative overflow-clip bg-oxblood py-section" aria-labelledby={`${id}-title`}>
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(70%_60%_at_85%_10%,rgb(192_133_82/0.22),transparent_70%),radial-gradient(60%_60%_at_0%_100%,rgb(11_10_9/0.6),transparent_70%)]"
@@ -112,9 +112,9 @@ export function MarketChecker() {
             </div>
           </form>
 
-          <div aria-live="polite" className="pt-6 md:min-h-[11rem] md:pt-8">
+          <div aria-live="polite" className="lg:min-h-[13rem]">
             {result && (
-              <div key={result.city + result.held} className="animate-[fade-rise_.9s_var(--ease-out-expo)_both]">
+              <div key={result.city + result.held} className="animate-[fade-rise_.9s_var(--ease-out-expo)_both] pt-6 md:pt-8">
                 <p className="eyebrow flex items-center gap-3 text-bone/70">
                   <span
                     aria-hidden="true"

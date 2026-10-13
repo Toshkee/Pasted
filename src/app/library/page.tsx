@@ -44,7 +44,7 @@ export default function LibraryPage() {
       />
 
       {/* Volumes */}
-      <section data-header="light" className="bg-paper pb-24 text-paper-ink md:pb-36" aria-labelledby="volumes-title">
+      <section data-header="light" className="bg-paper pb-section text-paper-ink" aria-labelledby="volumes-title">
         <div className="wrap">
           <h2 id="volumes-title" className="sr-only">
             Volumes
@@ -74,15 +74,15 @@ export default function LibraryPage() {
       </section>
 
       {/* Five-part architecture */}
-      <section className="bg-ink py-16 md:py-36" aria-labelledby="arch-title">
+      <section className="bg-ink py-section" aria-labelledby="arch-title">
         <div className="wrap">
-          <div className="mb-10 grid gap-8 md:mb-24 md:grid-cols-12 md:items-end">
+          <div className="mb-head grid gap-8 md:grid-cols-12 md:items-end">
             <div className="md:col-span-7">
               <h2 id="arch-title" className="display-lg text-bone" data-reveal="">
                 Volume I, in five parts.
               </h2>
             </div>
-            <p className="lede text-bone-2 md:col-span-4 md:col-start-9" data-reveal="">
+            <p className="lede text-bone-2 md:col-span-5 md:col-start-8 lg:col-span-4 lg:col-start-9" data-reveal="">
               Twelve sections, forty answers, about ninety minutes. What comes out the other side is a brand brief you can
               actually run a practice on.
             </p>
@@ -103,7 +103,7 @@ export default function LibraryPage() {
       </section>
 
       {/* Contents */}
-      <section data-header="light" className="bg-paper py-24 text-paper-ink md:py-36" aria-labelledby="contents-title">
+      <section data-header="light" className="bg-paper py-section text-paper-ink" aria-labelledby="contents-title">
         <div className="wrap grid gap-14 lg:grid-cols-12">
           <div className="lg:col-span-5">
             <h2 id="contents-title" className="display-lg text-balance" data-reveal="">
@@ -144,7 +144,7 @@ export default function LibraryPage() {
       </section>
 
       {/* Insider */}
-      <section data-header="light" className="bg-paper py-24 text-paper-ink md:py-36" aria-labelledby="insider-title">
+      <section data-header="light" className="bg-paper py-section text-paper-ink" aria-labelledby="insider-title">
         <div className="wrap grid gap-14 lg:grid-cols-12">
           <div className="lg:col-span-5">
             <h2 id="insider-title" className="display-lg" data-reveal="">

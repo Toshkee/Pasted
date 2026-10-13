@@ -111,7 +111,7 @@ export function RosterPanels() {
         })}
       </ul>
 
-      <ul className="scrollbar-none -mx-5 flex snap-x snap-mandatory scroll-px-5 gap-3 overflow-x-auto px-5 sm:-mx-7 sm:scroll-px-7 sm:px-7 lg:hidden">
+      <ul className="scrollbar-none -mx-gutter flex snap-x snap-mandatory scroll-px-gutter gap-3 overflow-x-auto px-gutter lg:hidden">
         {ROSTER.map((p) => (
           <li key={p.slug} className="w-[58vw] shrink-0 snap-start sm:w-[34vw]">
             <Panel partner={p} className="block">

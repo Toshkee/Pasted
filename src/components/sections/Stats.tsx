@@ -20,7 +20,7 @@ export function Stats({ className }: { className?: string }) {
             style={{ "--d": i * 90 } as React.CSSProperties}
           >
             <dt className="order-2 max-w-[22ch] text-sm leading-snug text-mute">{s.label}</dt>
-            <dd className="order-1 font-serif text-[2.9rem] leading-none text-bone md:text-6xl lg:text-[4.75rem]">
+            <dd className="order-1 font-serif text-[clamp(2.25rem,11vw,2.9rem)] leading-none text-bone md:text-6xl lg:text-[clamp(3.25rem,5.2vw,4.75rem)]">
               <Counter value={s.value} prefix={"prefix" in s ? s.prefix : ""} suffix={"suffix" in s ? s.suffix : ""} />
             </dd>
           </div>

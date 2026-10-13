@@ -36,9 +36,9 @@ export default function WorkPage() {
       />
 
       {/* Transformations */}
-      <section className="bg-ink pb-16 md:pb-36" aria-labelledby="transformations-title">
+      <section className="bg-ink pb-section" aria-labelledby="transformations-title">
         <div className="wrap">
-          <div className="mb-14 border-b border-line pb-6">
+          <div className="mb-head border-b border-line pb-6">
             <h2 id="transformations-title" className="font-serif text-3xl text-bone">
               Practice transformations
             </h2>
@@ -86,15 +86,15 @@ export default function WorkPage() {
       </section>
 
       {/* Identities */}
-      <section data-header="light" className="bg-paper py-24 text-paper-ink md:py-36" aria-labelledby="identities-title">
+      <section data-header="light" className="bg-paper py-section text-paper-ink" aria-labelledby="identities-title">
         <div className="wrap">
-          <div className="mb-10 grid gap-8 md:mb-20 md:grid-cols-12 md:items-end">
+          <div className="mb-head grid gap-8 md:grid-cols-12 md:items-end">
             <div className="md:col-span-7">
               <h2 id="identities-title" className="display-lg" data-reveal="">
                 Wordmarks, monograms, rooms — in forty-five days.
               </h2>
             </div>
-            <p className="lede text-paper-mute md:col-span-4 md:col-start-9" data-reveal="">
+            <p className="lede text-paper-mute md:col-span-5 md:col-start-8 lg:col-span-4 lg:col-start-9" data-reveal="">
               Every system is built in a 45-day sprint, then looked after for as long as the partnership runs.
             </p>
           </div>

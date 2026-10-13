@@ -42,12 +42,12 @@ export default function FoundersPage() {
               text={"Zac Orender and Dr.\u00a0Alan Clarke."}
               className="display-xl md:col-span-7"
             />
-            <p className="lede text-bone-2 md:col-span-4 md:col-start-9" data-reveal="auto" style={{ "--d": 500 } as React.CSSProperties}>
+            <p className="lede text-bone-2 md:col-span-5 md:col-start-8 lg:col-span-4 lg:col-start-9" data-reveal="auto" style={{ "--d": 500 } as React.CSSProperties}>
               Every brand PASTED builds runs through the same two people, a strategist and a clinician. They are the ones on
               the discovery call, and the ones on set.
             </p>
           </div>
-          <div className="mt-10 grid grid-cols-2 gap-3 md:mt-24 md:gap-6">
+          <div className="mt-head grid grid-cols-2 gap-3 md:gap-6">
             {FOUNDERS.map((f, i) => (
               <a key={f.slug} href={`#${f.slug}`} className="group block" data-reveal="auto" style={{ "--d": 600 + i * 150 } as React.CSSProperties}>
                 <div className="relative aspect-[4/5] overflow-clip rounded-[1.1rem] bg-ink-3">
@@ -61,7 +61,7 @@ export default function FoundersPage() {
                   />
                   <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_55%,rgb(11_10_9/0.85))]" />
                   <div className="absolute inset-x-0 bottom-0 p-3.5 sm:p-5 md:p-8">
-                    <p className="font-serif text-[1.35rem] leading-[1.05] text-bone sm:text-3xl md:text-6xl">{f.name}</p>
+                    <p className="font-serif text-[1.35rem] leading-[1.05] text-bone sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl">{f.name}</p>
                     <p className="eyebrow mt-2 hidden text-bone-2 sm:block">{f.role}</p>
                   </div>
                 </div>
@@ -75,7 +75,7 @@ export default function FoundersPage() {
       {FOUNDERS.map((f, i) => {
         const film = filmBySlug(FOUNDER_FILMS[f.slug]);
         return (
-          <section key={f.slug} id={f.slug} className={cn("scroll-mt-24 py-16 md:py-36", i === 0 ? "bg-ink" : "border-t border-line bg-ink-2")} aria-labelledby={`${f.slug}-name`}>
+          <section key={f.slug} id={f.slug} className={cn("scroll-mt-24 py-section", i === 0 ? "bg-ink" : "border-t border-line bg-ink-2")} aria-labelledby={`${f.slug}-name`}>
             <div className="wrap grid gap-10 lg:grid-cols-12 lg:gap-14">
               <div className="lg:col-span-5">
                 <p className="mb-5 text-sm text-mute">{f.role}</p>
@@ -112,7 +112,7 @@ export default function FoundersPage() {
       })}
 
       {/* Editorial plate */}
-      <section className="bg-ink py-10" aria-label="Editorial">
+      <section className="bg-ink pt-section" aria-label="Editorial">
         <div className="wrap" data-reveal="clip">
           <Parallax className="aspect-[4/3] rounded-[1.1rem] md:aspect-[21/9]">
             <Image src={redCarpet} alt="The founders at a PASTED gathering" fill sizes="(min-width: 1536px) 1440px, 100vw" className="object-cover" />
@@ -121,15 +121,15 @@ export default function FoundersPage() {
       </section>
 
       {/* Gatherings */}
-      <section className="bg-ink py-16 md:py-36" aria-labelledby="gatherings-title">
+      <section className="bg-ink py-section" aria-labelledby="gatherings-title">
         <div className="wrap">
-          <div className="mb-10 grid gap-8 md:mb-24 md:grid-cols-12 md:items-end">
+          <div className="mb-head grid gap-8 md:grid-cols-12 md:items-end">
             <div className="md:col-span-7">
               <h2 id="gatherings-title" className="display-lg text-bone" data-reveal="">
                 The rooms our partners want to be in.
               </h2>
             </div>
-            <p className="lede text-bone-2 md:col-span-4 md:col-start-9" data-reveal="">
+            <p className="lede text-bone-2 md:col-span-5 md:col-start-8 lg:col-span-4 lg:col-start-9" data-reveal="">
               Masterminds, private dinners and retreats — off-record, off-camera. We’ve filled those rooms in New York, LA,
               London and Marrakech.
             </p>

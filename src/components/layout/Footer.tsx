@@ -9,7 +9,7 @@ export function Footer() {
     <footer className="relative overflow-clip border-t border-line bg-ink pt-16 lg:pt-28">
       <div className="wrap">
         <div className="grid gap-12 lg:grid-cols-12">
-          <div className="lg:col-span-5">
+          <div className="lg:col-span-4 xl:col-span-5">
             <Emblem className="mb-8 h-14 w-auto text-copper" />
             <p className="display-sm max-w-md text-bone text-balance">
               Brand, film, content and growth for a small roster of cosmetic dentists.
@@ -19,7 +19,7 @@ export function Footer() {
             </ButtonLink>
           </div>
 
-          <nav aria-label="Footer" className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3 sm:gap-10 lg:col-span-7">
+          <nav aria-label="Footer" className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3 sm:gap-10 lg:col-span-8 xl:col-span-7">
             <div>
               <p className="eyebrow mb-5 text-mute">The house</p>
               <ul className="space-y-3">

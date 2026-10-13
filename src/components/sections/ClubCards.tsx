@@ -7,20 +7,20 @@ import { CLUB_CARDS } from "@/content/partners";
 /** The graded member cards — a signature PASTED artifact — as a tactile, draggable collection. */
 export function ClubCards() {
   return (
-    <section data-header="light" className="relative overflow-clip bg-paper py-28 text-paper-ink md:py-40" aria-labelledby="club-title">
+    <section data-header="light" className="relative overflow-clip bg-paper py-section text-paper-ink" aria-labelledby="club-title">
       <div className="wrap grid gap-8 md:grid-cols-12 md:items-end">
         <div className="md:col-span-7">
           <h2 id="club-title" className="display-lg text-balance" data-reveal="">
             The PASTED Club cards.
           </h2>
         </div>
-        <p className="lede text-paper-mute md:col-span-4 md:col-start-9" data-reveal="">
+        <p className="lede text-paper-mute md:col-span-5 md:col-start-8 lg:col-span-4 lg:col-start-9" data-reveal="">
           Every partner gets a card that is graded, slabbed and signed. Practices keep them on the shelf, and patients
           ask about them.
         </p>
       </div>
 
-      <DragScroll label="PASTED Club cards" className="mt-10 scroll-px-5 gap-4 px-5 py-6 sm:scroll-px-7 sm:gap-6 sm:px-7 md:mt-24 lg:scroll-px-11 lg:gap-10 lg:px-11">
+      <DragScroll label="PASTED Club cards" className="mt-head scroll-px-bleed gap-4 px-bleed py-6 sm:gap-6 lg:gap-10">
         {CLUB_CARDS.map((card, i) => (
           <figure key={card.name} className="w-[64vw] shrink-0 snap-start sm:w-[38vw] md:w-[28vw] lg:w-[19vw]" data-reveal="" style={{ "--d": (i % 5) * 80 } as React.CSSProperties}>
             <TiltCard className="rounded-[0.6rem]">

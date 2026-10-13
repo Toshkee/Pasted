@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <Page>
-      <section className="bg-ink pb-20 pt-28 md:pb-40 md:pt-44" aria-labelledby="contact-title">
+      <section className="bg-ink pb-section pt-28 md:pt-44" aria-labelledby="contact-title">
         <div className="wrap grid gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-5">
             <div className="lg:sticky lg:top-32">
@@ -63,12 +63,12 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <section className="border-t border-line bg-ink-2 py-16 md:py-28" aria-labelledby="other-title">
+      <section className="border-t border-line bg-ink-2 py-section" aria-labelledby="other-title">
         <div className="wrap">
-          <h2 id="other-title" className="display-md mb-8 text-bone md:mb-12">
+          <h2 id="other-title" className="display-md mb-head text-bone">
             Something else?
           </h2>
-          <ul className="grid gap-px overflow-clip rounded-[1.1rem] border border-line bg-line sm:grid-cols-2 lg:grid-cols-4">
+          <ul className="grid gap-px overflow-clip rounded-[1.1rem] border border-line bg-line sm:grid-cols-2 xl:grid-cols-4">
             {SITE.emails.map((e) => (
               <li key={e.address} className="bg-ink-2">
                 <a href={`mailto:${e.address}`} className="group flex h-full flex-col justify-between gap-3 p-5 transition-colors hover:bg-ink sm:p-8 md:gap-10">

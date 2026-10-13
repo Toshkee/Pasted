@@ -8,12 +8,12 @@ import { COMPONENTS } from "@/content/partnership";
 export function PartnershipRail() {
   return (
     <HorizontalScroll
-      className="relative overflow-clip bg-ink-2 py-16 lg:flex lg:h-screen lg:items-center lg:py-0"
+      className="relative overflow-clip bg-ink-2 py-section lg:flex lg:h-screen lg:items-center lg:py-0"
       aria-labelledby="partnership-title"
     >
       <div
         data-track=""
-        className="scrollbar-none flex snap-x snap-mandatory scroll-px-5 gap-4 overflow-x-auto px-5 sm:scroll-px-7 sm:gap-5 sm:px-7 lg:snap-none lg:gap-8 lg:overflow-visible lg:px-11"
+        className="scrollbar-none flex snap-x snap-mandatory scroll-px-bleed gap-4 overflow-x-auto px-bleed sm:gap-5 lg:snap-none lg:gap-8 lg:overflow-visible"
       >
         <div className="flex w-[80vw] shrink-0 snap-start flex-col justify-center pr-2 sm:w-[60vw] lg:w-[38vw] lg:pr-16">
           <h2 id="partnership-title" className="display-lg text-bone text-balance">
@@ -54,7 +54,7 @@ export function PartnershipRail() {
         <div aria-hidden="true" className="w-1 shrink-0 lg:w-[4vw]" />
       </div>
 
-      <div aria-hidden="true" className="absolute inset-x-11 bottom-10 hidden h-px bg-line lg:block">
+      <div aria-hidden="true" className="absolute inset-x-bleed bottom-10 hidden h-px bg-line lg:block">
         <div data-progress="" className="h-full origin-left bg-copper" />
       </div>
     </HorizontalScroll>

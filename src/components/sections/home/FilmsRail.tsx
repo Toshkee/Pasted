@@ -18,7 +18,7 @@ const RAIL = [
 
 export function FilmsRail() {
   return (
-    <section className="relative overflow-clip bg-ink-2 py-20 md:py-40" aria-labelledby="films-title">
+    <section className="relative overflow-clip bg-ink-2 py-section" aria-labelledby="films-title">
       <div className="wrap">
         <div className="grid gap-8 md:grid-cols-12 md:items-end">
           <div className="md:col-span-8">
@@ -34,7 +34,7 @@ export function FilmsRail() {
           </p>
         </div>
 
-        <div className="mt-10 md:mt-24" data-reveal="">
+        <div className="mt-head" data-reveal="">
           <FilmCard
             film={filmBySlug("the-human-edge")}
             caption="overlay"
@@ -44,7 +44,7 @@ export function FilmsRail() {
         </div>
       </div>
 
-      <DragScroll label="Partner films" className="mt-8 scroll-px-5 gap-4 px-5 pb-2 sm:scroll-px-7 sm:px-7 md:mt-10 md:gap-5 lg:scroll-px-11 lg:px-11">
+      <DragScroll label="Partner films" className="mt-8 scroll-px-bleed gap-4 px-bleed pb-2 md:mt-10 md:gap-5">
         {RAIL.map((film) => (
           <div key={film.slug} className="w-[62vw] shrink-0 snap-start sm:w-[36vw] md:w-[26vw] lg:w-[19vw]">
             <FilmCard film={film} />

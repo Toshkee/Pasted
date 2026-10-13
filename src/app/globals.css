@@ -58,8 +58,39 @@
   }
 }
 
+/* ── Spacing ──────────────────────────────────────────────────────────────────
+   One rhythm for the whole site, stepped at md and lg (values live on :root below):
+   px-gutter    side gutter, the same one `.wrap` uses
+   px-bleed     gutter for full-bleed tracks, so a rail's first card lines up with the
+                content above it even once `.wrap` stops growing at 96rem
+   py-section   vertical padding of a standard section
+   mb-head      space between a section's heading block and its content */
+@theme inline {
+  --spacing-gutter: var(--gutter);
+  --spacing-bleed: max(var(--gutter), calc((100% - 96rem) / 2 + var(--gutter)));
+  --spacing-section: var(--section);
+  --spacing-head: var(--head);
+}
+
 /* ── Base ─────────────────────────────────────────────────────────────────── */
 @layer base {
+  :root {
+    --gutter: 1.25rem;
+    --section: 4.5rem;
+    --head: 2.5rem;
+    @media (width >= 40rem) {
+      --gutter: 1.75rem;
+    }
+    @media (width >= 48rem) {
+      --section: 7rem;
+      --head: 4rem;
+    }
+    @media (width >= 64rem) {
+      --gutter: 2.75rem;
+      --section: 9rem;
+      --head: 5rem;
+    }
+  }
   html {
     background: var(--color-ink);
     color: var(--color-bone);
@@ -121,35 +152,35 @@ html.lenis body {
   font-family: var(--font-serif);
   font-weight: 400;
   font-size: clamp(3.1rem, 9.4vw, 11rem);
-  line-height: 0.86;
+  line-height: 1;
   letter-spacing: -0.025em;
 }
 @utility display-xl {
   font-family: var(--font-serif);
   font-weight: 400;
   font-size: clamp(2.75rem, 7vw, 8rem);
-  line-height: 0.9;
+  line-height: 1;
   letter-spacing: -0.022em;
 }
 @utility display-lg {
   font-family: var(--font-serif);
   font-weight: 400;
   font-size: clamp(2.35rem, 5.2vw, 5.9rem);
-  line-height: 0.95;
+  line-height: 1.02;
   letter-spacing: -0.018em;
 }
 @utility display-md {
   font-family: var(--font-serif);
   font-weight: 400;
   font-size: clamp(1.9rem, 3.4vw, 3.7rem);
-  line-height: 1.02;
+  line-height: 1.06;
   letter-spacing: -0.012em;
 }
 @utility display-sm {
   font-family: var(--font-serif);
   font-weight: 400;
   font-size: clamp(1.5rem, 2.2vw, 2.4rem);
-  line-height: 1.1;
+  line-height: 1.12;
   letter-spacing: -0.006em;
 }
 @utility eyebrow {
@@ -169,13 +200,7 @@ html.lenis body {
   width: 100%;
   max-width: 96rem;
   margin-inline: auto;
-  padding-inline: 1.25rem;
-  @media (width >= 40rem) {
-    padding-inline: 1.75rem;
-  }
-  @media (width >= 64rem) {
-    padding-inline: 2.75rem;
-  }
+  padding-inline: var(--gutter);
 }
 @utility hairline {
   height: 1px;

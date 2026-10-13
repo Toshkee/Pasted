@@ -4,9 +4,9 @@ import { TESTIMONIALS } from "@/content/testimonials";
 
 export function TestimonialWall() {
   return (
-    <section className="bg-ink py-16 md:py-36" aria-labelledby="wall-title">
+    <section className="bg-ink py-section" aria-labelledby="wall-title">
       <div className="wrap">
-        <h2 id="wall-title" className="display-lg mb-16 max-w-[14ch] text-bone md:mb-24" data-reveal="">
+        <h2 id="wall-title" className="display-lg mb-head max-w-[14ch] text-bone" data-reveal="">
           Twelve doctors on working with PASTED.
         </h2>
         <div className="columns-1 gap-6 md:columns-2 xl:columns-3">

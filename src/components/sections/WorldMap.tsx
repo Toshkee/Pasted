@@ -9,7 +9,7 @@ export function WorldMap() {
   const presence = MAP_CITIES.filter((c) => !c.partners.length);
 
   return (
-    <section className="relative overflow-clip bg-ink py-20 md:py-40" aria-labelledby="world-title">
+    <section className="relative overflow-clip bg-ink py-section" aria-labelledby="world-title">
       <div className="wrap">
         <div className="grid gap-8 md:grid-cols-12 md:items-end">
           <div className="md:col-span-7">
@@ -17,14 +17,14 @@ export function WorldMap() {
               Thirty practices on six continents.
             </h2>
           </div>
-          <p className="lede text-bone-2 md:col-span-4 md:col-start-9" data-reveal="">
+          <p className="lede text-bone-2 md:col-span-5 md:col-start-8 lg:col-span-4 lg:col-start-9" data-reveal="">
             Partner practices from Miami to Mumbai and from Sydney to Seville.
           </p>
         </div>
 
-        <figure className="relative mt-10 md:mt-24" data-reveal="fade">
+        <figure className="relative mt-head" data-reveal="fade">
           {/* Phones: the map keeps a legible size and pans sideways instead of shrinking to a smudge. */}
-          <div className="scrollbar-none -mx-5 overflow-x-auto px-5 sm:-mx-7 sm:px-7 md:mx-0 md:overflow-visible md:px-0">
+          <div className="scrollbar-none -mx-gutter overflow-x-auto px-gutter md:mx-0 md:overflow-visible md:px-0">
           <div className="relative min-w-[720px] md:min-w-0" style={{ aspectRatio: `${WORLD.width} / ${WORLD.height}` }}>
             {/* eslint-disable-next-line @next/next/no-img-element -- static SVG, no optimisation needed */}
             <img src="/media/world-dots.svg" alt="" className="absolute inset-0 size-full" loading="lazy" decoding="async" />

@@ -23,7 +23,7 @@ export default function FilmsPage() {
   const library = FILMS.filter((f) => f.category !== "Feature");
   return (
     <Page>
-      <section className="bg-ink pb-20 pt-28 md:pt-44" aria-labelledby="films-hero">
+      <section className="bg-ink pb-6 pt-28 md:pt-44" aria-labelledby="films-hero">
         <div className="wrap">
           <div data-reveal="auto">
             <Eyebrow className="mb-10">
@@ -37,19 +37,19 @@ export default function FilmsPage() {
               trigger="auto"
               delay={100}
               text="Not everyone gets documented."
-              className="display-xl text-balance md:col-span-9"
+              className="display-xl text-balance md:col-span-7 lg:col-span-9"
             />
-            <p className="lede text-bone-2 md:col-span-3" data-reveal="auto" style={{ "--d": 600 } as React.CSSProperties}>
+            <p className="lede text-bone-2 md:col-span-5 lg:col-span-3" data-reveal="auto" style={{ "--d": 600 } as React.CSSProperties}>
               Documentaries, commercials and practice films for the doctors on the roster, many of them directed by Dr. Alan Clarke.
             </p>
           </div>
-          <div className="mt-10 md:mt-24" data-reveal="auto" style={{ "--d": 700 } as React.CSSProperties}>
+          <div className="mt-head" data-reveal="auto" style={{ "--d": 700 } as React.CSSProperties}>
             <FilmCard film={filmBySlug("the-pasted-partnership")} caption="overlay" preview="inview" priority sizes="(min-width: 1536px) 1440px, 100vw" />
           </div>
         </div>
       </section>
 
-      <section className="bg-ink pb-16 md:pb-36" aria-label="Feature films">
+      <section className="bg-ink pb-section" aria-label="Feature films">
         <div className="wrap grid gap-6 md:grid-cols-2">
           {["the-human-edge", "on-restraint"].map((slug, i) => (
             <div key={slug} data-reveal="" style={{ "--d": i * 120 } as React.CSSProperties}>
@@ -59,7 +59,7 @@ export default function FilmsPage() {
         </div>
       </section>
 
-      <section className="border-y border-line bg-ink-2 py-16 md:py-36" aria-labelledby="archive-title">
+      <section className="border-y border-line bg-ink-2 py-section" aria-labelledby="archive-title">
         <div className="wrap grid items-center gap-14 lg:grid-cols-12">
           <div className="lg:col-span-5">
             <h2 id="archive-title" className="display-lg text-bone" data-reveal="">
@@ -96,9 +96,9 @@ export default function FilmsPage() {
         </div>
       </section>
 
-      <section className="bg-ink py-16 md:py-36" aria-labelledby="library-title">
+      <section className="bg-ink py-section" aria-labelledby="library-title">
         <div className="wrap">
-          <h2 id="library-title" className="display-lg mb-14 text-bone" data-reveal="">
+          <h2 id="library-title" className="display-lg mb-head text-bone" data-reveal="">
             Portraits, gatherings, brands.
           </h2>
           <FilmLibrary films={library} categories={FILM_CATEGORIES.filter((c) => c !== "Feature")} />

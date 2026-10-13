@@ -26,7 +26,13 @@ export function RevealObserver() {
     );
 
     const scan = (root: ParentNode) => root.querySelectorAll(SELECTOR).forEach((el) => io.observe(el));
-    scan(document);
+    // This effect runs once the root has hydrated, but page segments inside Suspense boundaries hydrate
+    // a little later. Marking their elements before then makes React report an attribute mismatch, so the
+    // first scan waits until the main thread is idle, which is after React has finished hydrating.
+    const hasIdle = typeof window.requestIdleCallback === "function";
+    const first = hasIdle
+      ? window.requestIdleCallback(() => scan(document), { timeout: 1500 })
+      : window.setTimeout(() => scan(document), 200);
 
     const mo = new MutationObserver((mutations) => {
       for (const m of mutations) {
@@ -40,6 +46,8 @@ export function RevealObserver() {
     mo.observe(document.body, { childList: true, subtree: true });
 
     return () => {
+      if (hasIdle) window.cancelIdleCallback(first);
+      else window.clearTimeout(first);
       io.disconnect();
       mo.disconnect();
     };

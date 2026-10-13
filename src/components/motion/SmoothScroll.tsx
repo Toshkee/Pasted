@@ -20,7 +20,9 @@ export const useScroll = () => useContext(ScrollContext);
 /**
  * Lenis drives the scroll; GSAP's ticker drives Lenis, and every Lenis frame updates ScrollTrigger —
  * one clock for smooth scroll and scroll-linked animation. Both load after first paint, and are
- * skipped entirely for reduced-motion users and touch devices, which keep native scrolling.
+ * skipped entirely for reduced-motion users, touch devices and Safari, which keep native scrolling.
+ * Safari runs requestAnimationFrame at 60 Hz even on 120 Hz displays, so a script-driven scroll
+ * there feels slower than its own native scrolling.
  */
 export function SmoothScroll({ children }: { children: ReactNode }) {
   const [lenis, setLenis] = useState<Lenis | null>(null);
@@ -30,7 +32,8 @@ export function SmoothScroll({ children }: { children: ReactNode }) {
   useEffect(() => {
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const coarse = window.matchMedia("(pointer: coarse)").matches;
-    if (reduce || coarse) return;
+    const safari = /^((?!chrome|chromium|android|crios|fxios|edg).)*safari/i.test(navigator.userAgent);
+    if (reduce || coarse || safari) return;
 
     let alive = true;
     let cleanup = () => {};

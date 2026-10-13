@@ -23,18 +23,27 @@ export function Cursor() {
     const pos = { x: -100, y: -100 };
     const target = { x: -100, y: -100 };
     let raf = 0;
+    let last = 0;
 
-    const loop = () => {
-      pos.x += (target.x - pos.x) * 0.2;
-      pos.y += (target.y - pos.y) * 0.2;
+    // Eases a fifth of the way per 120 Hz frame, scaled by elapsed time so the ring keeps the same
+    // pace where frames come at 60 Hz (Safari). It sleeps once it has caught up with the pointer.
+    const loop = (now: number) => {
+      const dt = last ? Math.min(Math.max(now - last, 0), 100) : 1000 / 120;
+      const k = 1 - Math.pow(0.8, dt / (1000 / 120));
+      last = now;
+      pos.x += (target.x - pos.x) * k;
+      pos.y += (target.y - pos.y) * k;
       el.style.transform = `translate3d(${pos.x}px, ${pos.y}px, 0)`;
-      raf = requestAnimationFrame(loop);
+      raf = Math.abs(target.x - pos.x) + Math.abs(target.y - pos.y) > 0.1 ? requestAnimationFrame(loop) : 0;
     };
-    raf = requestAnimationFrame(loop);
 
     const onMove = (e: PointerEvent) => {
       target.x = e.clientX;
       target.y = e.clientY;
+      if (!raf) {
+        last = 0;
+        raf = requestAnimationFrame(loop);
+      }
       setVisible(true);
     };
     const onOver = (e: PointerEvent) => {

@@ -213,7 +213,7 @@ html.lenis body {
 /* ── Reveal system (progressive enhancement: only hidden once JS is confirmed) ── */
 .js [data-reveal] {
   opacity: 0;
-  transform: translate3d(0, 1.75rem, 0);
+  transform: translate(0, 1.75rem);
   transition:
     opacity 1s var(--ease-out-quart),
     transform 1.2s var(--ease-out-expo);
@@ -242,21 +242,25 @@ html.lenis body {
   clip-path: inset(0 0 0 0);
 }
 
-/* Word-by-word masked headline reveal */
+/* Word-by-word masked headline reveal. Each word clips its rising span, and the clip box has to
+   hold the glyphs' ink: Caslon's j/y tails reach ~0.1em left of the advance and below a
+   line-height-1 box. The span is padded out to that ink and the word gives the room back with
+   negative margins, so layout is unchanged. Padding rather than overflow-clip-margin, which
+   Safari does not support (it cut the tail off the "y"). */
 .split-word {
   display: inline-block;
   overflow: clip;
-  overflow-clip-margin: 0.12em;
   vertical-align: top;
-  padding-bottom: 0.1em;
-  margin-bottom: -0.1em;
+  margin: -0.15em -0.15em -0.3em;
 }
 .split-word > span {
   display: inline-block;
-  will-change: transform;
+  padding: 0.15em 0.15em 0.3em;
 }
+/* 2D transforms only: WebKit gives every 3D-transformed element its own compositing layer, even
+   while it sits still waiting to be revealed. */
 .js [data-split] .split-word > span {
-  transform: translate3d(0, 108%, 0) rotate(2deg);
+  transform: translate(0, 100%) rotate(2deg);
   transform-origin: left bottom;
   transition: transform 1.25s var(--ease-out-expo);
   transition-delay: calc(var(--d, 0) * 1ms + var(--i, 0) * 38ms);
@@ -265,15 +269,17 @@ html.lenis body {
   transform: none;
 }
 /* Above-the-fold headlines animate on first paint (no JS wait). They are never fully hidden:
-   words surface from a soft blur, so the headline is painted — and counted as LCP — on frame one. */
+   words surface from a soft blur, so the headline is painted — and counted as LCP — on frame one.
+   Fill backwards, not both: the end state equals the resting style, and an animation that stays
+   in effect after it finishes keeps its element on a compositing layer in Safari. */
 .js [data-split="auto"] .split-word > span {
   transform: none;
-  animation: word-surface 1.4s var(--ease-out-expo) both;
+  animation: word-surface 1.4s var(--ease-out-expo) backwards;
   animation-delay: calc(var(--d, 0) * 1ms + var(--i, 0) * 45ms);
 }
 @keyframes word-surface {
   from {
-    transform: translate3d(0, 38%, 0);
+    transform: translate(0, 0.38em);
     opacity: 0.12;
     filter: blur(10px);
   }
@@ -281,7 +287,7 @@ html.lenis body {
 .js [data-reveal="auto"] {
   opacity: 1;
   transform: none;
-  animation: fade-rise 1.2s var(--ease-out-expo) both;
+  animation: fade-rise 1.2s var(--ease-out-expo) backwards;
   animation-delay: calc(var(--d, 0) * 1ms);
 }
 @keyframes bar {
@@ -295,14 +301,17 @@ html.lenis body {
 @keyframes fade-rise {
   from {
     opacity: 0;
-    transform: translate3d(0, 1.25rem, 0);
+    transform: translate(0, 1.25rem);
   }
 }
 
 /* ── Film grain ───────────────────────────────────────────────────────────── */
+/* The noise tile repeats every 220px, so the layer only needs one tile of slack on each side to
+   jitter around: a viewport-sized layer instead of one nine times the viewport, which Safari had
+   to keep in GPU memory and composite over every frame. */
 .grain {
   position: fixed;
-  inset: -100%;
+  inset: -220px;
   z-index: 60;
   pointer-events: none;
   opacity: 0.055;
@@ -316,25 +325,25 @@ html.lenis body {
     transform: translate(0, 0);
   }
   12.5% {
-    transform: translate(-4%, -6%);
+    transform: translate(-52px, -78px);
   }
   25% {
-    transform: translate(-12%, 4%);
+    transform: translate(-156px, 52px);
   }
   37.5% {
-    transform: translate(6%, -14%);
+    transform: translate(78px, -182px);
   }
   50% {
-    transform: translate(-6%, 16%);
+    transform: translate(-78px, 208px);
   }
   62.5% {
-    transform: translate(-14%, 2%);
+    transform: translate(-182px, 26px);
   }
   75% {
-    transform: translate(10%, 8%);
+    transform: translate(130px, 104px);
   }
   87.5% {
-    transform: translate(2%, 12%);
+    transform: translate(26px, 156px);
   }
 }
 

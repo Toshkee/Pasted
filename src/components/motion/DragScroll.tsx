@@ -20,14 +20,18 @@ export function DragScroll({ children, className, label }: { children: ReactNode
     let startX = 0;
     let startLeft = 0;
     let lastX = 0;
+    let lastT = 0;
+    // px per ms, so the glide covers the same ground whether frames come at 60 Hz (Safari) or 120 Hz.
     let velocity = 0;
     let raf = 0;
+    let prev = 0;
 
     const onDown = (e: PointerEvent) => {
       if (e.button !== 0) return;
       down = true;
       moved = 0;
       startX = lastX = e.clientX;
+      lastT = e.timeStamp;
       startLeft = el.scrollLeft;
       velocity = 0;
       cancelAnimationFrame(raf);
@@ -37,20 +41,25 @@ export function DragScroll({ children, className, label }: { children: ReactNode
       if (!down) return;
       const dx = e.clientX - startX;
       moved = Math.max(moved, Math.abs(dx));
-      velocity = e.clientX - lastX;
+      velocity = (e.clientX - lastX) / Math.max(e.timeStamp - lastT, 1);
       lastX = e.clientX;
+      lastT = e.timeStamp;
       el.scrollLeft = startLeft - dx;
       if (moved > 6) el.dataset.dragging = "";
     };
-    const glide = () => {
-      velocity *= 0.94;
-      el.scrollLeft -= velocity;
-      if (Math.abs(velocity) > 0.4) raf = requestAnimationFrame(glide);
+    // Loses 6% of its speed every 120 Hz frame, scaled by the real time between frames.
+    const glide = (now: number) => {
+      const dt = prev ? Math.min(Math.max(now - prev, 0), 100) : 1000 / 120;
+      prev = now;
+      velocity *= Math.pow(0.94, dt / (1000 / 120));
+      el.scrollLeft -= velocity * dt;
+      if (Math.abs(velocity) > 0.4 / (1000 / 120)) raf = requestAnimationFrame(glide);
       else el.style.scrollSnapType = "";
     };
     const onUp = () => {
       if (!down) return;
       down = false;
+      prev = 0;
       raf = requestAnimationFrame(glide);
       requestAnimationFrame(() => delete el.dataset.dragging);
     };

@@ -104,7 +104,7 @@ export function Iceberg() {
               ))}
             </ul>
             <div className="relative mt-10 text-right lg:absolute lg:bottom-10 lg:right-10 lg:mt-0">
-              <span className="font-serif text-7xl leading-none text-copper-2 lg:text-[9rem]">
+              <span className="font-serif text-6xl leading-none text-copper-2 lg:text-[7.5rem]">
                 <span ref={counter}>90</span>%
               </span>
               <span className="eyebrow block text-mute">Invisible — and decisive</span>

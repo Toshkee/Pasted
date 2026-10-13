@@ -26,7 +26,7 @@ export function RosterIndex({ showIntro = true }: { showIntro?: boolean }) {
               </h2>
             </div>
             <div className="md:col-span-4 md:col-start-9" data-reveal="" style={{ "--d": 120 } as React.CSSProperties}>
-              <p className="font-serif text-7xl text-copper-2 md:text-8xl">97%</p>
+              <p className="font-serif text-6xl text-copper-2 md:text-7xl">97%</p>
               <p className="mt-2 text-sm text-mute">Partner retention</p>
               <p className="mt-6 text-bone-2">
                 The roster is small because the work is close. What is built from actually knowing someone cannot be

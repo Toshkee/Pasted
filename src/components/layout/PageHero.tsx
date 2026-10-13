@@ -32,7 +32,7 @@ export function PageHero({ eyebrow, title, lede, aside, image, imageAlt = "", to
           trigger="auto"
           delay={100}
           text={title}
-          className="display-xl max-w-[12.5ch] text-balance"
+          className="display-xl max-w-[15ch] text-balance"
         />
         {(lede || aside) && (
           <div className="mt-8 grid gap-8 border-t pt-6 md:mt-16 md:grid-cols-12 md:gap-10 md:pt-8" style={{ borderColor: paper ? "rgb(28 24 20 / 0.15)" : undefined }}>

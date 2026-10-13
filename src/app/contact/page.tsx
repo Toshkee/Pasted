@@ -27,7 +27,7 @@ export default function ContactPage() {
                   Request a consultation
                 </Eyebrow>
               </div>
-              <SplitText as="h1" id="contact-title" trigger="auto" text="Choose a time." className="display-2xl text-bone" />
+              <SplitText as="h1" id="contact-title" trigger="auto" text="Choose a time." className="display-2xl text-bone text-balance" />
               <p className="lede mt-10 max-w-md text-bone-2" data-reveal="auto" style={{ "--d": 450 } as React.CSSProperties}>
                 45 minutes with a founder. Positioning, not a pitch. Fifty seats, ever — and one practice per market.
               </p>
